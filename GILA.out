@@ -1,0 +1,50 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Systems of equations}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Vector equations}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Transformational equations}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Matrix notation}{chapter.1}% 5
+\BOOKMARK [0][-]{chapter.2}{Row reduction}{}% 6
+\BOOKMARK [1][-]{section.2.1}{Triangular systems}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.2}{Echelon form}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.3}{RREF}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.4}{Row operations and Gaussian elimination}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.5}{Solving linear systems}{chapter.2}% 11
+\BOOKMARK [0][-]{chapter.3}{Vectors}{}% 12
+\BOOKMARK [1][-]{section.3.1}{Vectors and scalars}{chapter.3}% 13
+\BOOKMARK [2][-]{subsection.3.1.1}{vectors}{section.3.1}% 14
+\BOOKMARK [2][-]{subsection.3.1.2}{vector operations}{section.3.1}% 15
+\BOOKMARK [2][-]{subsection.3.1.3}{linear combinations}{section.3.1}% 16
+\BOOKMARK [2][-]{subsection.3.1.4}{the Euclidean basis}{section.3.1}% 17
+\BOOKMARK [2][-]{subsection.3.1.5}{parametric equations for lines and planes in R3}{section.3.1}% 18
+\BOOKMARK [1][-]{section.3.2}{The matrix-vector product}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.3}{Homogeneous and non-homogeneous systems}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.4}{Matrix-matrix products}{chapter.3}% 21
+\BOOKMARK [2][-]{subsection.3.4.1}{basic transformations}{section.3.4}% 22
+\BOOKMARK [2][-]{subsection.3.4.2}{compositions}{section.3.4}% 23
+\BOOKMARK [2][-]{subsection.3.4.3}{the matrix of a composition}{section.3.4}% 24
+\BOOKMARK [2][-]{subsection.3.4.4}{matrix multiplication}{section.3.4}% 25
+\BOOKMARK [1][-]{section.3.5}{Vector spaces - an introduction}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.6}{Dependence and independence}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.7}{Bases and dimension}{chapter.3}% 28
+\BOOKMARK [0][-]{chapter.4}{Transformations}{}% 29
+\BOOKMARK [1][-]{section.4.1}{Linear and affine transformations}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.2}{Change of basis}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.3}{Rank and nullity}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.4}{Row operations and elementary matrices}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.5}{The LU decomposition}{chapter.4}% 34
+\BOOKMARK [0][-]{chapter.5}{The spectral decomposition}{}% 35
+\BOOKMARK [1][-]{section.5.1}{Diagonal and diagonalizable systems}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.2}{Eigenvalues and eigenvectors}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.3}{Jordan form and the singular value decomposition}{chapter.5}% 38
+\BOOKMARK [0][-]{chapter.6}{Algebraic structures}{}% 39
+\BOOKMARK [1][-]{section.6.1}{Groups, Rings and Fields}{chapter.6}% 40
+\BOOKMARK [2][-]{subsection.6.1.1}{fields}{section.6.1}% 41
+\BOOKMARK [2][-]{subsection.6.1.2}{the complex numbers}{section.6.1}% 42
+\BOOKMARK [2][-]{subsection.6.1.3}{rings}{section.6.1}% 43
+\BOOKMARK [2][-]{subsection.6.1.4}{groups}{section.6.1}% 44
+\BOOKMARK [1][-]{section.6.2}{Modules}{chapter.6}% 45
+\BOOKMARK [1][-]{section.6.3}{Algebras}{chapter.6}% 46
+\BOOKMARK [2][-]{subsection.6.3.1}{complex numbers}{section.6.3}% 47
+\BOOKMARK [2][-]{subsection.6.3.2}{the cross product in R3}{section.6.3}% 48
+\BOOKMARK [2][-]{subsection.6.3.3}{quaternions}{section.6.3}% 49
+\BOOKMARK [1][-]{section.6.4}{Inner product spaces}{chapter.6}% 50
