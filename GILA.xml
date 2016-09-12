@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mathbook xmlns:xi="http://www.w3.org/2001/XInclude">
+<book>
+<title>A Gentle Introduction to Linear Algebra</title>
+<frontmatter>
+<titlepage>
+  <author>Joe Fields</author>
+  <credit>Southern Connecticut State University</credit>
+  <date>September 2016</date>
+</titlepage
+<colophon>
+  <edition>version 1.0</edition>
+  <website>
+    <name>GILA on GitHub</name>
+    <address>http://http://osj1961.github.io/gila/</address>
+  </website>
+  <copyright>
+    <year>2016</year>
+    <holder>Joe Fields</holder>
+    <minilicense>GFDL</minilicense>
+  </copyright>
+</colophon>
+<dedication>
+<p>To Martha.</p>
+</dedication>
+<acknowledgement>
+</acknowledgement>
+<foreword>
+</foreword>
+<preface>
+</preface>
+</frontmatter>
+
+<xi:include href="intro.xml" />
+<!--
+\include{intro/intro}
+\include{rref/rref}
+\include{vect/vect}
+\include{trans/trans}
+\include{eigen/eigen}
+%\include{decomps/decomps}
+\include{algebra/algebra}
+-->
+
+<backmatter>
+
+</backmatter>
+
+
+</book>
+</mathbook>
