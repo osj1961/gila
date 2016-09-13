@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mathbook xmlns:xi="http://www.w3.org/2001/XInclude">
-<book>
+<book xml:id="GILA">
 <title>A Gentle Introduction to Linear Algebra</title>
 <frontmatter>
 <titlepage>
   <author>Joe Fields</author>
   <credit>Southern Connecticut State University</credit>
   <date>September 2016</date>
-</titlepage
+</titlepage>
 <colophon>
   <edition>version 1.0</edition>
   <website>
@@ -24,10 +24,13 @@
 <p>To Martha.</p>
 </dedication>
 <acknowledgement>
+<p>A big "Thank You!" to the students at SCSU who inspired this project and helped to make it a reality.  I'd also like to thank my colleagues in the SCSU Math department whose encouragement gave me the strength to get started on this.  Finally, I'd like to gratefully acknowledge the support provided by my institution (and hence, by the taxpayers of Connecticut) -- a one semester sabbatical leave during which I did the bulk of the design and writing.</p>
 </acknowledgement>
 <foreword>
+<p>To Do:  Get the most eminent mathematician you can rope into it to write a foreword.</p>
 </foreword>
 <preface>
+<p>This is a free/open-source textbook that provides an introduction to Linear Algebra.  There is a light emphasis on mathematical proof, making this book appropriate for science and engineering majors and for mathematics majors who are taking Linear Algebra early in their college careers.  Math majors who have already had an introduction to proofs course may benefit from the more advanced treatment in Robert Beezer's "A First Course in Linear Algebra."</p>
 </preface>
 </frontmatter>
 
