@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Introduction</title>
+<title>RREF</title>
 
 <introduction>
 </introduction>
 
 <section>
-<title>Getting started</title>
+<title>Triangular systems</title>
 <p>Dummy text for introduction.</p>
 </section>
 
 <section>
-<title>Systems of equations</title>
+<title>Echelon form</title>
 <p>Dummy text for introduction.</p>
 </section>
 
 <section>
-<title>Vector equations</title>
+<title>RREF</title>
 <p>Dummy text for introduction.</p>
 </section>
 
 <section>
-<title>Transformations</title>
+<title>Row operations and Gaussian elimination</title>
 <p>Dummy text for introduction.</p>
 </section>
 
 <section>
-<title>Matrix notation</title>
+<title>Solving linear systems</title>
 <p>Dummy text for introduction.</p>
 </section>
 

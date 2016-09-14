@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mathbook xmlns:xi="http://www.w3.org/2001/XInclude">
+<docinfo>
+<brandlogo url="./images/GILA-logo.svg" source="./images/GILA-logo.svg" />
+</docinfo>
 <book xml:id="GILA">
 <title>A Gentle Introduction to Linear Algebra</title>
 <frontmatter>
 <titlepage>
-  <author>Joe Fields</author>
-  <credit>Southern Connecticut State University</credit>
+  <author>
+    <personname>Joe Fields</personname>
+    <department>Mathematics department</department>
+    <institution>Southern Connecticut State University</institution>
+    <email>fieldsj1@southernct.edu</email>
+  </author>
   <date>September 2016</date>
 </titlepage>
 <colophon>
@@ -17,7 +24,7 @@
   <copyright>
     <year>2016</year>
     <holder>Joe Fields</holder>
-    <minilicense>GFDL</minilicense>
+    <shortlicense>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled <q>GNU Free Documentation License</q>.</shortlicense>
   </copyright>
 </colophon>
 <dedication>
@@ -27,22 +34,23 @@
 <p>A big "Thank You!" to the students at SCSU who inspired this project and helped to make it a reality.  I'd also like to thank my colleagues in the SCSU Math department whose encouragement gave me the strength to get started on this.  Finally, I'd like to gratefully acknowledge the support provided by my institution (and hence, by the taxpayers of Connecticut) -- a one semester sabbatical leave during which I did the bulk of the design and writing.</p>
 </acknowledgement>
 <foreword>
-<p>To Do:  Get the most eminent mathematician you can rope into it to write a foreword.</p>
+<p>To Do:  Get the most eminent mathematician - that you can rope into it - to write a foreword.</p>
 </foreword>
 <preface>
-<p>This is a free/open-source textbook that provides an introduction to Linear Algebra.  There is a light emphasis on mathematical proof, making this book appropriate for science and engineering majors and for mathematics majors who are taking Linear Algebra early in their college careers.  Math majors who have already had an introduction to proofs course may benefit from the more advanced treatment in Robert Beezer's "A First Course in Linear Algebra."</p>
+<p>This is a free/open-source textbook that provides an introduction to Linear Algebra.  There is a light emphasis on mathematical proof and a strong emphasis on applications, making this book appropriate for science and engineering majors and for mathematics majors who are taking Linear Algebra early in their college careers.  Math majors who have already had an introduction to proofs course may benefit from the more advanced treatment in Robert Beezer's "A First Course in Linear Algebra."</p>
 </preface>
 </frontmatter>
 
 <xi:include href="intro.xml" />
-<!--
-\include{intro/intro}
-\include{rref/rref}
-\include{vect/vect}
-\include{trans/trans}
-\include{eigen/eigen}
-%\include{decomps/decomps}
-\include{algebra/algebra}
+<xi:include href="rref.xml" />
+<xi:include href="vect.xml" />
+<!-- <xi:include href="det.xml" />
+-->
+<xi:include href="eigen.xml" />
+<!-- <xi:include href="decomps.xml" />
+-->
+<xi:include href="algebra.xml" />
+<!-- <xi:include href="abstract.xml" />
 -->
 
 <backmatter>

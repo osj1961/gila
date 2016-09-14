@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Introduction</title>
+<title>The spectral decomposition</title>
 
 <introduction>
 </introduction>
 
 <section>
-<title>Getting started</title>
+<title>Diagonal and diagonalizable systems</title>
 <p>Dummy text for introduction.</p>
 </section>
 
 <section>
-<title>Systems of equations</title>
+<title>Eigenvalues and eigenvectors</title>
 <p>Dummy text for introduction.</p>
 </section>
 
 <section>
-<title>Vector equations</title>
+<title>Jordan form</title>
 <p>Dummy text for introduction.</p>
 </section>
 
 <section>
-<title>Transformations</title>
+<title>The Singular value decomposition</title>
 <p>Dummy text for introduction.</p>
 </section>
 
-<section>
-<title>Matrix notation</title>
-<p>Dummy text for introduction.</p>
-</section>
 
 </chapter>

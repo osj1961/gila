@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Algebraic structures</title>
+
+<introduction>
+</introduction>
+
+<section>
+<title>Groups, Rings and Fields</title>
+<introduction>
+<p>Dummy text for introduction.</p>
+</introduction>
+
+<subsection>
+<title>Fields</title>
+</subsection>
+
+<subsection>
+<title>The complex numbers</title>
+</subsection>
+
+<subsection>
+<title>Rings</title>
+</subsection>
+
+<subsection>
+<title>Groups</title>
+</subsection>
+
+</section>
+
+<section>
+<title>Modules</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+<section>
+<title>Algebras</title>
+<introduction>
+<p>Dummy text for introduction.</p>
+</introduction>
+
+<subsection>
+<title>Complex numbers</title>
+</subsection>
+
+<subsection>
+<title>The cross product in 3-space</title>
+</subsection>
+
+<subsection>
+<title>Quaternions</title>
+</subsection>
+
+</section>
+
+<section>
+<title>Inner product spaces</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+
+</chapter>
