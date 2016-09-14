@@ -1,2 +1,10 @@
 
 .DS_Store
+
+*.swp
+
+dtd-errors.txt
+
+pdf/*
+
+html/*
