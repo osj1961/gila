@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Abstract vector spaces</title>
+
+<introduction>
+Truly abstract and concrete vector spaces that aren't <m>\mathbb{R}^n</m>.
+</introduction>
+
+<section>
+
+<introduction>
+<p>Enumerate the laundry list of properties that hold in <m>\mathbb{R}^n</m>
+and pull together the definition of an abstract vector space.  Examples in subsections.</p>
+</introduction>
+
+<subsection>
+<title>Polynomials</title>
+</subsection>
+
+<subsection>
+<title>Matrices</title>
+</subsection>
+</section>
+
+<section>
+<title>Infinite dimensional spaces</title>
+<p>Dummy text for introduction.</p>
+
+<subsection>
+<title>Functions</title>
+</subsection>
+
+<subsection>
+<title>Time series</title>
+</subsection>
+</section>
+
+<section>
+<title>Hilbert space</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+<section>
+<title>Fourier analysis</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+
+</chapter>

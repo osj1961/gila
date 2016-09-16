@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Determinants</title>
+
+<introduction>
+</introduction>
+
+<section>
+<title>Torque, Area and Volume</title>
+<introduction>
+<p>The 2-d and 3-d cases.</p>
+</introduction>
+</section>
+
+<section>
+<title>Determinants by recursion</title>
+<introduction>
+<p>Using 2 by 2 determinants to form the 3 by 3 ones.  Generalizing to 4 by 4.  Generalizing to the n by n case and taking advantage of zeros.</p>
+</introduction>
+<p>Dummy text for introduction.</p>
+</section>
+
+<section>
+<title>Formal definition</title>
+<p>Permutations and their signs.  The determinant as a sum of signed products over
+all <m>n!</m> permutations.  Combinatorial explosion and why determinants are just theoretical 
+tools except in low dimension.  </p>
+</section>
+
+
+</chapter>
