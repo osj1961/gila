@@ -3,11 +3,18 @@
 <title>Introduction</title>
 
 <introduction>
+<p>The subject we are about to study, Linear Algebra, sounds like it might have something to do with lines and doing algebra with them.  This is true if you are willing to think metaphorically<ellipsis /> It might be somewhat closer to the truth if we were to say that Linear Algebra is about learning to understand higher dimensions.  We'll be surprisingly far along in our study of the topic before we can precisely define what <q>dimension</q> actually means, but we expect that you have some notion already: the Euclidean plane where we studied Geometry is two dimensional, the world we live in is three dimensional, Albert Einstein taught us to view the world not just as space <mdash /> but as space-time <mdash /> a four dimensional concept.  We needn't jump off into super advanced physics (or science fiction for that matter) in order to understand higher dimensionality.  Dimension, at least informally, just means the number of real numbers it takes to describe something. Locating a point in three-dimensional space requires three numbers <mdash /> usually <m>x</m>, <m>y</m> and <m>z</m>.  If we are keeping track of aircraft, knowing where they are in 3-space is certainly necessary, but it might also be a good idea to keep abreast of <em>which way they are going</em>!  To truly understand an aircraft's state, one needs to have six numbers: <m>x</m>, <m>y</m> and <m>z</m>, but also the velocity components <m>x'</m>, <m>y'</m> and <m>z'</m>.  This make the state of an airplane 6-dimensional.  Perhaps this is why air traffic controllers make the big bucks.
+</p>
+
+<p>The 6-dimensionality of an aircraft's state may seem somewhat artificial.  Aren't we really just dealing with two separate 3-dimensional entities?</p>
+
+<p>Nobel laureate Wassily Leontief described his Input-Output model in a 1965 Scientific 
+</p> 
 </introduction>
 
 <section>
 <title>Getting started</title>
-<p>Dummy text for introduction.</p>
+<p>The </p>
 </section>
 
 <section>
