@@ -3,18 +3,35 @@
 <title>Introduction</title>
 
 <introduction>
-<p>The subject we are about to study, Linear Algebra, sounds like it might have something to do with lines and doing algebra with them.  This is true if you are willing to think metaphorically<ellipsis /> It might be somewhat closer to the truth if we were to say that Linear Algebra is about learning to understand higher dimensions.  We'll be surprisingly far along in our study of the topic before we can precisely define what <q>dimension</q> actually means, but we expect that you have some notion already: the Euclidean plane where we studied Geometry is two dimensional, the world we live in is three dimensional, Albert Einstein taught us to view the world not just as space <mdash /> but as space-time <mdash /> a four dimensional concept.  We needn't jump off into super advanced physics (or science fiction for that matter) in order to understand higher dimensionality.  Dimension, at least informally, just means the number of real numbers it takes to describe something. Locating a point in three-dimensional space requires three numbers <mdash /> usually <m>x</m>, <m>y</m> and <m>z</m>.  If we are keeping track of aircraft, knowing where they are in 3-space is certainly necessary, but it might also be a good idea to keep abreast of <em>which way they are going</em>!  To truly understand an aircraft's state, one needs to have six numbers: <m>x</m>, <m>y</m> and <m>z</m>, but also the velocity components <m>x'</m>, <m>y'</m> and <m>z'</m>.  This make the state of an airplane 6-dimensional.  Perhaps this is why air traffic controllers make the big bucks.
-</p>
+<p>The subject we are about to study, Linear Algebra, sounds like it might have something to do with lines and doing algebra with them.  This is true if you are willing to think metaphorically<ellipsis /> It might be somewhat closer to the truth if we were to say that Linear Algebra is about learning to understand higher dimensions.  We'll be surprisingly far along in our study of the topic before we can precisely define what <q>dimension</q> actually means, but we expect that you have some notion already: the Euclidean plane where we studied Geometry is two dimensional, the world we live in is three dimensional, Albert Einstein taught us to view the world not just as space <mdash /> but as space-time <mdash /> a four dimensional concept.  We needn't jump off into super advanced physics (or science fiction for that matter) in order to understand higher dimensionality.  Dimension, at least informally, just means the number of real numbers it takes to describe something. Locating a point in three-dimensional space requires three numbers <mdash /> usually <m>x</m>, <m>y</m> and <m>z</m>.  If we are keeping track of aircraft, knowing where they are in 3-space is certainly necessary, but it might also be a good idea to keep abreast of <em>which way they are going</em>!  To truly understand an aircraft's state, one needs to have six numbers: <m>x</m>, <m>y</m> and <m>z</m>, but also the velocity components <m>x'</m>, <m>y'</m> and <m>z'</m>.  This make the state of an airplane 6-dimensional.  Perhaps this is why air traffic controllers make the big bucks.</p>
 
 <p>The 6-dimensionality of an aircraft's state may seem somewhat artificial.  Aren't we really just dealing with two separate 3-dimensional entities?</p>
 
-<p>Nobel laureate Wassily Leontief described his Input-Output model in a 1965 Scientific 
-</p> 
+<p>In Economics there is a high-dimensional entity known as the Leontief Input-Output model.  In
+this model the state of an Economic system is described by a large number of real quantities, one for each sector of the economy.  In a 1965 Scientific American article Wassily Leontief (who won a Nobel prize for this work) described his model in terms of a <q>toy example</q> where the economy was divided into 82 sectors.  Today one could easily develop a Leontief I/O model where the economy was divided up into a million sectors.  Perhaps this is why Economsts make even bigger bucks.</p>
+
+<p>When we do Linear Algebra in two dimensions we are indeed talking about lines.  One of the classic problems is to figure out whether two lines intersect and if so, where.  This is a situation where our ability to visualize things in two dimensions can lead us straight to the answer.  That is certainly not the case in a million (or even in six) dimensions.  Fortunately, there are calculational techniques that work (and even work fairly quickly on a good computer) in
+just about any number of dimensions you may be interested in.</p>
+
+<p>There are three different ways of looking at linear algebra problems: systems of linear equations, vector equations, and transformations.  These three views actually represent the same underlying structure, just in different ways.  There are various situations where one of these three viewpoints is preferable, so it is a good idea to be able to switch back and forth between these representations.</p>
 </introduction>
 
 <section>
 <title>Getting started</title>
-<p>The </p>
+<p>The first problem we're going to look at is fairly trivial.  I bet you can solve this in your head:</p>
+
+<blockquote><p>I'm thinking of two numbers <m>x</m> and <m>y</m>.  Their sum is 42, and their difference is 6.  What are they?</p>
+</blockquote>
+
+<p>This word problem can be instantly translated into a pair of equations.  Later, when we have more sophisticated problems there may be many more unknown quantities and there may be many more equations.  Here we are dealing with a system of equations having 2 equations in 2 unknowns.
+
+<md>
+  <mrow>x+y=42</mrow>
+  <mrow>x-y=6</mrow>
+</md>
+</p>
+
+<p>This one is about as easy as a system of two equations in two variables can get.  
 </section>
 
 <section>

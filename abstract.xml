@@ -3,11 +3,11 @@
 <title>Abstract vector spaces</title>
 
 <introduction>
-Truly abstract and concrete vector spaces that aren't <m>\mathbb{R}^n</m>.
+<p>Truly abstract and concrete vector spaces that aren't <m>\mathbb{R}^n</m>.</p>
 </introduction>
 
 <section>
-
+<title>Vector spaces</title>
 <introduction>
 <p>Enumerate the laundry list of properties that hold in <m>\mathbb{R}^n</m>
 and pull together the definition of an abstract vector space.  Examples in subsections.</p>
@@ -24,7 +24,9 @@ and pull together the definition of an abstract vector space.  Examples in subse
 
 <section>
 <title>Infinite dimensional spaces</title>
-<p>Dummy text for introduction.</p>
+<introduction>
+  <p>Dummy text for introduction.</p>
+</introduction>
 
 <subsection>
 <title>Functions</title>
