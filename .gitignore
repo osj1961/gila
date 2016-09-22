@@ -5,6 +5,19 @@
 
 dtd-errors.txt
 
-pdf/*
+pdf/*.tex
 
-html/*
+pdf/*.log
+
+pdf/*.aux
+
+pdf/*.pdf
+
+pdf/*.out
+
+pdf/*.toc
+
+html/*.html
+
+html/*/*.html
+
