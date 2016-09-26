@@ -31,7 +31,50 @@ just about any number of dimensions you may be interested in.</p>
 </md>
 </p>
 
-<p>This one is about as easy as a system of two equations in two variables can get.  
+<p>This one is about as easy as a system of two equations in two variables can get.  Actually, that's not quite true. The easiest form for a system of two equations in two unknowns is if they basically just are statements of the answer, like:
+<md>
+  <mrow>x = 24</mrow>
+  <mrow>y = 18.</mrow>
+</md>
+</p>
+
+<p>Solving a system of equations just means (somehow) transforming it from something like the first form to something like this latter form. There are a small number of simple procedures that we can apply to systems without effecting their solutions. We can use these operations to convert almost any system into one that looks like that latter form (each equation just states what the value of some variable is). We'll get around to the full story in section 1.2, but for now, notice that if we add the two original equations together (adding equations means adding left sides and adding right sides separately) we get something that only involves <m>x</m>. And of course, once we know one of the variables it isn't very hard to find the other.
+</p>
+
+<p>We glossed-over a small but important issue in the above. How do we know that our answer was the only answer? And for that matter, is it necessarily true that there must be an answer to some system of equations? These are what are known as existance and uniqueness questions: Does there exist an answer to our problem? (Existance.) And, if there is an answer, how do we know it is the only answer? (Uniqueness.) There are systems of equations where all of the possible behaviors are exhibited: no solutions, unique solutions and lots of solutions.
+</p>
+
+<exercise>
+  <statement>
+    <p>Explain why the following system has no solutions at all.
+    <md>
+      <mrow>2x - y = 7</mrow>
+      <mrow>2y - 4x = 8.</mrow>
+    </md>
+    </p>
+  </statement>
+  <hint>
+    <p>Put both equations into slope-intercept form (<m>y = mx + b</m>).</p>
+  </hint>
+</exercise>
+
+<p>
+  That was a linear algebra problem seen from the <q>systems of equations</q> perspective. We still need to look at the <q>vector equations</q> and <q>transformations</q> viewpoints. So next we'll look at a question of the vector flavor. We're going to think about playing chess, not on a board, but on the infinite <m>x</m><mdash /><m>y</m> plane.
+</p>
+<p>
+  Consider the piece known as a bishop. If you're not familiar with chess, this is the piece that can move in the diagonal directions. Think of the bishop as having two moves that it can do (but it can do them any number of times). It can do a move we'll refer to as UR; move one unit in the <m>x</m> direction while simultaneously moving one unit in the <m>y</m> direction <mdash /> by doing this multiple times the bishop can travel in the upper right direction. It also has a move that allows it to travel along the other diagonal <mdash /> move one unit in the <m>x</m> direction while simultaneously moving negative one unit in the <m>y</m> direction. We'll call that move LR.
+</p>
+<p>For those who are familiar with chess, you'll know that bishops are forever trapped on the same color square <mdash /> one of your bishops is always on black and the other always on white. This means that some <q>bishop moving questions</q> won't have solutions <mdash /> for example a bishop sitting at the origin, <m>(0, 0)</m>, can never move to <m>(0, 5)</m>; those squares have opposite colors! To get around this limitation we're going to let our bishops make fractional moves. For instance if it starts at the origin and makes <m>1/2</m> of the upper-right move then it will arrive at <m>(1/2, 1/2)</m>.  Now, getting a little stranger, we're going to also allow our bishops to make negative moves. Maybe we should think of a negative move as <q>undoing</q> a regular move<ellipsis />
+</p>
+
+
+<p>In any case negative moves allow us to move the bishop in the opposite directions along the diagonals.  Finally, we may as well give our bishops the freedom to move <em>any amount</em> <mdash /> that is, any real number can be used as a so-called scalar, shrinking or stretching either of the two basic moves. Got it?
+We can do things like <m>\pi \cdot UR</m> and <m>\sqrt{2} \cdot LR</m>.
+</p>
+
+<p>So, after all that setup, here's the question: If a bishop starts at <m>(0,0)</m>, can it make some number of UR and LR moves and wind up at <m>(42,6)</m>?  If so, how many URs and how many LRs?
+</p>
+
 </section>
 
 <section>
