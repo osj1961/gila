@@ -21,3 +21,8 @@ html/*.html
 
 html/*/*.html
 
+images/*.svg
+
+images/*.bak
+
+
