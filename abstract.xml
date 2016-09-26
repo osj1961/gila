@@ -8,6 +8,7 @@
 
 <section>
 <title>Vector spaces</title>
+
 <introduction>
 <p>Enumerate the laundry list of properties that hold in <m>\mathbb{R}^n</m>
 and pull together the definition of an abstract vector space.  Examples in subsections.</p>
@@ -20,6 +21,7 @@ and pull together the definition of an abstract vector space.  Examples in subse
 <subsection>
 <title>Matrices</title>
 </subsection>
+
 </section>
 
 <section>
@@ -30,11 +32,14 @@ and pull together the definition of an abstract vector space.  Examples in subse
 
 <subsection>
 <title>Functions</title>
+<p>Dummy text for introduction.</p>
 </subsection>
 
 <subsection>
 <title>Time series</title>
+<p>Dummy text for introduction.</p>
 </subsection>
+
 </section>
 
 <section>
