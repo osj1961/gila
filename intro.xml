@@ -167,7 +167,7 @@ There are two kinds of problems one can ask: maybe you know the input vector and
   </p>
 </example>
 
-<p>An equation is <em>linear</em> if it has the form of a linear combination set equal to some value on the right-hand side.  For example
+<p>An equation is <em>linear</em> if it has the form of a linear combination set equal to some value on the right-hand side -- or if it can be put into that form.  For example
 
 <md>
   <mrow> x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5 = 15 </mrow>
@@ -176,9 +176,26 @@ There are two kinds of problems one can ask: maybe you know the input vector and
 is a linear equation in five variables.
 </p>
 
+<p>Also,
+<md>
+  <mrow> x_1 + 3x_3 = x_2 + x_4 </mrow>
+</md>
+
+is a linear equation (in four variables) because we can manipulate it into the form
+
+<md>
+  <mrow> x_1 - x_2 + x_3 - x_4 = 0. </mrow>
+</md>
+</p>
+
 <exercise>
   <statement>
-    <p>The linear equation just given has a solution where all of the variables are set equal to 1.  Are there others?
+    <p>The linear equation
+<md>
+  <mrow> x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5 = 15 </mrow>
+</md>
+
+has a solution where all of the variables are set equal to 1.  Are there others?
     </p>
   </statement>
   <hint>
@@ -187,7 +204,43 @@ is a linear equation in five variables.
   </hint>
 </exercise>
 
+<p>A <em>system of equations</em> is just a collection of linear equations.</p>
 
+<example>
+<title>Investments</title>
+<statement>
+<p>Suppose you have $<m>10,000</m> that you want to invest in the stock market. After some research you've found three companies that you think will be good investments.  SolarCity Corp (SCTY) is trading at about $<m>20</m> per share.  SunPower - Solar energy company (SPWR) is trading at about $<m>9</m> per share. First Trust Global Wind Energy (FAN) is at about $<m>12</m> per share.  One equation you can immediately write down is
+
+<md>
+<mrow>20 x_1 + 9 x_2 + 12 x_3 = 10000,</mrow>
+</md>
+
+where <m>x_1</m> is the number of shares of SCTY we will buy, <m>x_2</m> is the number of shares of SPWR, and <m>x_3</m> is the number of shares of FAN.
+</p>
+
+<p>If we said nothing further, we'd have just this one equation and there are many possible sets of values for the variables that satisfy it.  Notice that there are two broad categories of companies represented in our stock picks -- solar energy and wind power.  Perhaps we'd be wise to split our investment between them based on some rational theory, for the sake of argument let's say that we've been advised to use a 60/40 split between solar and wind.  What was previously a single equation is now two:
+
+<md>
+<mrow>20 x_1 + 9 x_2 = 60000,</mrow>
+<mrow>12 x_3 = 40000.</mrow>
+</md>
+</p>
+
+<p>Notice that the second equation uniquely determines the value of <m>x_3</m> but that the other variables still have a bit of freedom.  (For instance, notice that we could set either <m>x_1</m> or <m>x_2</m> to <m>0</m>, and the other variable's value would then be uniquely determined. Or, of course we could have some mixture where our $<m>6,000</m> is split up between the two companies.  As it happens, these two companies are competitors and there is some probability that one will succeed and the other will fail.  A wise investor tries to guess what that probability is and <q>hedge</q> their bets on the market.  For the sake of argument let's say we think SCTY is three times more likely to come out the winner in this competition.  You might be inclined to just buy only the SCTY stock, but that's not what a hedging strategy would indicate -- you should mix your investments in a proportion that reflects the probabilities involved.  As an equation in the <m>x</>'s we have
+
+<md>
+<mrow>20 x_1 = 3 \cdot 9 x_2.</mrow>
+</md>
+</p>
+
+<p>At this point we've obtained a system of 3 equations in 3 variables which, after manipulating the last one a little bit looks like the following.
+
+<md>
+<mrow>20 x_1 + 9 x_2 = 60000</mrow>
+<mrow>12 x_3 = 40000</mrow>
+<mrow>20 x_1 - 27 x_2 = 0</mrow>
+</md>
+</p>
 </section>
 
 <section xml:id="section-vectors">
