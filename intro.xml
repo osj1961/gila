@@ -108,14 +108,14 @@ need to increase your <m>x</m>-coordinate by 2 units and you must increase your 
 <p>Basically, a linear transformation is a function that takes vectors as inputs and spits out vectors as outputs.  You're probably familiar with the following sort of diagram for functions.
 </p>
 
-<image source="images/function_diagram.svg" />
+<image source="../images/function_diagram.svg" />
 
 <p>In Multivariable Calculus you may also encounter functions that are diagramed like so:
 </p>
 
 <sidebyside margins="5" widths="40% 40%" valign="middle">
-  <image source="images/function_diagram2.svg" />
-  <image source="images/function_diagram3.svg" />
+  <image source="../images/function_diagram2.svg" />
+  <image source="../images/function_diagram3.svg" />
 </sidebyside>
 
 <p>The first is a real-valued function of two variables <mdash /> think of it as taking a vector as input and returning a scalar.  The second is a vector-valued function of a single real variable.  The mapping that gives temperature as a function of position on a metal plate is an example of the first sort.  When we represent the position of a particle moving around in space (as a function of time) we are using the second sort.</p>
@@ -123,7 +123,7 @@ need to increase your <m>x</m>-coordinate by 2 units and you must increase your 
 <p>Linear transformations are functions where there are vectors on both the input and the output side.
 </p>
 
-<image source="images/function_diagram4.svg" />
+<image source="../images/function_diagram4.svg" />
 
 <p>Moreover, linear transformations are <em>linear</em>, which means the components of the output are computed in a very simplistic way from the components of the inputs.  The only things that are allowed are adding things up and multiplying by constants. 
 </p>
