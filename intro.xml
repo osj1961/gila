@@ -108,14 +108,14 @@ need to increase your <m>x</m>-coordinate by 2 units and you must increase your 
 <p>Basically, a linear transformation is a function that takes vectors as inputs and spits out vectors as outputs.  You're probably familiar with the following sort of diagram for functions.
 </p>
 
-<image source="../images/function_diagram.svg" />
+<image source="../images/function_diagram" />
 
 <p>In Multivariable Calculus you may also encounter functions that are diagramed like so:
 </p>
 
-<sidebyside margins="5" widths="40% 40%" valign="middle">
-  <image source="../images/function_diagram2.svg" />
-  <image source="../images/function_diagram3.svg" />
+<sidebyside width="40%" margins="auto">
+  <image source="../images/function_diagram2" />
+  <image source="../images/function_diagram3" />
 </sidebyside>
 
 <p>The first is a real-valued function of two variables <mdash /> think of it as taking a vector as input and returning a scalar.  The second is a vector-valued function of a single real variable.  The mapping that gives temperature as a function of position on a metal plate is an example of the first sort.  When we represent the position of a particle moving around in space (as a function of time) we are using the second sort.</p>
@@ -123,7 +123,7 @@ need to increase your <m>x</m>-coordinate by 2 units and you must increase your 
 <p>Linear transformations are functions where there are vectors on both the input and the output side.
 </p>
 
-<image source="../images/function_diagram4.svg" />
+<image source="../images/function_diagram4" />
 
 <p>Moreover, linear transformations are <em>linear</em>, which means the components of the output are computed in a very simplistic way from the components of the inputs.  The only things that are allowed are adding things up and multiplying by constants. 
 </p>
@@ -209,7 +209,7 @@ has a solution where all of the variables are set equal to 1.  Are there others?
 <example>
 <title>Investments</title>
 <statement>
-<p>Suppose you have $<m>10,000</m> that you want to invest in the stock market. After some research you've found three companies that you think will be good investments.  SolarCity Corp (SCTY) is trading at about $<m>20</m> per share.  SunPower - Solar energy company (SPWR) is trading at about $<m>9</m> per share. First Trust Global Wind Energy (FAN) is at about $<m>12</m> per share.  One equation you can immediately write down is
+<p>Suppose you have <dollar /><m>10,000</m> that you want to invest in the stock market. After some research you've found three companies that you think will be good investments.  SolarCity Corp (SCTY) is trading at about <dollar /><m>20</m> per share.  SunPower - Solar energy company (SPWR) is trading at about <dollar /><m>9</m> per share. First Trust Global Wind Energy (FAN) is at about <dollar /><m>12</m> per share.  One equation you can immediately write down is
 
 <md>
 <mrow>20 x_1 + 9 x_2 + 12 x_3 = 10000,</mrow>
@@ -226,7 +226,7 @@ where <m>x_1</m> is the number of shares of SCTY we will buy, <m>x_2</m> is the 
 </md>
 </p>
 
-<p>Notice that the second equation uniquely determines the value of <m>x_3</m> but that the other variables still have a bit of freedom.  (For instance, notice that we could set either <m>x_1</m> or <m>x_2</m> to <m>0</m>, and the other variable's value would then be uniquely determined. Or, of course we could have some mixture where our $<m>6,000</m> is split up between the two companies.  As it happens, these two companies are competitors and there is some probability that one will succeed and the other will fail.  A wise investor tries to guess what that probability is and <q>hedge</q> their bets on the market.  For the sake of argument let's say we think SCTY is three times more likely to come out the winner in this competition.  You might be inclined to just buy only the SCTY stock, but that's not what a hedging strategy would indicate -- you should mix your investments in a proportion that reflects the probabilities involved.  As an equation in the <m>x</m>'s we have
+<p>Notice that the second equation uniquely determines the value of <m>x_3</m> but that the other variables still have a bit of freedom.  (For instance, notice that we could set either <m>x_1</m> or <m>x_2</m> to <m>0</m>, and the other variable's value would then be uniquely determined. Or, of course we could have some mixture where our <dollar /><m>6,000</m> is split up between the two companies.  As it happens, these two companies are competitors and there is some probability that one will succeed and the other will fail.  A wise investor tries to guess what that probability is and <q>hedge</q> their bets on the market.  For the sake of argument let's say we think SCTY is three times more likely to come out the winner in this competition.  You might be inclined to just buy only the SCTY stock, but that's not what a hedging strategy would indicate -- you should mix your investments in a proportion that reflects the probabilities involved.  As an equation in the <m>x</m>'s we have
 
 <md>
 <mrow>20 x_1 = 3 \cdot 9 x_2.</mrow>
