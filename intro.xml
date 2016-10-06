@@ -52,7 +52,7 @@ just about any number of dimensions you may be interested in.
 Solving a system of equations just means (somehow) transforming it from something like the first form to something like this latter form.
 </p>
 
-<p>There are a small number of simple procedures that we can apply to systems without effecting their solutions.  We can use these operations to convert almost any system into one that looks like that latter form (each equation just states what the value of some variable is). We'll get around to the full story in section <xref ref="section-sys_eqs" />, but for now, notice that if we add the two original equations together (adding equations means adding left sides and adding right sides separately) we get something that only involves <m>x</m>.  And of course, once we know one of the variables it isn't very to find the other.
+<p>There are a small number of simple procedures that we can apply to systems without effecting their solutions.  We can use these operations to convert almost any system into one that looks like that latter form (each equation just states what the value of some variable is). We'll get around to the full story in section <xref ref="section-sys_eqs" />, but for now, notice that if we add the two original equations together (adding equations means adding left sides and adding right sides separately) we get something that only involves <m>x</m>.  And of course, once we know one of the variables it isn't very hard to find the other.
 </p>
 
 <p>We glossed-over a small but important issue in the above.  How do we know that our answer was the only answer?  And for that matter, is it necessarily true that there must <em>be</em> an answer to some system of equations?  These are what are known as existance and uniqueness questions:  Does there exist an answer to our problem?  (Existance.) And, if there <em>is</em> an answer, how do we know it is the only answer? (Uniqueness.)  There are systems of equations where all of the possible behaviors are exhibited: no solutions, unique solutions and lots of solutions.
@@ -108,7 +108,9 @@ need to increase your <m>x</m>-coordinate by 2 units and you must increase your 
 <p>Basically, a linear transformation is a function that takes vectors as inputs and spits out vectors as outputs.  You're probably familiar with the following sort of diagram for functions.
 </p>
 
+<p>
 <image source="../images/function_diagram" />
+</p>
 
 <p>In Multivariable Calculus you may also encounter functions that are diagramed like so:
 </p>
@@ -123,7 +125,13 @@ need to increase your <m>x</m>-coordinate by 2 units and you must increase your 
 <p>Linear transformations are functions where there are vectors on both the input and the output side.
 </p>
 
-<image source="../images/function_diagram4" />
+<p>
+  <image> <!--  source="../images/function_diagram4" /> -->
+    <latex-image-code>
+      <![CDATA[ \input{/home/fields/Desktop/gila/images/div_alg_flowchart.tex} ]]>
+    </latex-image-code> 
+  </image>
+</p>
 
 <p>Moreover, linear transformations are <em>linear</em>, which means the components of the output are computed in a very simplistic way from the components of the inputs.  The only things that are allowed are adding things up and multiplying by constants. 
 </p>

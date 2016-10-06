@@ -2,6 +2,48 @@
 <mathbook xmlns:xi="http://www.w3.org/2001/XInclude">
 <docinfo>
 <brandlogo url="../images/gilamonster.jpg" source="../images/gilamonster.jpg" />
+<latex-preamble>
+  <package>graphicx</package>
+  <package>cancel</package>
+</latex-preamble>
+<macros>
+\newcommand{\divides}{\!\mid\!}
+\newcommand{\tdiv}{\; \mbox{div} \;}
+\newcommand{\restrict}[2]{#1 \,\rule[-4pt]{.125pt}{14pt}_{\,#2}}
+\newcommand{\lcm}[2]{\mbox{lcm} (#1, #2)}
+\renewcommand{\gcd}[2]{\mbox{gcd} (#1, #2)}
+\newcommand{\Naturals}{{\mathbb N}}
+\newcommand{\Integers}{{\mathbb Z}}
+\newcommand{\Znoneg}{{\mathbb Z}^{\mbox{\tiny noneg}}}
+\newcommand{\Enoneg}{{\mathbb E}^{\mbox{\tiny noneg}}}
+\newcommand{\Qnoneg}{{\mathbb Q}^{\mbox{\tiny noneg}}}
+\newcommand{\Rnoneg}{{\mathbb R}^{\mbox{\tiny noneg}}}
+\newcommand{\Rationals}{{\mathbb Q}}
+\newcommand{\Reals}{{\mathbb R}}
+\newcommand{\Complexes}{{\mathbb C}}
+%\newcommand{\F2}{{\mathbb F}_{2}}
+\newcommand{\relQ}{\mbox{\textsf Q}}
+\newcommand{\relR}{\mbox{\textsf R}}
+\newcommand{\nrelR}{\mbox{\raisebox{1pt}{$\not$}\rule{1pt}{0pt}{\textsf R}}}
+\newcommand{\relS}{\mbox{\textsf S}}
+\newcommand{\relA}{\mbox{\textsf A}}
+\newcommand{\Dom}[1]{\mbox{Dom}(#1)}
+\newcommand{\Cod}[1]{\mbox{Cod}(#1)}
+\newcommand{\Rng}[1]{\mbox{Rng}(#1)}
+</macros>
+<latex-image-preamble>
+\usepackage{graphicx}
+%\usepackage{pgfplots}               % loads tikz package
+%\usepackage{smartdiagram}           % for a circular diagram
+%\pgfplotsset{axis x line = middle, axis y line = middle}
+%\usetikzlibrary{backgrounds}
+%\usetikzlibrary{arrows,matrix}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+</latex-image-preamble>
+<initialism>GILA</initialism>
+<feedback>
+   <url>http://osj1961.github.io/gila/</url>
+</feedback>
 </docinfo>
 <book xml:id="GILA">
 <title>A Gentle Introduction to Linear Algebra</title>
