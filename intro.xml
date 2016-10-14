@@ -108,16 +108,16 @@ need to increase your <m>x</m>-coordinate by 2 units and you must increase your 
 <p>Basically, a linear transformation is a function that takes vectors as inputs and spits out vectors as outputs.  You're probably familiar with the following sort of diagram for functions.
 </p>
 
-<p>
-<image source="../images/function_diagram" />
-</p>
+<figure>
+    <image source="images/function_diagram" width="40%" />
+</figure>
 
 <p>In Multivariable Calculus you may also encounter functions that are diagramed like so:
 </p>
 
 <sidebyside width="40%" margins="auto">
-  <image source="../images/function_diagram2" />
-  <image source="../images/function_diagram3" />
+  <image source="images/function_diagram2" />
+  <image source="images/function_diagram3" />
 </sidebyside>
 
 <p>The first is a real-valued function of two variables <mdash /> think of it as taking a vector as input and returning a scalar.  The second is a vector-valued function of a single real variable.  The mapping that gives temperature as a function of position on a metal plate is an example of the first sort.  When we represent the position of a particle moving around in space (as a function of time) we are using the second sort.</p>
@@ -125,13 +125,9 @@ need to increase your <m>x</m>-coordinate by 2 units and you must increase your 
 <p>Linear transformations are functions where there are vectors on both the input and the output side.
 </p>
 
-<p>
-  <image> <!--  source="../images/function_diagram4" /> -->
-    <latex-image-code>
-      <![CDATA[ \input{/home/fields/Desktop/gila/images/div_alg_flowchart.tex} ]]>
-    </latex-image-code> 
-  </image>
-</p>
+<figure>
+    <image source="images/function_diagram4" width="70%" />
+</figure>
 
 <p>Moreover, linear transformations are <em>linear</em>, which means the components of the output are computed in a very simplistic way from the components of the inputs.  The only things that are allowed are adding things up and multiplying by constants. 
 </p>
@@ -167,11 +163,11 @@ There are two kinds of problems one can ask: maybe you know the input vector and
 </md>
 </p>
 
-<p>A <em>linear combination</em> of some set of numbers <m>\{ x_1, x_2, \ldots, x_n \}</m> is created by multiplying each of the <m>x</m>'s by a constant and add them all up. Of course if the constants are <m>1</m> or <m>-1</m> (as in the previous example) we tend to forget that they're there!
+<p>A <em>linear combination</em> of some set of numbers <m>\{ x_1, x_2, \ldots, x_n \}</m> is created by multiplying each of the <m>x</m>'s by constants and then adding everything up. Of course if the constants are <m>1</m> or <m>-1</m> (as in the previous example) we tend to forget that they're there!
 </p>
 
 <example>
-  <p>Consider <m>x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5</m>. This is a linear combination of the five variables <m>\{x_1, x_2, x_3, x_4, x_5\}</m>.  The constants <m>1, 2, 3, 4,</m> and <m>5</m> are called the coefficients of the linear combination.
+  <p>Consider <m>x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5</m>. This is a linear combination of the five variables <m>\{x_1, x_2, x_3, x_4, x_5\}</m>.  The constants (<m>1, 2, 3, 4,</m> and <m>5</m>) are called the coefficients of the linear combination.
   </p>
 </example>
 
@@ -192,7 +188,7 @@ is a linear equation in five variables.
 is a linear equation (in four variables) because we can manipulate it into the form
 
 <md>
-  <mrow> x_1 - x_2 + x_3 - x_4 = 0. </mrow>
+  <mrow> x_1 - x_2 + 3x_3 - x_4 = 0. </mrow>
 </md>
 </p>
 
@@ -214,7 +210,23 @@ has a solution where all of the variables are set equal to 1.  Are there others?
 
 <p>A <em>system of equations</em> is just a collection of linear equations.</p>
 
-<example>
+<p>The notation for systems of equations gets a bit complicated when we try to write them in general (that is, without particular values given for the various constants involved).  There are three sorts of things that need names in such a system: the variables, the coefficients of the variables, and the numbers on the right-hand sides.  There is a convention that is fairly universal for the names and numbering of these elements.  The variables are <m>x</m>'s with subscripts, the right-hand sides are <m>b</m>'s with subscripts, and the coefficients are <m>a</m>'s with <em>two</em> subscripts (we need to indicate the equation that a given coefficient is in and also, which variable it is multiplying.
+</p>
+
+<p>For example, here is how we would write the general form of a system of three equations in four unknowns:
+ 
+<me>
+\begin{alignedat}{5}
+\aij{1}{1} x_1 \amp {}+{} \amp  \aij{1}{2} x_2 \amp {}+{} \amp \aij{1}{3} x_3 \amp {}+{} \amp  \aij{1}{4} x_4 \amp {}={} \amp b_1 \\
+\aij{2}{1} x_1 \amp {}+{} \amp  \aij{2}{2} x_2 \amp {}+{} \amp \aij{2}{3} x_3 \amp {}+{} \amp  \aij{2}{4} x_4 \amp {}={} \amp b_2 \\
+\aij{3}{1} x_1 \amp {}+{} \amp  \aij{3}{2} x_2 \amp {}+{} \amp \aij{3}{3} x_3 \amp {}+{} \amp  \aij{3}{4} x_4 \amp {}={} \amp b_3 \\
+\end{alignedat}
+</me>
+
+Notice that the indices on the <m>x</m>'s run from 1 to 4, the indices on the <m>b</m>'s run from 1 to 3, and that there are a total of 12 coefficients.
+</p>
+  
+<example xml:id="ex-invest">
 <title>Investments</title>
 <statement>
 <p>Suppose you have <dollar /><m>10,000</m> that you want to invest in the stock market. After some research you've found three companies that you think will be good investments.  SolarCity Corp (SCTY) is trading at about <dollar /><m>20</m> per share.  SunPower - Solar energy company (SPWR) is trading at about <dollar /><m>9</m> per share. First Trust Global Wind Energy (FAN) is at about <dollar /><m>12</m> per share.  One equation you can immediately write down is
@@ -261,8 +273,103 @@ where <m>x_1</m> is the number of shares of SCTY we will buy, <m>x_2</m> is the 
 </me>
 </p>
 </statement>
+
+<solution>
+<p>Now, let's go ahead and figure out what the values of the variables should be.  How many shares of each stock should we purchase?
+</p>
+  
+<p>First, look at that middle equation.  It isn't very complicated, indeed, it basically <em>tells</em> us the value of <m>x_3</m> <mdash /> we just need to divide both sides by 12 to get that <m>x_3 = 333.\overline{3}</m>.  Unfortunately, we can't buy fractions of a share of stock so we'll round to <m>333</m>.
+</p>
+
+<p>We're somewhat lucky in that the variable <m>x_3</m> doesn't appear in the other equations, but <em>even if it did</em>, we could now substitute the value we just determined for it.  Furthermore, we now have no more use for that middle equation; we've used it up in finding the value of <m>x_3</m>.  So now we've reduced our problem to a simpler system <mdash /> one that consists of just two equations in the remaining two unknowns.
+
+<me>
+\begin{alignedat}{3}
+20 x_1 \amp {}+{} \amp  9 x_2   \amp {}={} \amp 6000 \\
+20 x_1 \amp {}-{} \amp 27 x_2   \amp {}={} \amp 0
+\end{alignedat}
+</me>
+</p>
+
+<p>If we subtract the first equation from the second we get
+<me>
+\begin{alignedat}{3}
+  \amp {}-{} \amp 36 x_2   \amp {}={} \amp -6000
+\end{alignedat}
+</me>
+and this tells us (just divide both sides by <m>-36</m>) the value of <m>x_2</m>. 
+</p>
+
+<p>What we've determined so far is that <m>x_3 = 333</m> and <m>x_2 = 167</m>. By substituting those values into the very first equation we wrote down we'll be able to find the value of <m>x_1</m>.
+</p>
+
+<p>After making those substitutions we get an equation that only has one variable:
+
+<md>
+<mrow>20 x_1 + 9 \cdot 167 + 12 \cdot 333 = 10000.</mrow>
+</md>
+
+It's child's play to find the solution is <m>x_3=225</m>.
+
+So in the end we should put in an order for 225 share of SCTY, 167 shares of SPWR and 333 shares of FAN.  Notice that because of rounding we've come up one dollar short of our intended investment.
+</p>
+</solution>
 </example>
 
+<p>A bit more formalism is appropriate now.  We'll start with some definitions.
+</p>
+
+<definition>
+<title>linear system</title>
+<index><main>linear system</main>
+</index>
+
+<statement><p>A <term>linear system</term>, also known (a bit more formally) as a <term>system of linear equations</term> is a collection of <m>m</m> equations in <m>n</m> unknowns of the form
+<me>
+\begin{alignedat}{5}
+a_{11} x_1 \amp {}+{} \amp  a_{12} x_2 \amp {}+{} \amp  \amp {}\cdot {} \amp \amp {}+{} a_{1n} x_n \amp {}={} \amp b_1 \\
+a_{21} x_1 \amp {}+{} \amp  a_{22} x_2 \amp {}+{} \amp  \amp {}\cdot {} \amp \amp {}+{} a_{2n} x_n \amp {}={} \amp b_2 \\
+ \amp \amp \amp  \amp \amp \vdots \amp  \amp \amp \amp \\
+a_{m1} x_1 \amp {}+{} \amp  a_{m2} x_2 \amp {}+{} \amp  \amp {}\cdot {} \amp \amp {}+{} a_{mn} x_n \amp {}={} \amp b_m \\
+\end{alignedat}
+</me>
+</p>
+
+<p>Note that the doubly-indexed quantities (<m>a_{ij}</m>) as well as the singly-indexed quantities (<m>b_i</m>) are real numbers and that the <m>m</m> variables are indicated by <m>x</m>'s (with subscripts).
+</p>
+</statement>
+</definition>
+<remark><p>The use of variables with multiple indices in the above definition bears comment.  First of all, note that we are trying to deal with the general situation where there is an unknown number of equations (<m>m</m>) in an unknown number of variables (<m>n</m>).  Let's consider the <m>b</m>'s first <mdash /> these are the constants that appear on the right-hand sides of the equations, so there are <m>m</m> of them.  The situation for the <m>a</m>'s is more complicated.  The <m>a</m>'s are the coefficients, they are constant numbers that the variables are multiplied by, and there are two indices on each of them.  The first index tells us which equation we are in.  The second index matches with the subscript on the variable.  For example <m>\aij{14}{23}</m> would be the coefficient of <m>x_{23}</m> in the <m>14</m>th equation in a system.
+</p> 
+</remark>
+
+<p>What does it means to say we have found an <q>answer</q> to a system of equations?  Essentially, it is this: we have found a set of values for the variables that <q>work</q> in all of the equations.  Sometimes people say that this set of values <q>satisfies</q> the equations.  To be completely clear, what is meant is that if one substitutes these values for the variables in the equations of the system, all of them will be true.  It is convenient to regard such a set of values as a vector.  For example the solution we obtained in Example <xref ref="ex-invest" /> would be regarded as the vector <m>\langle 225, 167, 333 \rangle</m>.
+</p>
+
+
+<definition>
+<title>solution sets</title>
+<index><main>solution sets</main>
+</index>
+<statement>
+<p>Given a system of <m>m</m> linear equations in <m>n</m> unknowns, the <term>solution set</term> of the system is the set of all vectors of length <m>n</m> that satisfy all <m>m</m> of the equations in the system.
+</p>
+</statement>
+</definition>
+
+<definition>
+<title>equivalent systems</title>
+<index><main>equivalence of linear systems</main>
+</index>
+<statement>
+<p>Two linear systems are called <term>equivalent</term> if and only if they have identical solution sets.
+</p>
+</statement>
+</definition>
+<remark>
+<p>The equivalence of linear systems is an example of what is known  as an equivalence relation.  Equivalence relations are used in theoretical mathematics when we are trying to capture the notion that two things <mdash /> while not <em>actually</em> equal <mdash /> are similar enough that we can treat them as being sort of a junior version of equal<ellipsis />  
+</p>
+</remark>
 </section>
 
 <section xml:id="section-vectors">

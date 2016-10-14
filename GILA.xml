@@ -30,6 +30,7 @@
 \newcommand{\Dom}[1]{\mbox{Dom}(#1)}
 \newcommand{\Cod}[1]{\mbox{Cod}(#1)}
 \newcommand{\Rng}[1]{\mbox{Rng}(#1)}
+\newcommand{\aij}[2]{a_{#1\,#2}}
 </macros>
 <latex-image-preamble>
 \usepackage{graphicx}
@@ -58,7 +59,7 @@
   <date>September 2016</date>
 </titlepage>
 <colophon>
-  <edition>version 1.0</edition>
+  <edition>version 0.1</edition>
   <website>
     <name>GILA on GitHub</name>
     <address>http://http://osj1961.github.io/gila/</address>

@@ -7,10 +7,10 @@ pdf/GILA.pdf: pdf/GILA.aux
 pdf/GILA.aux: pdf/GILA.tex
 	cd pdf; pdflatex GILA
 pdf/GILA.tex: *.xml
-	cd pdf; xsltproc --xinclude ../../mathbook/xsl/mathbook-latex.xsl ../GILA.xml
+	cd pdf; test ! -e images && ln -s ../images; xsltproc --xinclude ../../mathbook/xsl/mathbook-latex.xsl ../GILA.xml
 
 html/GILA.html: *.xml
-	cd html; xsltproc --xinclude ../../mathbook/xsl/mathbook-html.xsl ../GILA.xml
+	cd html;  test ! -e images && ln -s ../images; xsltproc --xinclude ../../mathbook/xsl/mathbook-html.xsl ../GILA.xml
 clean::
 	rm *.aux *~ *.bak */*.aux */*~ */*.bak pdf/*.pdf html/*.html
 check::
