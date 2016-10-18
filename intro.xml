@@ -55,7 +55,7 @@ Solving a system of equations just means (somehow) transforming it from somethin
 <p>There are a small number of simple procedures that we can apply to systems without effecting their solutions.  We can use these operations to convert almost any system into one that looks like that latter form (each equation just states what the value of some variable is). We'll get around to the full story in section <xref ref="section-sys_eqs" />, but for now, notice that if we add the two original equations together (adding equations means adding left sides and adding right sides separately) we get something that only involves <m>x</m>.  And of course, once we know one of the variables it isn't very hard to find the other.
 </p>
 
-<p>We glossed-over a small but important issue in the above.  How do we know that our answer was the only answer?  And for that matter, is it necessarily true that there must <em>be</em> an answer to some system of equations?  These are what are known as existance and uniqueness questions:  Does there exist an answer to our problem?  (Existance.) And, if there <em>is</em> an answer, how do we know it is the only answer? (Uniqueness.)  There are systems of equations where all of the possible behaviors are exhibited: no solutions, unique solutions and lots of solutions.
+<p>We glossed-over a small but important issue in the above.  How do we know that our answer was the only answer?  And for that matter, is it necessarily true that there must <em>be</em> an answer to some system of equations?  These are what are known as existence and uniqueness questions:  Does there exist an answer to our problem?  (Existence.) And, if there <em>is</em> an answer, how do we know it is the only answer? (Uniqueness.)  There are systems of equations where all of the possible behaviors are exhibited: no solutions, unique solutions and lots of solutions.
 </p>
 
 <exercise>
@@ -275,13 +275,13 @@ where <m>x_1</m> is the number of shares of SCTY we will buy, <m>x_2</m> is the 
 </statement>
 
 <solution>
-<p>Now, let's go ahead and figure out what the values of the variables should be.  How many shares of each stock should we purchase?
+<p>Now, let's go ahead and figure out what the values of the variables should be.  In other words, how many shares of each stock should we purchase?
 </p>
   
 <p>First, look at that middle equation.  It isn't very complicated, indeed, it basically <em>tells</em> us the value of <m>x_3</m> <mdash /> we just need to divide both sides by 12 to get that <m>x_3 = 333.\overline{3}</m>.  Unfortunately, we can't buy fractions of a share of stock so we'll round to <m>333</m>.
 </p>
 
-<p>We're somewhat lucky in that the variable <m>x_3</m> doesn't appear in the other equations, but <em>even if it did</em>, we could now substitute the value we just determined for it.  Furthermore, we now have no more use for that middle equation; we've used it up in finding the value of <m>x_3</m>.  So now we've reduced our problem to a simpler system <mdash /> one that consists of just two equations in the remaining two unknowns.
+<p>We're somewhat lucky in that the variable <m>x_3</m> doesn't appear in the other equations, but <em>even if it did</em>, we could now substitute the value we just determined for it.  Furthermore, at this point, we have no more use for that middle equation; we've used it up in finding the value of <m>x_3</m>.  So now we've reduced our problem to a simpler system <mdash /> one that consists of just two equations in the remaining two unknowns.
 
 <me>
 \begin{alignedat}{3}
@@ -343,7 +343,7 @@ a_{m1} x_1 \amp {}+{} \amp  a_{m2} x_2 \amp {}+{} \amp  \amp {}\cdot {} \amp \am
 </p> 
 </remark>
 
-<p>What does it means to say we have found an <q>answer</q> to a system of equations?  Essentially, it is this: we have found a set of values for the variables that <q>work</q> in all of the equations.  Sometimes people say that this set of values <q>satisfies</q> the equations.  To be completely clear, what is meant is that if one substitutes these values for the variables in the equations of the system, all of them will be true.  It is convenient to regard such a set of values as a vector.  For example the solution we obtained in Example <xref ref="ex-invest" /> would be regarded as the vector <m>\langle 225, 167, 333 \rangle</m>.
+<p>What does it means to say we have found an <q>answer</q> to a system of equations?  Essentially, it is this: we have found a set of values for the variables that <q>work</q> in all of the equations.  Sometimes people say that this set of values <q>satisfies</q> the equations.  To be completely clear, what is meant is that if one substitutes these values for the variables in the equations of the system, all of them (the equations) will be true.  It is convenient to regard such a set of values as a vector.  For example the solution we obtained in Example <xref ref="ex-invest" /> would be regarded as the vector <m>\langle 225, 167, 333 \rangle</m>.
 </p>
 
 
@@ -369,7 +369,35 @@ a_{m1} x_1 \amp {}+{} \amp  a_{m2} x_2 \amp {}+{} \amp  \amp {}\cdot {} \amp \am
 <remark>
 <p>The equivalence of linear systems is an example of what is known  as an equivalence relation.  Equivalence relations are used in theoretical mathematics when we are trying to capture the notion that two things <mdash /> while not <em>actually</em> equal <mdash /> are similar enough that we can treat them as being sort of a junior version of equal<ellipsis />  
 </p>
+<p>For a relationship to earn the title <q>equivalence relation</q> it must have a short list of properties.  These properties are certainly true of the ordinary equals sign:
+</p>
+
+<dl>
+<li><title>reflexivity</title><p>A relation is reflexive iff all elements are related to themselves.</p>
+<li><title>symmetry</title><p>A relation is symmetric iff whenever <m>x</m> and <m>y</m> are a pair of elements that are related, then <m>y</m> and <m>x</m> are also a pair that are related.  (I.e. the order can always be reversed.) 
+<li><title>transitivity</title><p>Perhaps you've heard the phrase <q>Two things that are equal to a third must be equal to each other.</q> That's the essence of transitivity.</p>
+</dl>
+<p>
+There really is much more that we should say about equivalence relations in general and the consequences that ensue when we can show that some relation is an equivalence relation.  We refer the interested reader to chapter 6 in <url href="https://osj1961.github.io/giam/">GIAM</url>. For our present purposes, we are about to <em>see</em> how very useful the notion of equivalence of linear systems can be.  Hopefully this will give you some indication of how useful equivalence relations in general can be!  
+</p>
+  
+<p>One final word about equivalence relations (in general) and the equivalence of linear systems (in particular):  It is customary, when introducing this notion, to ask students to come up with a proof that shows that some given relation (in this case, equivalence of linear systems) is indeed an equivalence relation.  Such proofs are actually relatively straightforward, but <em>relax</em>, we're going to let you off the hook this time!  Showing that equivalence of linear systems is an equivalence relation is actually too easy.  What one needs to do is show that it has each of the three properties: reflexivity, symmetry and transitivity.  Each of those is an almost immediate consequence of the way this equivalence is defined.  We define two systems to be equivalent if and only if they have the same solution set. In other words, equivalence is <em>defined</em> in terms of set equality.  Set equality is definitely an equivalence relation, so it has the three properties.  Finally, the arguments that show that equivalence of linear systems has the three properties all have the same form: in order to show that the equivalence of linear systems has a property we use the fact that set equality has that property.  This is called inheritance.  
+</p>
 </remark>
+
+<p>The general idea is this:  there are lots and lots of different linear systems that are equivalent.  They all have the same solution set.  Some of these systems are in a nice form that allows us to see what the solution set is.  Others are not.  We need to transform the latter into the former!
+</p>
+
+<p>More specifically, there are three operations that can be applied to linear systems which <em>do not have any effect on solution sets</em>.  We can apply these three operations in any way we like!  We'll just be transforming our linear system into a slightly different one that is equivalent to the original.  Finally, you'll see that it is pretty easy to strategize a bit and transform difficult linear systems into the nice sort where the solution set is very evident using these three operations.
+</p> 
+
+<p>The three operations go by many names; we'll refer to them as Reordering, Scaling and Combining.  In the next few paragraphs we'll discuss each of them in turn and explain why they don't have an effect on the solution set of a system.
+</p>
+
+<p><em>Reordering</em> means what it sounds like.  The solution set is determined by checking whether a given solution vector satisfies <em>all</em> of the equations.  It is pretty clear that the order that the equations are listed in is of little importance.  In many treatments of linear algebra an operation called <q>swapping</q> is used instead <mdash /> swapping two equations is a special (particularly simple) instance of reordering and any more general reordering can be accomplished by a succession of swaps.
+</p>
+
+<exercise>
 </section>
 
 <section xml:id="section-vectors">
