@@ -28,3 +28,7 @@ images/*.bak
 images/*.pdf
 
 images/*.jpg
+
+html/images
+
+pdf/images
