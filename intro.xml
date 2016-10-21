@@ -78,7 +78,7 @@ Solving a system of equations just means (somehow) transforming it from somethin
 <p>
   Consider the piece known as a bishop. If you're not familiar with chess, this is the piece that can move in the diagonal directions. Think of the bishop as having two moves that it can do (but it can do them any number of times). It can do a move we'll refer to as UR; move one unit in the <m>x</m> direction while simultaneously moving one unit in the <m>y</m> direction <mdash /> by doing this multiple times the bishop can travel in the upper right direction. It also has a move that allows it to travel along the other diagonal <mdash /> move one unit in the <m>x</m> direction while simultaneously moving negative one unit in the <m>y</m> direction. We'll call that move LR.
 </p>
-<p>For those who are familiar with chess, you'll know that bishops are forever trapped on the same color square <mdash /> one of your bishops is always on black and the other always on white. This means that some <q>bishop moving questions</q> won't have solutions <mdash /> for example a bishop sitting at the origin, <m>(0, 0)</m>, can never move to <m>(0, 5)</m>; those squares have opposite colors! To get around this limitation we're going to let our bishops make fractional moves. For instance if it starts at the origin and makes <m>1/2</m> of the upper-right move then it will arrive at <m>(1/2, 1/2)</m>.  Now, getting a little stranger, we're going to also allow our bishops to make negative moves. Maybe we should think of a negative move as <q>undoing</q> a regular move<ellipsis />
+<p>For those who are familiar with chess, you'll know that bishops are forever trapped on the same color square <mdash /> one of your bishops is always on black and the other always on white. This means that some <q>bishop moving questions</q> won't have solutions <mdash /> for example, a bishop sitting at the origin, <m>(0, 0)</m>, can never move to <m>(0, 5)</m>; those squares have opposite colors! To get around this limitation we're going to let our bishops make fractional moves. For instance if it starts at the origin and makes <m>1/2</m> of the upper-right move then it will arrive at <m>(1/2, 1/2)</m>.  Now, getting a little stranger, we're going to also allow our bishops to make negative moves. Maybe we should think of a negative move as <q>undoing</q> a regular move<ellipsis />
 </p>
 
 
@@ -327,10 +327,10 @@ So in the end we should put in an order for 225 share of SCTY, 167 shares of SPW
 <statement><p>A <term>linear system</term>, also known (a bit more formally) as a <term>system of linear equations</term> is a collection of <m>m</m> equations in <m>n</m> unknowns of the form
 <me>
 \begin{alignedat}{5}
-a_{11} x_1 \amp {}+{} \amp  a_{12} x_2 \amp {}+{} \amp  \amp {}\cdot {} \amp \amp {}+{} a_{1n} x_n \amp {}={} \amp b_1 \\
-a_{21} x_1 \amp {}+{} \amp  a_{22} x_2 \amp {}+{} \amp  \amp {}\cdot {} \amp \amp {}+{} a_{2n} x_n \amp {}={} \amp b_2 \\
+a_{11} x_1 \amp {}+{} \amp  a_{12} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \amp {}+{} a_{1n} x_n \amp {}={} \amp b_1 \\
+a_{21} x_1 \amp {}+{} \amp  a_{22} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \amp {}+{} a_{2n} x_n \amp {}={} \amp b_2 \\
  \amp \amp \amp  \amp \amp \vdots \amp  \amp \amp \amp \\
-a_{m1} x_1 \amp {}+{} \amp  a_{m2} x_2 \amp {}+{} \amp  \amp {}\cdot {} \amp \amp {}+{} a_{mn} x_n \amp {}={} \amp b_m \\
+a_{m1} x_1 \amp {}+{} \amp  a_{m2} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \amp {}+{} a_{mn} x_n \amp {}={} \amp b_m \\
 \end{alignedat}
 </me>
 </p>
@@ -372,11 +372,20 @@ a_{m1} x_1 \amp {}+{} \amp  a_{m2} x_2 \amp {}+{} \amp  \amp {}\cdot {} \amp \am
 <p>For a relationship to earn the title <q>equivalence relation</q> it must have a short list of properties.  These properties are certainly true of the ordinary equals sign:
 </p>
 
+<p>
 <dl>
-<li><title>reflexivity</title><p>A relation is reflexive iff all elements are related to themselves.</p>
-<li><title>symmetry</title><p>A relation is symmetric iff whenever <m>x</m> and <m>y</m> are a pair of elements that are related, then <m>y</m> and <m>x</m> are also a pair that are related.  (I.e. the order can always be reversed.) 
-<li><title>transitivity</title><p>Perhaps you've heard the phrase <q>Two things that are equal to a third must be equal to each other.</q> That's the essence of transitivity.</p>
+<li><title>reflexivity</title><p>A relation is reflexive iff all elements are related to themselves.
+</p>
+</li>
+<li><title>symmetry</title><p>A relation is symmetric iff whenever <m>x</m> and <m>y</m> are a pair of elements that are related, then <m>y</m> and <m>x</m> are also a pair that are related.  (I.e. the order can always be reversed.)
+</p>
+</li>
+<li><title>transitivity</title><p>Perhaps you've heard the phrase <q>Two things that are equal to a third must be equal to each other.</q> That's the essence of transitivity.
+</p>
+</li>
 </dl>
+</p>
+
 <p>
 There really is much more that we should say about equivalence relations in general and the consequences that ensue when we can show that some relation is an equivalence relation.  We refer the interested reader to chapter 6 in <url href="https://osj1961.github.io/giam/">GIAM</url>. For our present purposes, we are about to <em>see</em> how very useful the notion of equivalence of linear systems can be.  Hopefully this will give you some indication of how useful equivalence relations in general can be!  
 </p>
@@ -397,8 +406,136 @@ There really is much more that we should say about equivalence relations in gene
 <p><em>Reordering</em> means what it sounds like.  The solution set is determined by checking whether a given solution vector satisfies <em>all</em> of the equations.  It is pretty clear that the order that the equations are listed in is of little importance.  In many treatments of linear algebra an operation called <q>swapping</q> is used instead <mdash /> swapping two equations is a special (particularly simple) instance of reordering and any more general reordering can be accomplished by a succession of swaps.
 </p>
 
-<exercise>
+<exercise><title>permutations and swaps</title>
+  <statement><p>We have placed the letters A through F in sequence below <mdash /> however they are not in the usual (alphabetic) order.  Determine a sequence of swaps that will reorder them so that they <em>are</em> in alphabetic order.
+
+<me> DCABFE </me>
+</p>
+  </statement>
+  <hint><p>There are many ways to proceed, but putting A then B then C <foreign>et cetera</foreign> where they belong using swaps is one possibility.  What swap puts A in the first position?
+</p>
+  </hint>
+  <solution><p>
+<md>
+  <mrow> DCABFE \quad \mbox{given} </mrow>
+  <mrow> ACDBFE \quad \mbox{swap D and A}</mrow>
+  <mrow> ABDCFE \quad \mbox{swap C and B}</mrow>
+  <mrow> ABCDFE \quad \mbox{swap D and C}</mrow>
+  <mrow> ABCDEF \quad \mbox{swap F and E}</mrow>
+</md>
+</p>
+  </solution>
+</exercise>
+
+<p>Scaling is another operation where it is fairly obvious that it will have no effect on solution sets.  Scaling involves multiplying both sides of an equation by some non-zero constant.  Very often that non-zero constant will be the reciprocal of the coefficient of one
+of the variables; scaling by such a constant is useful in solving for that variable.  Perhaps it is clear that multiplying both sides of an equation by the same thing will have no impact on what values of the variables satisfy the equation<ellipsis />  But why does the constant need to be non-zero?  Multiplying both sides of <em>any</em> equation by <m>0</m> will produce a new equation that looks like <m>0 = 0</m> which is certainly true!  In fact, of course, that's what the problem is; if the equation was previously false for some vector of variable values (thus it served to exclude that vector from the solution set) it will now be true.  So vectors of variable values that previously were not in the solution set will now be in it <mdash /> that's the sort of thing we are trying to avoid!
+</p>
+
+<p>Combining (a.k.a replacement) is the most difficult of the three operations and as you might guess, it is also the most useful.  Combining consists of adding a multiple of some other equation to a given one.  Another way to think of this is that we replace some equation 
+by <em>itself</em> plus a multiple of some other equation. This is probably why some people call this operation Replacement.
+</p>
+
+<p>When we added the equations <m>x+y=42</m> and <m>x-y=6</m>, obtaining the new equation <m>2x=48</m> back in Section <xref ref="section-start" /> we were really doing a <q>Combining</q> operation.  By the way, when we divided both sides of that new equation by <m>2</m> we were <q>Scaling.</q>
+</p>
+
+<p>We'll close this section by giving an example <mdash /> using the three operations to find the solution of a small linear system.
+</p>
+
+<example><title>A small linear system</title>
+<statement>
+<p>
+There is a unique solution to the following system of 3 equations in 3 unknowns.  What is it?
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}={} \amp 21 \\
+ 2 x_1  \amp {}-{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}={} \amp 12 \\
+   x_1  \amp {}+{} \amp 3 x_2 \amp {}-{} \amp x_3  \amp {}={} \amp 17
+\end{alignedat}
+</me>
+</p>
+
+</statement>
+<solution>
+<p>The first thing we'll do is a combining operation.  We'll subtract twice the first equation from the second.  It will be convenient to develop a shorthand for expressing these operations.  This one could be written as <m>E_2 = E_2 - 2E_1</m>.
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp {}-{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -30 \\
+   x_1  \amp {}+{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp 17
+\end{alignedat}
+</me>
+</p>
+
+<p>Next we'll do a similar combining operation to eliminate <m>x_1</m> from the 3rd equation.
+This one would be expressed as <m>E_3 = E_3 - E_1</m>.
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp {}-{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -30 \\
+        \amp {}+{} \amp 2 x_2 \amp {}-{} \amp 2 x_3  \amp {}={} \amp -4
+\end{alignedat}
+</me>
+</p>
+
+<p>You should take note that we have done something mildly clever in eliminating the occurrences of <m>x_1</m> in the latter two equations. Now we can use them in further combination operations without fear that they will effect terms involving <m>x_1</m>.
+</p>
+
+<p>For our next operation let's scale the last equation by <m>1/2</m>; this isn't strictly necessary but it makes things <em>look</em> a little simpler and since every coefficient in the 3rd equation is even we won't end up dealing with fractions <ellipsis />  <m>E_2 = \frac{1}{2} E_2</m>.
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp {}-{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -30 \\
+        \amp       \amp   x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -2
+\end{alignedat}
+</me>
+</p>
+
+<p>We've just cleaned up the 3rd equation so that the first non-zero term in it (the one involving <m>x_2</m>) has a coefficient of 1.   This makes equation 3 very useful as a tool for eliminating the variable <m>x_2</m> from other equations, so next we'll do a reordering operation to move it a bit closer to the top of the heap.
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp       \amp   x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -2 \\
+        \amp {}-{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -30 \\
+\end{alignedat}
+</me>
+</p>
+
+<p>Next, let's use what is now equation 2 to eliminate <m>x_2</m> from (the new) equation 3:
+<m>E_3 = E_3 + 3 E_2</m>. 
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp       \amp   x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -2 \\
+        \amp       \amp       \amp {}-{} \amp 4 x_3  \amp {}={} \amp -36 \\
+\end{alignedat}
+</me>
+</p>
+
+<p>Finally, although this isn't strictly necessary, let's scale the 3rd equation so that the coefficient of <m>x_3</m> is 1<ellipsis /> <m>E_3 = \frac{-1}{4} E_3</m>.
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp       \amp   x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -2 \\
+        \amp       \amp       \amp       \amp   x_3  \amp {}={} \amp 9 \\ 
+\end{alignedat}
+</me>
+</p>
+
+<p>Wait!  Should the last sentence really have started with the word <q>Finally</q>?  It seems like the system is still pretty complicated.  We certainly haven't achieved the simplest possible sort of linear system, but we <em>have</em> turned the original system into a type that is known as <q>triangular</q>.  Do you see why?  This kind of system is very easy to solve by a process known as back-substitution.  The 3rd equation tells you the exact value of the third variable (<m>x_3 = 9</m>), you can then substitute that value into the second equation to obtain <m>x_2 - 9 = -2</m>.  So now we can easily see that <m>x_2=7</m>.  Hmmm.  Now we've got known values for <m>x_2</m> and <m>x_3</m> which we can substitute into the 1st 
+equation to get
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   7 \amp {}+{} \amp   9  \amp {}={} \amp 21 \\
+\end{alignedat}
+</me>
+</p>
+
+<p>Okay.  That's easy, <m>x_1=5</m>.
+</p>
+</solution>
+</example>
 </section>
+
 
 <section xml:id="section-vectors">
 <title>Vector equations</title>
