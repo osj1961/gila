@@ -266,7 +266,7 @@ where <m>x_1</m> is the number of shares of SCTY we will buy, <m>x_2</m> is the 
 
 <me>
 \begin{alignedat}{4}
-20 x_1 \amp {}+{} \amp  9 x_2 \amp {}+{} \amp  \amp {}={} \amp 6000 \\
+20 x_1 \amp {}+{} \amp  9 x_2 \amp  \amp  \amp {}={} \amp 6000 \\
  \amp  \amp   \amp  \amp  12 x_3 \amp {}={} \amp 4000 \\
 20 x_1 \amp {}-{} \amp 27 x_2 \amp  \amp  \amp {}={} \amp 0
 \end{alignedat}
@@ -343,7 +343,7 @@ a_{m1} x_1 \amp {}+{} \amp  a_{m2} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \a
 </p> 
 </remark>
 
-<p>What does it means to say we have found an <q>answer</q> to a system of equations?  Essentially, it is this: we have found a set of values for the variables that <q>work</q> in all of the equations.  Sometimes people say that this set of values <q>satisfies</q> the equations.  To be completely clear, what is meant is that if one substitutes these values for the variables in the equations of the system, all of them (the equations) will be true.  It is convenient to regard such a set of values as a vector.  For example the solution we obtained in Example <xref ref="ex-invest" /> would be regarded as the vector <m>\langle 225, 167, 333 \rangle</m>.
+<p>What does it mean to say we have found an <q>answer</q> to a system of equations?  Essentially, it is this: we have found a set of values for the variables that <q>work</q> in all of the equations.  Sometimes people say that this set of values <q>satisfies</q> the equations.  To be completely clear, what is meant is that if one substitutes these values for the variables in the equations of the system, all of them (the equations) will be true.  It is convenient to regard such a set of values as a vector.  For example the solution we obtained in Example <xref ref="ex-invest" /> would be regarded as the vector <m>\langle 225, 167, 333 \rangle</m>.
 </p>
 
 
@@ -387,7 +387,7 @@ a_{m1} x_1 \amp {}+{} \amp  a_{m2} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \a
 </p>
 
 <p>
-There really is much more that we should say about equivalence relations in general and the consequences that ensue when we can show that some relation is an equivalence relation.  We refer the interested reader to chapter 6 in <url href="https://osj1961.github.io/giam/">GIAM</url>. For our present purposes, we are about to <em>see</em> how very useful the notion of equivalence of linear systems can be.  Hopefully this will give you some indication of how useful equivalence relations in general can be!  
+There really is much more that we should say about equivalence relations in general and the consequences that ensue when we can show that some relation is an equivalence relation.  We refer the interested reader to chapter 6 in <url href="https://osj1961.github.io/giam/">GIAM</url>.  In the remainder of this book we are going to <em>see</em> how very useful the notion of equivalence of linear systems can be.  Hopefully this will give you some indication of how useful equivalence relations in general can be!  
 </p>
   
 <p>One final word about equivalence relations (in general) and the equivalence of linear systems (in particular):  It is customary, when introducing this notion, to ask students to come up with a proof that shows that some given relation (in this case, equivalence of linear systems) is indeed an equivalence relation.  Such proofs are actually relatively straightforward, but <em>relax</em>, we're going to let you off the hook this time!  Showing that equivalence of linear systems is an equivalence relation is actually too easy.  What one needs to do is show that it has each of the three properties: reflexivity, symmetry and transitivity.  Each of those is an almost immediate consequence of the way this equivalence is defined.  We define two systems to be equivalent if and only if they have the same solution set. In other words, equivalence is <em>defined</em> in terms of set equality.  Set equality is definitely an equivalence relation, so it has the three properties.  Finally, the arguments that show that equivalence of linear systems has the three properties all have the same form: in order to show that the equivalence of linear systems has a property we use the fact that set equality has that property.  This is called inheritance.  
@@ -397,7 +397,7 @@ There really is much more that we should say about equivalence relations in gene
 <p>The general idea is this:  there are lots and lots of different linear systems that are equivalent.  They all have the same solution set.  Some of these systems are in a nice form that allows us to see what the solution set is.  Others are not.  We need to transform the latter into the former!
 </p>
 
-<p>More specifically, there are three operations that can be applied to linear systems which <em>do not have any effect on solution sets</em>.  We can apply these three operations in any way we like!  We'll just be transforming our linear system into a slightly different one that is equivalent to the original.  Finally, you'll see that it is pretty easy to strategize a bit and transform difficult linear systems into the nice sort where the solution set is very evident using these three operations.
+<p>More specifically, there are three operations that can be applied to linear systems which <em>do not have any effect on solution sets</em>.  We can apply these three operations in any way we like!  We'll just be transforming our linear system into a slightly different one that is equivalent to the original.  Finally, you'll see that it is pretty easy to strategize a bit and transform difficult linear systems into the nice sort (where the solution set is very evident) using these three operations.
 </p> 
 
 <p>The three operations go by many names; we'll refer to them as Reordering, Scaling and Combining.  In the next few paragraphs we'll discuss each of them in turn and explain why they don't have an effect on the solution set of a system.
@@ -417,7 +417,7 @@ There really is much more that we should say about equivalence relations in gene
   </hint>
   <solution><p>
 <md>
-  <mrow> DCABFE \quad \mbox{given} </mrow>
+  <mrow> DCABFE \quad \mbox{(given) \phantom{swap D}} </mrow>
   <mrow> ACDBFE \quad \mbox{swap D and A}</mrow>
   <mrow> ABDCFE \quad \mbox{swap C and B}</mrow>
   <mrow> ABCDFE \quad \mbox{swap D and C}</mrow>
@@ -427,8 +427,7 @@ There really is much more that we should say about equivalence relations in gene
   </solution>
 </exercise>
 
-<p>Scaling is another operation where it is fairly obvious that it will have no effect on solution sets.  Scaling involves multiplying both sides of an equation by some non-zero constant.  Very often that non-zero constant will be the reciprocal of the coefficient of one
-of the variables; scaling by such a constant is useful in solving for that variable.  Perhaps it is clear that multiplying both sides of an equation by the same thing will have no impact on what values of the variables satisfy the equation<ellipsis />  But why does the constant need to be non-zero?  Multiplying both sides of <em>any</em> equation by <m>0</m> will produce a new equation that looks like <m>0 = 0</m> which is certainly true!  In fact, of course, that's what the problem is; if the equation was previously false for some vector of variable values (thus it served to exclude that vector from the solution set) it will now be true.  So vectors of variable values that previously were not in the solution set will now be in it <mdash /> that's the sort of thing we are trying to avoid!
+<p>Scaling is another operation where it is fairly obvious that there will be no effect on solution sets.  Scaling involves multiplying both sides of an equation by some non-zero constant.  Very often that non-zero constant will be the reciprocal of the coefficient of one of the variables; scaling by such a constant is useful in solving for that variable.  Perhaps it is clear that multiplying both sides of an equation by the same thing will have no impact on what values of the variables satisfy the equation<ellipsis />  But why does the constant need to be non-zero?  Multiplying both sides of <em>any</em> equation by <m>0</m> will produce a new equation that looks like <m>0 = 0</m> which is certainly true!  In fact, of course, that's what the problem is; if the equation was previously false for some vector of variable values (thus it served to exclude that vector from the solution set) it will now be true.  So vectors of variable values that previously were not in the solution set will now be in it <mdash /> that's the sort of thing we are trying to avoid!
 </p>
 
 <p>Combining (a.k.a replacement) is the most difficult of the three operations and as you might guess, it is also the most useful.  Combining consists of adding a multiple of some other equation to a given one.  Another way to think of this is that we replace some equation 
@@ -480,7 +479,7 @@ This one would be expressed as <m>E_3 = E_3 - E_1</m>.
 <p>You should take note that we have done something mildly clever in eliminating the occurrences of <m>x_1</m> in the latter two equations. Now we can use them in further combination operations without fear that they will effect terms involving <m>x_1</m>.
 </p>
 
-<p>For our next operation let's scale the last equation by <m>1/2</m>; this isn't strictly necessary but it makes things <em>look</em> a little simpler and since every coefficient in the 3rd equation is even we won't end up dealing with fractions <ellipsis />  <m>E_2 = \frac{1}{2} E_2</m>.
+<p>For our next operation let's scale the last equation by <m>1/2</m>; this isn't strictly necessary but it makes things <em>look</em> a little simpler and since every coefficient in the 3rd equation is even we won't end up dealing with fractions <ellipsis />  <m>E_3 = \frac{1}{2} E_3</m>.
 <me>
 \begin{alignedat}{4}
    x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
@@ -511,7 +510,7 @@ This one would be expressed as <m>E_3 = E_3 - E_1</m>.
 </me>
 </p>
 
-<p>Finally, although this isn't strictly necessary, let's scale the 3rd equation so that the coefficient of <m>x_3</m> is 1<ellipsis /> <m>E_3 = \frac{-1}{4} E_3</m>.
+<p>Finally, although (again) this isn't strictly necessary, let's scale the 3rd equation so that the coefficient of <m>x_3</m> is 1<ellipsis /> <m>E_3 = \frac{-1}{4} E_3</m>.
 <me>
 \begin{alignedat}{4}
    x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
@@ -521,8 +520,7 @@ This one would be expressed as <m>E_3 = E_3 - E_1</m>.
 </me>
 </p>
 
-<p>Wait!  Should the last sentence really have started with the word <q>Finally</q>?  It seems like the system is still pretty complicated.  We certainly haven't achieved the simplest possible sort of linear system, but we <em>have</em> turned the original system into a type that is known as <q>triangular</q>.  Do you see why?  This kind of system is very easy to solve by a process known as back-substitution.  The 3rd equation tells you the exact value of the third variable (<m>x_3 = 9</m>), you can then substitute that value into the second equation to obtain <m>x_2 - 9 = -2</m>.  So now we can easily see that <m>x_2=7</m>.  Hmmm.  Now we've got known values for <m>x_2</m> and <m>x_3</m> which we can substitute into the 1st 
-equation to get
+<p>Wait!  Should the last sentence really have started with the word <q>Finally</q>?  It seems like the system is still pretty complicated.  We certainly haven't achieved the simplest possible sort of linear system, but we <em>have</em> turned the original system into a type that is known as <q>triangular</q>.  Do you see why?  This kind of system is very easy to solve by a process known as back-substitution.  The 3rd equation tells you the exact value of the third variable (<m>x_3 = 9</m>), you can then substitute that value into the second equation to obtain <m>x_2 - 9 = -2</m>.  So now we can easily see that <m>x_2=7</m>.  Hmmm.  Now we've got known values for <m>x_2</m> and <m>x_3</m> which we can substitute into the 1st equation to get
 <me>
 \begin{alignedat}{4}
    x_1  \amp {}+{} \amp   7 \amp {}+{} \amp   9  \amp {}={} \amp 21 \\
@@ -539,12 +537,289 @@ equation to get
 
 <section xml:id="section-vectors">
 <title>Vector equations</title>
-<p>.</p>
+<p>We have previously seen the idea of a linear combination of numbers.  In this section we will look at forming linear combinations of vectors.  The typical problem of the vector equations sort is: can we find the coefficients so that a linear combination of some set of vectors (with those coefficients) is equal to a given vector?  
+</p>
+
+<p>Recall that when we formed linear combinations of numbers we were allowed to <q>multiply by constants and add things up.</q>   So if we are planning to do the same thing with vectors we need to understand what it means to multiply a vector by a constant
+and what it means to add vectors.  
+</p>
+
+<p>We use the term <em>scalar</em> to refer to real numbers, <em>especially</em> when referring to the numbers that we multiply vectors by.  Calling them <q>constants</q> is probably not the best plan; both a scalar and a vector can be <em>constant</em> <mdash /> that just means they aren't changing.  It's usually more important to distinguish the vectors from the scalars <mdash /> which things have multiple components and which don't?  When we think of vectors as <q>those things that have both a direction and a magnitude,</q> the effect of multiplying by a scalar is to leave the direction unchanged, but change the magnitude by scaling it as the scalar indicates.  If the scalar is less than 1, the magnitude of the vector will be reduced; if the scalar is greater than 1 it will be increased.  Of course, if the scalar is negative the direction <em>will</em> be effected, but in a rather simplistic way: the vector ends up facing the opposite direction.
+</p>
+
+<p>When we have an actual vector and a scalar we'd like to multiply it by the operation we  perform is almost the only thing it could be!  Just multiply each of the components of the  vector by the scalar.
+</p>
+
+<definition>
+  <title>scalar-vector product</title>
+  <statement>
+    <p>If <m>\vec{v}</m> is a vector having <m>m</m> components, <m>\vec{v} = \langle v_1, v_2, \ldots , v_m \rangle</m> and <m>s</m> is a scalar, then the <term>scalar multiplication</term> of <m>\vec{v}</m> by <m>s</m> is defined by
+<me>s\vec{v} = s \langle v_1, v_2, \ldots , v_m \rangle = \langle sv_1, sv_2, \ldots , sv_m \rangle </me>
+</p>
+</statement>
+</definition>
+
+<remark><p>The scalar-vector product looks rather like a funny version of the distributive law!
+</p>
+</remark>
+
+<p>The addition of vectors is best thought of in terms of <q>directions</q>.  Suppose the directions to got from my house to the Kwik-E-Mart are: <q>go 3 blocks north and 1 block east</q> (call that vector <m>\vec{v}</m>, we might write it's component form as <m>\vec{v} = \langle 1, 3 \rangle</m>).  Suppose in addition that the directions to go from the Kwik-E-Mart to Moe's Tavern are <q>go 1 block north and 2 blocks west</q>
+ (let's call this <m>\vec{w} = \langle -2, 1\rangle</m>).  The meaning of the vector sum is the vector that describes the change that would be effected if we follow one set of directions followed by the other <mdash /> except we don't have to be slavish about it <mdash /> we don't literally follow the first set of directions and then do the second.  The sum is the set of directions that take us directly to Moe's without making a Kwik-E-Mart pitstop.
+</p>
+
+<p>When we actually compute vector sums using the component forms of the vectors involved the computation is probably exactly what you would expect: just add up the corresponding components.
+</p>
+
+<definition>
+ <title>vector addition</title>
+ <statement>
+  <p>If <m>\vec{v}</m> and <m>\vec{w}</m> are both vectors having <m>m</m> components,
+
+<md>
+ <mrow>\vec{v} = \langle v_1, v_2, \ldots , v_m \rangle</mrow>
+ <intertext> and </intertext>
+ <mrow>\vec{w} = \langle w_1, w_2, \ldots , w_m \rangle</mrow>
+</md>
+
+then their <term>vector sum</term> is defined by
+
+<md>
+ <mrow>\vec{v} + \vec{w} = \langle v_1+w_1, v_2+w_2, \ldots , v_m+w_m \rangle.</mrow>
+</md>
+</p>
+ </statement>
+</definition>
+
+<remark><p>The addition of vectors is also known as <em>componentwise</em> addition.  It's worth pointing out that if two vectors have different numbers of components, adding them together generally doesn't make sense.
+</p>
+</remark>
+
+<p>One last definition will be needed to work with vector equations.  What does it mean for two vectors to be equal to one another?  The answer is probably entirely obvious, but we'll include a formal definition here for completeness.
+</p>
+
+<definition>
+ <title>vector equality</title>
+ <statement>
+  <p>If <m>\vec{v}</m> and <m>\vec{w}</m> are two vectors of length <m>m</m> having components 
+
+<md>
+ <mrow>\vec{v} = \langle v_1, v_2, \ldots , v_m \rangle</mrow>
+ <intertext> and </intertext>
+ <mrow>\vec{w} = \langle w_1, w_2, \ldots , w_m \rangle</mrow>
+</md>
+
+then we say <m>\vec{v}</m> and <m>\vec{w}</m> are <term>equal</term> and write <m>\vec{v} = \vec{w}</m> if and only if for every <m>i</m>, <m>1\leq i \leq m</m>, <m>v_i = w_i</m>.
+</p>
+</statement>
+</definition>
+
+<example><title>a small vector problem</title>
+<statement>
+<p>Consider the following set of vectors: <m>\langle 1, 1, 0 \rangle</m>,
+<m>\langle 1, 1, 1 \rangle</m> and <m>\langle 0, 0, 1 \rangle</m>. Is it possible to find scalars <m>x_1</m>, <m>x_2</m> and <m>x_3</m> so that
+<md><mrow>x_1 \langle 1, 1, 0 \rangle + x_2 \langle 1, 1, 1 \rangle + x_3 \langle 0, 0, 1 \rangle = \langle 2, 3, 4 \rangle </mrow>
+</md>
+</p>
+</statement>
+<solution>
+<p>Let's modify the given problem by using the definitions of (first) scalar multiplication (and then) vector addition:
+
+ <md><mrow>\langle x_1, x_1, 0 \rangle + \langle x_2, x_2, x_2 \rangle + \langle 0, 0, x_3 \rangle = \langle 2, 3, 4 \rangle .</mrow>
+<intertext> and then </intertext>
+<mrow>\langle x_1 + x_2, x_1 + x_2, x_2 + x_3 \rangle = \langle 2, 3, 4 \rangle .</mrow>
+</md>
+</p>
+
+<p>
+Now (surprise!) that final form <mdash /> after we use the definition of vector equality <mdash /> becomes a system of three equations in three unknowns.
+
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp \amp \amp {}={} \amp 2 \\
+   x_1  \amp {}+{} \amp   x_2 \amp \amp \amp {}={} \amp 3 \\
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}={} \amp 4
+\end{alignedat}
+</me>
+</p>
+
+<p>This system is different from the other systems we've seen so far.  It doesn't have a solution.  Its statement includes an impossibility; if <m>x_1</m> and <m>x_2</m> have a sum of <m>2</m> (from the first equation) how can they also have a sum of <m>3</m> (which is what the second equation asserts).  So there simply <em>aren't</em> three numbers which can be used as the coefficients!
+</p>
+</solution>
+</example>
+
+<p>Let's make a tiny change to the previous problem.  Sometimes small changes have large effects!  We'll change the second component in the vector on the right-hand side to a <m>2</m>.
+</p>
+
+
+<example><title>a slightly tweaked vector problem</title>
+<statement>
+<p>Consider the following set of vectors: <m>\langle 1, 1, 0 \rangle</m>,
+<m>\langle 1, 1, 1 \rangle</m> and <m>\langle 0, 0, 1 \rangle</m>. Is it possible to find scalars <m>x_1</m>, <m>x_2</m> and <m>x_3</m> so that
+<md><mrow>x_1 \langle 1, 1, 0 \rangle + x_2 \langle 1, 1, 1 \rangle + x_3 \langle 0, 0, 1 \rangle = \langle 2, 2, 4 \rangle </mrow>
+</md>
+</p>
+</statement>
+<solution>
+<p>Notice that since the left-hand side vectors are all the same as before we can reuse our previous work.  The final form of the vector equation is 
+<md>
+ <mrow>\langle x_1 + x_2, x_1 + x_2, x_2 + x_3 \rangle = \langle 2, 2, 4 \rangle .</mrow>
+</md>
+</p>
+
+<p>Now, as a system of equations, we have
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp \amp \amp {}={} \amp 2 \\
+   x_1  \amp {}+{} \amp   x_2 \amp \amp \amp {}={} \amp 2 \\
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}={} \amp 4
+\end{alignedat}
+</me>
+
+and the first two equations are identical <mdash /> they no longer cause a contradiction.  This system not only has a solution, it has <em>lots</em> of them!
+</p>
+
+<p>When one equation is an exact duplicate of the other, is there really any reason to retain both copies in the system?  Remember that we are mostly concerned with solution sets to linear systems. Either of the copies of this equation will have the same effect on solution sets.  For a given vector, they will both either say <q>Sure! it works for me, put it in the solution set</q> or <q>No way, that vector is <em>not</em> okay with me! It makes me false.</q>  So, from the perspective of solution sets, this system is really just a system of two equations in three unknowns.
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp \amp \amp {}={} \amp 2 \\
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}={} \amp 4
+\end{alignedat}
+</me>
+</p>
+
+<p>By subtracting the first equation from the second we get a unique value for <m>x_3</m> (<m>x_3=2</m>).  But any pair of numbers that add up to <m>2</m> will work for <m>x_1</m> and <m>x_2</m>.  Not only is the solution not unique, the solution set for this system is infinite!
+</p>
+
+<p>We can express the solution set of this system using set-builder notation and a parameter.
+  <md><mrow> \left\{ \langle 2-t, t, 2 \rangle \suchthat t \in \Reals \right\} </mrow></md>
+</p>
+
+<p>Notice how the parameter <m>t</m> allows the values of <m>x_1</m> and <m>x_2</m> to range over all possibilities that add up to <m>2</m>?  We essentially let <m>x_2</m> have any value whatsover (<m>t</m> can be any real number) and then we choose <m>x_1</m> in such a way that the sum is <m>2</m>.  In a situation like this, <m>x_2</m> is known as a <em>free variable</em>.
+</p>
+</solution>
+</example>
 </section>
 
 <section xml:id="section-transformations">
 <title>Transformations</title>
-<p>Dummy text for introduction.</p>
+<p>A transformation is a function whose inputs and outputs are vectors.  In order to discuss concepts like the range and domain of a transformation we'll need some terminology for <em>sets</em> of vectors.  When we are considering the set of all possible vectors of some type it is known as a <em>vector space</em>.  At first, we are going to be looking at the most basic and fundamental sorts of vector spaces <mdash /> where the vectors are ordered tuples of real numbers <mdash /> but be advised that later we will see that there are many other sorts of vectors! 
+</p>
+
+<definition>
+	<title>Real Euclidean spaces</title>
+<statement><p>Given a positive integer <m>n</m> we define the <term>real Euclidean space of dimension <m>n</m></term> (denoted <m>\Reals^n</m>) to 
+be the set of all ordered <m>n</m>-tuples of real numbers.  
+<md><mrow>\Reals^n \; = \; \{ \langle v_1, v_2, \ldots , v_n \rangle \, \suchthat \, \forall i, 1 \leq i \leq n, \, v_i \in \Reals \} </mrow></md>
+</p>
+</statement>
+</definition>
+
+<p>Recall that the <term>domain</term> of a function is the set from which the inputs come.  The set where the outputs may appear is known as the <term>codomain</term> of the function. The codomain must be contrasted with the <term>range</term> which is the set of outputs that actually <em>do</em> occur.  
+</p>
+
+<p>There is a bit of an assymetry in the way we speak of these various sets.  On the output side we have the codomain and the range.  On the input side we have only the domain.  There is no agreed upon name for a set that contains the domain, we simply insist that the function must be defined for every element of the domain (which basically sidesteps the issue).  For the ordinary functions that one sees in calculus, the codomain is the real numbers; the range and domain are generally subsets of the real numbers.  And so, the situation isn't terribly complex.  When we are dealing with transformations things are harder.  The domain and codomain of a transformation are generally real Euclidean spaces <mdash /> potentially of different dimensions <mdash /> so we will usually want to spell out what sorts of vectors are expected as inputs, what sorts of vectors will we see as outputs and only then do we get around to the heart of the matter: how do we compute the output from the input?  We'll introduce the notation for a transformation via an example and then try to treat the general case.
+</p>
+
+<example>
+  <title>an example transformation</title>
+  <statement><p>Let's look at a tranformation that takes vectors of length 6 as inputs, and outputs vectors of length 3.  We'll refer to the input vector as <m>\vec{x}</m> and, as usual, its components will be <m>x</m>'s with subscripts:
+<m>\vec{x} = \langle x_1, x_2, x_3, x_4, x_5, x_6 \rangle</m>.  Similarly, the output will be <m>\vec{y} = \langle y_1, y_2, y_3 \rangle</m>.  This is only an example so we'll just make up the rules that determine those output components from the input components, the point here is simply to demonstrate how one should write such a thing <mdash /> which is as follows:
+<md>
+	<mrow>T:\Reals^6 \longrightarrow \Reals^3</mrow>
+	<mrow>T(\langle x_1, x_2, x_3, x_4, x_5, x_6 \rangle) \quad = \quad \langle x_1, x_3, x_5 \rangle .</mrow>
+</md>
+</p>
+
+<p>So this transformation just picks out the odd-numbered components of <m>\vec{x}</m> and puts them in <m>\vec{y}</m>.
+</p>
+</statement>
+</example>
+
+<p>The most important transformations for us in this context are the <em>linear</em> ones.  In a linear transformation, the components of the output vector are computed from the components of the input vector by <q>multiplying by constants and adding everything up.</q>  Because of the simplistic way that the outputs are computed there is really nothing that can go wrong!  With ordinary functions from <m>\Reals</m> to <m>\Reals</m> we usually look at the rule for computing the output and recognize certain values that must be eliminated from the domain <mdash /> typically where one sees <q>division by zero</q> or <q>squareroot of a negative</q> errors.  No such problem can arise with linear transformations, the domain will always be a real Euclidean space of some dimension.  Similarly, the codomain will be a real Euclidean space; one whose dimension is simply the number of components in the output vectors.  The dimensions of the domain and codomain are easy to think about <mdash /> how many components do the input and output vectors have?  The range of a linear transformation is slightly more complicated.  The output vectors that actually occur will certainly be vectors having the number of components as specified by the codomain, but do all such vectors necessarily have to appear as outputs?  In general, no.
+</p>
+
+<p>The notation for a linear transformation first spells out the domain and codomain and then gives the rule(s) for computing the output.  Thus the domain and codomain are known in advance; we need to do a little extra work to figure out the range.</p>
+
+<p>Before proceeding further we'll give some formal definitions.</p>
+
+<definition>
+  <title>Transformations</title>
+<statement><p>Given positive integers <m>m</m> and <m>n</m>, a <term>transformation from <m>\Reals^m</m> to <m>\Reals^n</m></term> is a function, <m>T</m>, that takes vectors of length <m>m</m> as inputs and returns vectors of length <m>n</m>. We write
+
+<md>
+  <mrow>T:\Reals^m \longrightarrow \Reals^n</mrow>
+  <mrow>T(\vec{x}) \quad = \quad \vec{y},</mrow>
+</md>
+
+where the components of the vector <m>\vec{y}</m> will need to be specified in terms of the components of <m>\vec{x}</m>.
+</p>
+</statement>
+</definition>
+<definition>
+  <title>Domain of a transformations</title>
+<statement><p>The <term>domain</term> of a linear transformation, <m>T</m> is denoted by <m>\Dom{T}</m> and is generally a subset of <m>\Reals^m</m> (provided <m>T</m> is defined as above). 
+
+<md>
+  <mrow> \Dom{T} \; = \; \{ \vec{x} \in \Reals^m \suchthat T(\vec{x}) \, \mbox{is defined} \} </mrow>
+</md>
+</p>
+</statement>
+</definition>
+
+<definition>
+  <title>Co-domain of a transformations</title>
+<statement><p>The <term>co-domain</term> of a transformation, <m>T</m> is denoted by <m>\Cod{T}</m> and is equal to <m>\Reals^n</m> (provided <m>T</m> is defined as above). 
+</p>
+</statement>
+</definition>
+
+<definition>
+  <title>Linearity</title>
+  <statement><p>A transformation <m>T</m> is <term>linear</term> if and only if given any two elements <m>\vec{u},\vec{v} \in \Dom{T}</m> and any two real numbers <m>\alpha</m> and <m>\beta</m> we have
+<me> T(\alpha \vec{u} + \beta \vec{v} \; = \; \alpha T(\vec{u}) + \beta T(\vec{v}).</me>
+</p>
+</statement>
+</definition>
+
+<definition>
+  <title>Linear transformations</title>
+<statement><p>Given positive integers <m>m</m> and <m>n</m>, a <term>linear transformation from <m>\Reals^m</m> to <m>\Reals^n</m></term> is a transformation <m>T</m>, that takes vectors of length <m>m</m> as inputs and returns vectors of length <m>n</m> and that is <em>linear</em>.  We write
+
+<md>
+  <mrow>T:\Reals^m \longrightarrow \Reals^n</mrow>
+  <mrow>T(\vec{x}) \quad = \quad \vec{y},</mrow>
+</md>
+
+where the components of the vector <m>\vec{y}</m> will need to be specified as linear combinations of the components of <m>\vec{x}</m>.
+</p>
+</statement>
+</definition>
+
+
+<p>In order to fully specify a linear transformation we need to give values for all of the constants that are used in the linear combinations where the <m>y_i</m>'s are written in terms of the <m>x_i</m>'s.  For each of the <m>n</m> components of <m>\vec{y}</m>, we will need <m>m</m> numbers (as many as there are components in <m>\vec{x}</m>).  In other words we must specify <m>mn</m> constants.</p>
+
+<definition>
+  <title>components of a linear transformation</title>
+  <statement><p>Given <m>mn</m> real numbers, <m>\aij{1}{1}, \ldots \aij{m}{n}</m>, we say they are the components of a 
+  linear transformation <m>T</m>,
+
+  <md>
+  <mrow>T:\Reals^m \longrightarrow \Reals^n</mrow>
+  <mrow>T(\vec{x}) \quad = \quad \vec{y},</mrow>
+</md>
+
+provided 
+
+<md>
+  <mrow> y_1 = \aij{1}{1} x_1 + \ldots + \aij{1}{m} x_m </mrow>
+  <mrow> \vdots </mrow>
+  <mrow> y_n = \aij{n}{1} x_1 + \ldots + \aij{n}{m} x_m .</mrow>
+</md>
+</p>
+</statement>
+</definition>
+
+
 </section>
 
 <section>

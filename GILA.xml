@@ -31,6 +31,7 @@
 \newcommand{\Cod}[1]{\mbox{Cod}(#1)}
 \newcommand{\Rng}[1]{\mbox{Rng}(#1)}
 \newcommand{\aij}[2]{a_{#1\,#2}}
+\newcommand{\suchthat}{\;\mid\;}
 </macros>
 <latex-image-preamble>
 \usepackage{graphicx}
