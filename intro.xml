@@ -694,7 +694,7 @@ and the first two equations are identical <mdash /> they no longer cause a contr
   <md><mrow> \left\{ \langle 2-t, t, 2 \rangle \suchthat t \in \Reals \right\} </mrow></md>
 </p>
 
-<p>Notice how the parameter <m>t</m> allows the values of <m>x_1</m> and <m>x_2</m> to range over all possibilities that add up to <m>2</m>?  We essentially let <m>x_2</m> have any value whatsover (<m>t</m> can be any real number) and then we choose <m>x_1</m> in such a way that the sum is <m>2</m>.  In a situation like this, <m>x_2</m> is known as a <em>free variable</em>.
+<p>Notice how the parameter <m>t</m> allows the values of <m>x_1</m> and <m>x_2</m> to range over all possibilities that add up to <m>2</m>?  We essentially let <m>x_2</m> have any value whatsoever (<m>t</m> can be any real number) and then we choose <m>x_1</m> in such a way that the sum is <m>2</m>.  In a situation like this, <m>x_2</m> is known as a <em>free variable</em>.
 </p>
 </solution>
 </example>
@@ -714,15 +714,25 @@ be the set of all ordered <m>n</m>-tuples of real numbers.
 </statement>
 </definition>
 
-<p>Recall that the <term>domain</term> of a function is the set from which the inputs come.  The set where the outputs may appear is known as the <term>codomain</term> of the function. The codomain must be contrasted with the <term>range</term> which is the set of outputs that actually <em>do</em> occur.  
+<p>Recall that the <term>domain</term> of a function is the set from which the inputs come.  The set where the outputs may appear is known as the <term>codomain</term> of the function. The codomain must be contrasted with the <term>range</term> which is the set of outputs that actually <em>do</em> occur.  We are going to be presuming a certain familiarity with the basic terminology used with functions.  You can skip over the following list of (informal) definitions if you are already familiar.
 </p>
 
-<p>There is a bit of an assymetry in the way we speak of these various sets.  On the output side we have the codomain and the range.  On the input side we have only the domain.  There is no agreed upon name for a set that contains the domain, we simply insist that the function must be defined for every element of the domain (which basically sidesteps the issue).  For the ordinary functions that one sees in calculus, the codomain is the real numbers; the range and domain are generally subsets of the real numbers.  And so, the situation isn't terribly complex.  When we are dealing with transformations things are harder.  The domain and codomain of a transformation are generally real Euclidean spaces <mdash /> potentially of different dimensions <mdash /> so we will usually want to spell out what sorts of vectors are expected as inputs, what sorts of vectors will we see as outputs and only then do we get around to the heart of the matter: how do we compute the output from the input?  We'll introduce the notation for a transformation via an example and then try to treat the general case.
+<p>
+<dl>
+  <li><title>domain</title> <p>The set of all inputs for a function.  The domain is sometimes specified while defining the function, but if it isn't, the convention is to use the biggest possible set for the domain.</p></li>
+  <li><title>codomain</title> <p>The set where the outputs of a function lie.</p></li>
+  <li><title>range</title> <p>The set of outputs that actually occur. (The range is generally a subset of the codomain.) </p></li>
+  <li><title>image</title> <p>If an element, <m>x</m>, of the domain is given, we refer to <m>f(x)</m> as the <em>image</em> of <m>x</m>.</p></li>
+  <li><title>pre-image</title> <p>If we have some <m>y</m> (an output) in mind, any <m>x</m> (an input) such that <m>f(x) = y</m> is called a <em>pre-image</em> of <m>y</m>.</p></li>
+</dl>
+</p>
+
+<p>There is a bit of an asymmetry in the way we speak of the various sets that are related to a function.  On the output side we have the codomain and the range.  On the input side we have only the domain.  There is no agreed upon name for a set that contains the domain, we simply insist that the function must be defined for every element of the domain (which basically sidesteps the issue).  For the ordinary functions that one sees in calculus, the codomain is the real numbers; the range and domain are generally subsets of the real numbers.  And so, the situation isn't terribly complex.  When we are dealing with transformations things are harder.  The domain and codomain of a transformation are generally real Euclidean spaces <mdash /> potentially of different dimensions <mdash /> so we will usually want to spell out what sorts of vectors are expected as inputs, what sorts of vectors will we see as outputs and only then do we get around to the heart of the matter: how do we compute the output from the input?  We'll introduce the notation for a transformation via an example and then treat the general case.
 </p>
 
 <example>
   <title>an example transformation</title>
-  <statement><p>Let's look at a tranformation that takes vectors of length 6 as inputs, and outputs vectors of length 3.  We'll refer to the input vector as <m>\vec{x}</m> and, as usual, its components will be <m>x</m>'s with subscripts:
+  <statement><p>Let's look at a transformation that takes vectors of length 6 as inputs, and outputs vectors of length 3.  We'll refer to the input vector as <m>\vec{x}</m> and, as usual, its components will be <m>x</m>'s with subscripts:
 <m>\vec{x} = \langle x_1, x_2, x_3, x_4, x_5, x_6 \rangle</m>.  Similarly, the output will be <m>\vec{y} = \langle y_1, y_2, y_3 \rangle</m>.  This is only an example so we'll just make up the rules that determine those output components from the input components, the point here is simply to demonstrate how one should write such a thing <mdash /> which is as follows:
 <md>
 	<mrow>T:\Reals^6 \longrightarrow \Reals^3</mrow>
@@ -735,7 +745,7 @@ be the set of all ordered <m>n</m>-tuples of real numbers.
 </statement>
 </example>
 
-<p>The most important transformations for us in this context are the <em>linear</em> ones.  In a linear transformation, the components of the output vector are computed from the components of the input vector by <q>multiplying by constants and adding everything up.</q>  Because of the simplistic way that the outputs are computed there is really nothing that can go wrong!  With ordinary functions from <m>\Reals</m> to <m>\Reals</m> we usually look at the rule for computing the output and recognize certain values that must be eliminated from the domain <mdash /> typically where one sees <q>division by zero</q> or <q>squareroot of a negative</q> errors.  No such problem can arise with linear transformations, the domain will always be a real Euclidean space of some dimension.  Similarly, the codomain will be a real Euclidean space; one whose dimension is simply the number of components in the output vectors.  The dimensions of the domain and codomain are easy to think about <mdash /> how many components do the input and output vectors have?  The range of a linear transformation is slightly more complicated.  The output vectors that actually occur will certainly be vectors having the number of components as specified by the codomain, but do all such vectors necessarily have to appear as outputs?  In general, no.
+<p>The most important transformations for us in this context are the <em>linear</em> ones.  In a linear transformation, the components of the output vector are computed from the components of the input vector by <q>multiplying by constants and adding everything up.</q>  Because of the simplistic way that the outputs are computed there is really nothing that can go wrong!  With ordinary functions from <m>\Reals</m> to <m>\Reals</m> we usually look at the rule for computing the output and recognize certain values that must be eliminated from the domain <mdash /> typically where one sees <q>division by zero</q> or <q>square root of a negative</q> errors.  No such problem can arise with linear transformations, the domain will always be a real Euclidean space of some dimension.  Similarly, the codomain will be a real Euclidean space; one whose dimension is simply the number of components in the output vectors.  The dimensions of the domain and codomain are easy to think about <mdash /> how many components do the input and output vectors have?  The range of a linear transformation is slightly more complicated.  The output vectors that actually occur will certainly be vectors having the number of components as specified by the codomain, but do all such vectors necessarily have to appear as outputs?  In general, no.
 </p>
 
 <p>The notation for a linear transformation first spells out the domain and codomain and then gives the rule(s) for computing the output.  Thus the domain and codomain are known in advance; we need to do a little extra work to figure out the range.</p>
@@ -757,7 +767,7 @@ where the components of the vector <m>\vec{y}</m> will need to be specified in t
 </definition>
 <definition>
   <title>Domain of a transformations</title>
-<statement><p>The <term>domain</term> of a linear transformation, <m>T</m> is denoted by <m>\Dom{T}</m> and is generally a subset of <m>\Reals^m</m> (provided <m>T</m> is defined as above). 
+<statement><p>The <term>domain</term> of a transformation, <m>T</m> is denoted by <m>\Dom{T}</m> and is generally a subset of <m>\Reals^m</m> (provided <m>T</m> is defined as above). 
 
 <md>
   <mrow> \Dom{T} \; = \; \{ \vec{x} \in \Reals^m \suchthat T(\vec{x}) \, \mbox{is defined} \} </mrow>
@@ -768,18 +778,39 @@ where the components of the vector <m>\vec{y}</m> will need to be specified in t
 
 <definition>
   <title>Co-domain of a transformations</title>
-<statement><p>The <term>co-domain</term> of a transformation, <m>T</m> is denoted by <m>\Cod{T}</m> and is equal to <m>\Reals^n</m> (provided <m>T</m> is defined as above). 
+<statement><p>The <term>codomain</term> of a transformation, <m>T</m> is denoted by <m>\Cod{T}</m> and is equal to <m>\Reals^n</m> (provided <m>T</m> is defined as above). 
 </p>
 </statement>
 </definition>
 
-<definition>
+<definition xml:id="linearity-1">
   <title>Linearity</title>
   <statement><p>A transformation <m>T</m> is <term>linear</term> if and only if given any two elements <m>\vec{u},\vec{v} \in \Dom{T}</m> and any two real numbers <m>\alpha</m> and <m>\beta</m> we have
-<me> T(\alpha \vec{u} + \beta \vec{v} \; = \; \alpha T(\vec{u}) + \beta T(\vec{v}).</me>
+<me> T(\alpha \vec{u} + \beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v}).</me>
 </p>
 </statement>
 </definition>
+
+<p>Linearity is a really important concept!  We will be using the definition above over and over again.  Let's try to nail down our understanding of this definition by translating it into ordinary language: A transformation is linear if and only if when you apply it to a linear combination of vectors, the result is equal to what you get if you form the same linear combination of the images of those vectors.  More succinctly: <q>The image of a linear combination is the same linear combination of the images.</q>  My advice (seriously!) is to treat that last phrasing like a mantra <mdash /> repeat it to yourself until you fully absorb the meaning and it becomes second nature to you.  
+</p>
+
+<p>Look back at the formal definition of linearity, and notice what it looks like symbolically: It appears as if the transformation <m>T</m> distributes over the sum and that the scalars can be moved to the outside of the <m>T</m>'s.  
+Sometimes an alternative definition of linearity is given which splits out these two issues.  This is sometimes useful in formulating a proof that some transformation is linear (because it separates the argument into simpler parts).
+</p>
+
+<definition xml:id="linearity-2">
+  <title>Linearity (alternate definition)</title>
+  <statement><p>A transformation <m>T</m> is <term>linear</term> if and only if given any two elements <m>\vec{u},\vec{v} \in \Dom{T}</m> and any real number <m>\alpha</m>, both of the following hold:
+<me> T(\vec{u} + \vec{v}) \; = \; T(\vec{u}) + T(\vec{v}),</me>
+and 
+<me> T(\alpha \vec{u}) = \alpha T(\vec{u}). </me>
+</p>
+</statement>
+</definition>
+
+<p>Before we can go any further we have a small moral obligation to take care of.  Since we've just presented two  definitions for a concept we have a duty to verify that they actually define the same concept.  If we state that two things are the same, that really aren't, we're making a <term>false equivalence</term>.  One of the hallmarks of a good critical thinker is that they won't be taken in by false equivalences.  So, what do you think?  Are they definitely the same idea, or are there transformations that are linear by one definition but not by the other?</p>
+
+
 
 <definition>
   <title>Linear transformations</title>
@@ -824,7 +855,18 @@ provided
 
 <section>
 <title>Matrix notation</title>
-<p>Dummy text for introduction.</p>
+<p>The three seemingly distinct viewpoints we've considered are unified by the concept of a <term>matrix</term>.</p>
+
+<p>The word <q>matrix</q> is from Latin.  The word entered the English language with a variety of meanings <mdash /> in Latin it means <em>womb</em>.   In mathematics, matrix (pl. matrices) always means a table containing numerical values.  It is rather hard to guess how a word meaning <q>uterus</q> could get morphed into one meaning <q>table of numbers</q>, but languages are funny that way<ellipsis />
+</p>
+
+<p>Generally speaking, a table of numbers will have some arbitrary number of rows and of columns.  There are some special cases that we'll need to talk about, but in general we'll use the variable <m>m</m> to refer to the number of rows in a matrix and the variable <m>n</m> to refer to the number of columns.  We'll use upper-case letters (about 90% of the time: <m>A</m>) to refer to the whole table as a single entity, in which case we'll speak of <m>A</m> being an <m>m \times n</m> matrix.
+</p>
+
+<p>Now to the special cases.  When the number of columns is <m>n=1</m>, the matrix is known as a <term>column vector</term>.   When the number of rows is <m>m=1</m>, the matrix is known as a <term>row vector</term>.  There is clearly a choice to be made as to whether the things we have been referring to as <q>vectors</q> are going to be represented as column vectors, or as row vectors.  Here's a surprising thing!  Your Calculus teachers and I (up until now) have been lieing to you.  When we wrote vectors as (for example) <m>\vec{v} = \langle 1, 2, 3 \rangle</m>, it was only for convenience.  A row of numbers fits more easily on the page than a column does.  For a variety of reasons it makes sense to treat vectors as columns of numbers, not rows.  Also, Santa Claus is your parents.
+</p>
+
+
 </section>
 
 </chapter>
