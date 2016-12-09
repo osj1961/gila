@@ -15,12 +15,12 @@
 <p>Dummy text for introduction.</p>
 </section>
 
-<section>
+<section xml:id="section-rref">
 <title>RREF</title>
 <p>Dummy text for introduction.</p>
 </section>
 
-<section>
+<section xml:id="section-row-ops">
 <title>Row operations and Gaussian elimination</title>
 <p>Dummy text for introduction.</p>
 </section>

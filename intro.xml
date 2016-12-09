@@ -547,7 +547,7 @@ and what it means to add vectors.
 <p>We use the term <em>scalar</em> to refer to real numbers, <em>especially</em> when referring to the numbers that we multiply vectors by.  Calling them <q>constants</q> is probably not the best plan; both a scalar and a vector can be <em>constant</em> <mdash /> that just means they aren't changing.  It's usually more important to distinguish the vectors from the scalars <mdash /> which things have multiple components and which don't?  When we think of vectors as <q>those things that have both a direction and a magnitude,</q> the effect of multiplying by a scalar is to leave the direction unchanged, but change the magnitude by scaling it as the scalar indicates.  If the scalar is less than 1, the magnitude of the vector will be reduced; if the scalar is greater than 1 it will be increased.  Of course, if the scalar is negative the direction <em>will</em> be effected, but in a rather simplistic way: the vector ends up facing the opposite direction.
 </p>
 
-<p>When we have an actual vector and a scalar we'd like to multiply it by the operation we  perform is almost the only thing it could be!  Just multiply each of the components of the  vector by the scalar.
+<p>When we have an actual vector and a scalar we'd like to multiply it by, the operation we perform is almost the only thing it could be!  Just multiply each of the components of the vector by the scalar.
 </p>
 
 <definition>
@@ -564,7 +564,7 @@ and what it means to add vectors.
 </remark>
 
 <p>The addition of vectors is best thought of in terms of <q>directions</q>.  Suppose the directions to got from my house to the Kwik-E-Mart are: <q>go 3 blocks north and 1 block east</q> (call that vector <m>\vec{v}</m>, we might write it's component form as <m>\vec{v} = \langle 1, 3 \rangle</m>).  Suppose in addition that the directions to go from the Kwik-E-Mart to Moe's Tavern are <q>go 1 block north and 2 blocks west</q>
- (let's call this <m>\vec{w} = \langle -2, 1\rangle</m>).  The meaning of the vector sum is the vector that describes the change that would be effected if we follow one set of directions followed by the other <mdash /> except we don't have to be slavish about it <mdash /> we don't literally follow the first set of directions and then do the second.  The sum is the set of directions that take us directly to Moe's without making a Kwik-E-Mart pitstop.
+ (let's call this <m>\vec{w} = \langle -2, 1\rangle</m>).  The meaning of the vector sum is the vector that describes the change that would be effected if we follow one set of directions followed by the other <mdash /> except we don't have to be slavish about it <mdash /> we don't literally follow the first set of directions and then do the second.  The sum is the set of directions that take us directly to Moe's without making a Kwik-E-Mart pit stop.
 </p>
 
 <p>When we actually compute vector sums using the component forms of the vectors involved the computation is probably exactly what you would expect: just add up the corresponding components.
@@ -810,7 +810,45 @@ and
 
 <p>Before we can go any further we have a small moral obligation to take care of.  Since we've just presented two  definitions for a concept we have a duty to verify that they actually define the same concept.  If we state that two things are the same, that really aren't, we're making a <term>false equivalence</term>.  One of the hallmarks of a good critical thinker is that they won't be taken in by false equivalences.  So, what do you think?  Are they definitely the same idea, or are there transformations that are linear by one definition but not by the other?</p>
 
-
+<theorem><title>The two definitions of linearity are equivalent</title>
+  <statement>
+  	<p>Consider a given transformation <m>T</m> from <m>\Reals^m</m> to <m>Reals^n</m>.  Let <m>\vec{u}</m> and <m>\vec{v}</m> be arbitrary vectors in <m>\Reals^m</m>, also let <m>\alpha</m> and <m>\beta</m> be arbitrary reals numbers.  Then
+  	<md>
+  		<mrow> T(\alpha \vec{u} + \beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v})</mrow>
+  	    <intertext> if and only if </intertext>
+  	    <mrow> T(\vec{u} + \vec{v}) \; = \; T(\vec{u}) + T(\vec{v}) \quad \mbox{and} \quad T(\alpha \vec{u}) = \alpha T(\vec{u})</mrow>
+  	</md>
+    </p>
+  </statement>
+  <proof>
+  	<case direction="forward">
+  		<p>In this part of the proof we will be presuming the first statement (the definition of linearity given first) and showing that the second statement must be true.  
+  		</p>
+  		<p>Assume that <m>T</m> is a transformation and that for every pair of vectors <m>\vec{u}</m> and <m>\vec{v}</m>, and every pair of real numbers <m>\alpha</m> and <m>\beta</m>, 
+  		<me>T(\alpha \vec{u} + \beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v}).</me>
+        if we set <m>\alpha = \beta = 1</m> we get 
+        <me>T(\vec{u} + \vec{v}) \; = \; T(\vec{u}) + T(\vec{v}).</me>  
+        Similarly, if we leave <m>\alpha</m> arbitrary but set <m>\beta = 0</m> we get
+        <me>T(\alpha \vec{u}) = \alpha T(\vec{u}).</me>
+  	    </p>
+  	</case>
+  	<case direction="backward">
+  		<p>In this part of the proof we will be working in the reverse direction, so we assume that both
+  	    <me>T(\vec{u} + \vec{v}) \; = \; T(\vec{u}) + T(\vec{v}) \quad \mbox{and} \quad T(\alpha \vec{u}) = \alpha T(\vec{u})</me> hold.  
+  		</p>
+  		<blockquote>
+  			<p>It's important to realize that the hypotheses we are using above are generic statements.  When we write 
+  			<m>T(\alpha \vec{u}) = \alpha T(\vec{u})</m> the scalar <m>\alpha</m> and the vector <m>\vec{u}</m> are really beside the point.  We are really asserting a general rule about how <m>T</m> interacts with scaled vectors 
+  			<mdash /> any other scalar times any other vector will work the same way.  So for example, that hypothesis will also let us deduce that <me>T(\beta \vec{v}) = \beta T(\vec{v}).</me>
+  		    </p>
+  	    </blockquote>
+  	    <p>Consider <m>T(\alpha \vec{u} + \beta \vec{v})</m>.  Using our first hypothesis (the one that shows how <m>T</m> distributes over sums) we get <m>T(\alpha \vec{u} + \beta \vec{v}) = T(\alpha \vec{u}) + T(\beta \vec{v})</m>.  Using the second hypothesis (twice) we get 
+  	    <me>T(\alpha \vec{u} + \beta \vec{v}) \; = \; T(\alpha \vec{u}) + T(\beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v})</me>
+  	    which is the desired result.
+  	</p>
+  	</case>
+  </proof>
+</theorem>
 
 <definition>
   <title>Linear transformations</title>
@@ -821,11 +859,24 @@ and
   <mrow>T(\vec{x}) \quad = \quad \vec{y},</mrow>
 </md>
 
-where the components of the vector <m>\vec{y}</m> will need to be specified as linear combinations of the components of <m>\vec{x}</m>.
+where the components of the vector <m>\vec{y}</m> will need to be specified in terms of the components of <m>\vec{x}</m>.
 </p>
 </statement>
 </definition>
 
+<p>There is an interesting connection between our use of the word <q>linear</q> in talking about linear transformations
+and linear combinations.  When a transformation is linear the functions that determine the output's components in terms of the input's components must <em>be</em> linear combinations.  And <foreign>vice versa</foreign>, if the component functions are linear combinations then the transformation will be linear.
+</p>
+
+<p>The content of the previous paragraph may not be surprising from a linguistic perspective; they wouldn't use the same word if the underlying concepts were really different, would they?  From a mathematical perspective it's a bit less obvious.  Indeed this is the sort of thing that mathematicians call a <em>theorem</em>.  We'll state this theorem now, but we'll leave the proof to a later chapter.
+</p>
+
+<theorem><title>coefficients of a linear transformation</title>
+<statement><p>Given a transformation <m>T: \Reals^m \longrightarrow \Reals^n</m>, <m>T</m> is linear if and only if,
+for all input vectors <m>\vec{x}</m> the components of <m>T(\vec{x})</m> can be expressed as particular linear combinations of the components of <m>\vec{x}</m>.
+</p>
+</statement>
+</theorem>
 
 <p>In order to fully specify a linear transformation we need to give values for all of the constants that are used in the linear combinations where the <m>y_i</m>'s are written in terms of the <m>x_i</m>'s.  For each of the <m>n</m> components of <m>\vec{y}</m>, we will need <m>m</m> numbers (as many as there are components in <m>\vec{x}</m>).  In other words we must specify <m>mn</m> constants.</p>
 
@@ -860,10 +911,80 @@ provided
 <p>The word <q>matrix</q> is from Latin.  The word entered the English language with a variety of meanings <mdash /> in Latin it means <em>womb</em>.   In mathematics, matrix (pl. matrices) always means a table containing numerical values.  It is rather hard to guess how a word meaning <q>uterus</q> could get morphed into one meaning <q>table of numbers</q>, but languages are funny that way<ellipsis />
 </p>
 
-<p>Generally speaking, a table of numbers will have some arbitrary number of rows and of columns.  There are some special cases that we'll need to talk about, but in general we'll use the variable <m>m</m> to refer to the number of rows in a matrix and the variable <m>n</m> to refer to the number of columns.  We'll use upper-case letters (about 90% of the time: <m>A</m>) to refer to the whole table as a single entity, in which case we'll speak of <m>A</m> being an <m>m \times n</m> matrix.
+<p>Generally speaking, a table of numbers will have some arbitrary number of rows and of columns.  There are some special cases that we'll need to talk about, but let's look at the general situation first.  We'll use the variable <m>m</m> to refer to the number of rows in a matrix and the variable <m>n</m> to refer to the number of columns.  We'll use upper-case letters (about 90% of the time: <m>A</m>) to refer to the whole table as a single entity, in which case we'll speak of <m>A</m> being an <m>m \times n</m> matrix.
 </p>
 
-<p>Now to the special cases.  When the number of columns is <m>n=1</m>, the matrix is known as a <term>column vector</term>.   When the number of rows is <m>m=1</m>, the matrix is known as a <term>row vector</term>.  There is clearly a choice to be made as to whether the things we have been referring to as <q>vectors</q> are going to be represented as column vectors, or as row vectors.  Here's a surprising thing!  Your Calculus teachers and I (up until now) have been lieing to you.  When we wrote vectors as (for example) <m>\vec{v} = \langle 1, 2, 3 \rangle</m>, it was only for convenience.  A row of numbers fits more easily on the page than a column does.  For a variety of reasons it makes sense to treat vectors as columns of numbers, not rows.  Also, Santa Claus is your parents.
+<p>Now to the special cases.  When the number of columns is <m>n=1</m>, the matrix is known as a <term>column vector</term>.  When the number of rows is <m>m=1</m>, the matrix is known as a <term>row vector</term>.  There is clearly a choice to be made as to whether the things we have been referring to as (merely) <q>vectors</q> are going to be represented as column vectors, or as row vectors.  Here's a surprising thing!  Your Calculus teachers and I (up until now) have been lieing to you.  When we wrote vectors as (for example) <m>\vec{v} = \langle 1, 2, 3 \rangle</m>, it was only for convenience.  A row of numbers fits more easily on the page than a column does.  For a variety of reasons it makes sense to treat vectors as columns of numbers, not rows.
+</p>
+
+<p>There is an operation known as <term>transposition</term> that changes row vectors into column vectors and <foreign>vice versa</foreign>.  The <term>transpose</term> of a matrix is indicated by a superscript T, the rows of the transposed matrix are the columns of the original matrix and its columns are the original matrix's rows.  This idea (interchanging rows and columns) is surprisingly important and we'll be using it quite a bit in the future.  For the moment let's just notice that it gives us a nice way to write a column vector <mdash /> with the typographical advantage that the components appear in a row!
+</p>
+
+<p>To summarize what the last few paragraphs have said: It is technically not right to write <m>\vec{v} = \langle 1, 2, 3 \rangle</m>, we should really write <m>\vec{v} = \left[ \begin{array}{c} 1 \\ 2\\ 3 \end{array} \right]</m>, but that takes up too much vertical space so instead we write <m>\vec{v} = [ 1 \; 2 \; 3 ]^T</m>.  This may all seem like too high of a price to pay for accuracy, but it will pay future dividends if we start thinking now about rows and columns and how to switch between them.
+</p>
+
+<p>If we only had row and column vectors to worry about we'd probably find some other way to distinguish them <mdash /> maybe there'd be red vectors and blue vectors!
+</p>
+
+ <note>
+ 	<p>In Physics (especially in the Tensor Analysis which is used in e.g. General Relativity) they distinguish between covariant and contravariant indices.  An entity with a single contravariant index is a vector, if instead there is a single covariant index it is known as a co-vector.  These concepts aren't identical to row/column vectors, but nevertheless, contravariant vectors are usually written as columns and covariant vectors as rows.</p>
+ </note> 
+
+ <p>When we have more general matrices, where <m>m</m> and <m>n</m> are both greater than <m>1</m>, the roles of rows and columns are more evident.
+</p>
+
+<p>One useful way to think about matrices is the following:  When we write down a system of equations, a lot of the symbols that we write are redundant.  If we eliminate all of the stuff that is utterly predictable we are left with a table of numbers <mdash /> in other words, a matrix.  So one way to think of matrices is that they are highly abbreviated ways of referring to a system of linear equations.  In this scheme the rows of the matrix correspond to the individual equations in the system and the columns contain all the
+coefficients that multiply a given variable.  A short example will probably help:
+</p>
+
+
+<example><title>Converting a linear system to matrix form</title>
+<statement>
+<p>
+Consider the following system of <m>3</m> equations in <m>4</m> variables.
+<me>
+\begin{alignedat}{8}
+   x_1  \amp {}+{} \amp   x_2 \amp       \amp      \amp {}+{} \amp 3 x_4 \amp {}={} \amp 101 \\
+ 2 x_1  \amp {}-{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}+{} \amp x_4 \amp {}={} \amp 102 \\
+        \amp       \amp 3 x_2 \amp {}-{} \amp x_3  \amp {}+{} \amp 2x_4 \amp {}={} \amp 103
+\end{alignedat}
+</me>
+</p>
+
+<p>Now we'll take one step backwards before proceeding two steps forward.  If a variable appears, but has no coefficient, that just means the coefficient is <m>1</m>.  If a variable doesn't appear at all, that means the coefficient is <m>0</m>.
+Finally, if we see subtraction we can always replace it by addition (by putting a minus sign on the coefficient).  So, let's re-express this system in a fully anal-retentive way<ellipsis />
+
+ <me>
+\begin{alignedat}{8}
+ 1x_1  \amp {}+{} \amp  1x_2 \amp {}+{} \amp  0 x_3  \amp {}+{} \amp 3 x_4 \amp {}={} \amp 101 \\
+ 2x_1  \amp {}+{} \amp {-1}x_2 \amp {}+{} \amp  1 x_3  \amp {}+{} \amp 1 x_4 \amp {}={} \amp 102 \\
+ 0x_1  \amp {}+{} \amp  3x_2 \amp {}+{} \amp {-1} x_3  \amp {}+{} \amp 2 x_4 \amp {}={} \amp 103
+\end{alignedat}
+</me>
+</p>
+
+<p>Okay, so now the promised two steps forward.  First, notice that in every equation in the system every variable is present and they all appear in ascending order.  If we were only given the lists of coefficients we'd easily be able to reconstruct the equations.  So, we're going to eject all of the plus signs and all of the variables with all of those subscripts.  We just won't deign to write them down! Sometimes it's a good idea to imagine their presence but it certainly isn't necessary to  Also, the equals signs that separate the left- and right-hand sides of the equations always come before the very last number.  There really isn't a lot of information conveyed by the appearance of those equals signs, but we usually keep a slight vestige of them around <mdash /> a thin vertical line separates the last column of the matrix form from everything else.  So, with no further ado, here is the matrix form of this system:
+
+<me>
+\left[ \begin{array}{rrrr|r}
+ 1 \amp  1 \amp  0 \amp 3  \amp 101 \\
+ 2 \amp {-1} \amp  1  \amp 1 \amp  102 \\
+ 0 \amp  3 \amp {-1}  \amp 2  \amp 103
+\end{array} \right]
+</me>
+</p>
+</statement>
+</example>
+
+<p>In the previous example the final matrix we wrote is actually known as the <term>augmented matrix</term> of the system.  Sometimes it is a good idea to separate out the part of the matrix that appears to the left of the thin vertical line.  That part is known as the <term>coefficient matrix</term> of the system.  This isn't just pedantry!  In many real-world applications we need to solve bunches of linear systems that all have the same coefficient matrix <mdash /> so they only differ in the final column (a.k.a. <term>augmented column</term>) of their augmented  matrices.  We can take advantage of such a situation, essentially solving all of the systems while only doing the work of solving the first one!
+</p>
+
+<p>Matrix notation was probably invented purely out of laziness.  When we use the Re-ordering, Scaling and Combining operations that we introduced in Section <xref ref="section-sys_eqs" />, we find ourselves having to re-copy the entire
+system over and over.  By switching to matrix notation we get a considerable savings in effort.  The operations that we
+originally developed to use on equations now become operations that one can apply to the rows of a matrix <mdash /> a.k.a. row operations <mdash /> which we will study in much greater depth in Section <xref ref="section-row-ops" />. Regardless of the origins of matrix notation, nowadays we don't think of matrices only in terms of being abbreviations for linear systems.  They have taken on a life of their own!  
+</p>
+
+<p>There are two features of matrices that we'll explore in the remainder of this section.  The first is that matrices may be thought of as <q>funny shaped</q> vectors.  The second is that, under certain conditions, we can multiply matrices.  If you've already studied multi-variable calculus (and perhaps even if you haven't) you'll have run into the dot product (a.k.a. scalar product) and the cross product (a.k.a. vector product) in <m>\Reals^3</m>.  No matter what the dimension of the space, there is always a dot product.  On the other hand, there is usually nothing analogous to the cross product <mdash /> it depends on a very special coincidence, an odd fact about the space <m>\Reals^3</m>.  We'll 
 </p>
 
 
