@@ -1070,6 +1070,51 @@ What is <m>5A-2B</m>?
 </solution>
 </exercise>
 
+<p>So that was nice!  Once we know how to add matrices and how to multiply them by scalars, we can form linear combinations.  Next we'll look at multiplying our funny shaped vectors<ellipsis />
+</p>
+
+<p>The easiest example (and also a <em>very</em> instructive example) of multiplying vectors is the product of a 
+row and a column vector.  Provided they have the same number of entries, a row vector times a column vector produces 
+a <m>1 \times 1</m> matix <mdash /> also known as a real number.  You have almost certainly seen this before!  The dot product of two vectors is actually a row/column matrix product.  In fact, in many settings they will
+write <m>\vec{x}^T\vec{y}</m> rather than <m>\vec{x} \cdot \vec{y}</m> when referring to the dot product.  As you move towards more advanced math the tendency will be to call this the <q>inner product</q> rather than the <q>dot product</q>, one reason to make the change (other than it sounds more sophisticated) is that there is also an <q>outer product</q> of vectors which is what you get if you multiply a column times a row.  As we'll see shortly, <m>\vec{x}^T\vec{y}</m> and 
+<m>\vec{x}\vec{y}^T</m> are <em>extremely</em> different!  Anyway, we need to do this row/column product as a component of the general matrix product computation so let's proceed to over-explain it by some huge factor<ellipsis />
+</p>
+
+<p>If you've ever done the challenge where you rub your belly in a circular motion while simultaneously patting your head, then this shouldn't be too difficult.  What you need to do is trace across the entries of a row with your left index finger, while simultaneously tracing down the entries of a column with your right index finger.  As you encounter the entries you multiply them and keep a running tally of the sum of these products.
+</p>
+
+<example><title>an inner product</title>
+<statement>
+<p>Suppose 
+	<me>\vec{x} = \left[ \begin{array}{c} 3 \\ 1 \\ -2 \\ 5 \end{array} \right] \quad \mbox{and} \quad  \vec{y} = \left[ \begin{array}{c} -1 \\ 6 \\ 4 \\ 7 \end{array} \right] </me>
+then the inner product of these two vectors (<m>\vec{x}^T\vec{y}</m>) is the following row/column matrix computation:
+<me>\vec{x}^T \vec{y} \quad = \quad \left[ \begin{array}{cccc} 3 \amp 1 \amp -2 \amp 5 \end{array} \right]  \cdot \left[ \begin{array}{c} -1 \\ 6 \\ 4 \\ 7 \end{array} \right] \quad = \quad 3\cdot (-1) + 1\cdot 6 + (-2)\cdot 4 + 5\cdot 7 \quad = \quad 30</me>
+</p>
+</statement>
+</example>
+
+<p>Notice that if the vectors had different lengths (I mean <q>lengths</q> as in <q>number of entries</q>) the process we've described wouldn't work out so good<ellipsis />  One of your fingers would be out of entries before the other!  This is our first example of an idea known as <term>conformability</term>. Suppose we have a row vector of length <m>m</m> (that is, a <m>1 \times m</m> matrix) and a column vector of length <m>n</m> (in other words a <m>n \times 1</m> matrix), then they are <term>conformable</term> if <m>m=n</m> and if <m>m\neq m</m> they are <em>not</em> conformable, in which case the matrix product can't be computed.
+</p>
+
+<p>The general rule for computing matrix products involves doing this row/column product multiple times. Suppose <m>A</m> is a <m>p \times q</m> matrix and <m>B</m> is an <m>r \times s</m> matrix.  The product <m>AB</m> will be a <m>p \times s</m> matrix, but it can only be computed if <m>q=r</m>.  The entry in the <m>p</m>-th row and <m>s</m>-th column of the result is obtained using the <m>p</m>-th row of <m>A</m> and the <m>s</m>-th column of <m>B</m>.  When you physically write the sizes of the multiplicands next to one another, the inner two numbers must match and the outer two numbers tell you the size of the result!
+</p>
+
+<definition><title>matrix conformability</title>
+<statement><p>Suppose <m>A</m> is a <m>p \times q</m> matrix and <m>B</m> is an <m>r \times s</m> matrix.  If <m>q=r</m> these matrices are <term>conformable</term> and the product <m>AB</m> can be computed.</p>
+</statement>
+</definition>
+
+<note><p>Conformability has a directionality.  If <m>A</m> and <m>B</m> are conformable it is not necessarily the case that <m>B</m> and <m>A</m> are conformable.  Matrices fail to obey the commutative law in a fairly spectacular way!  It is <em>not</em> generally the case that <m>AB = BA</m>.  Indeed, quite often it is <em>impossible</em> to compute the product <m>BA</m>, even given that it <em>is</em> possible to compute <m>AB</m>.
+</p>
+</note>
+
+<definition><title>matrix product</title>
+<statement><p>Suppose we are given two matrices, <m>A</m> and <m>B</m> that are conformable for matrix multiplication, further, suppose that <m>A</m> is <m>m \times n</m> and <m>B</m> is <m>n \times p</m>.  The matrix product <m>AB</m> will be an <m>m \times p</m> matrix.  The entry in the <m>i</m>-th row and <m>j</m>-th column of <m>AB</m> is
+
+<me> AB_{ij} \; = \; \sum{k=1}^n A_{ik}\cdot B_{kj}</me>
+</p>
+</statement>
+</definition>
 </section>
 
 </chapter>
