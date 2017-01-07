@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--* Generated from MathBook XML source *-->
+<!--*    on 2016-12-30T14:51:44-05:00    *-->
+<!--*                                    *-->
+<!--*   http://mathbook.pugetsound.edu   *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GILA Systems of equations</title>
+<meta name="Keywords" content="Authored in MathBook XML">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']],
+    },
+    TeX: {
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
+        equationNumbers: { autoNumber: "none",
+                           useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
+                           formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
+                         },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    "HTML-CSS": {
+        scale: 88,
+    },
+});
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+<link href="extra.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<div style="display:none;">\(\require{graphicx}\require{cancel}\newcommand{\divides}{\!\mid\!}
+\newcommand{\tdiv}{\; \mbox{div} \;}
+\newcommand{\restrict}[2]{#1 \,\rule[-4pt]{.125pt}{14pt}_{\,#2}}
+\newcommand{\lcm}[2]{\mbox{lcm} (#1, #2)}
+\renewcommand{\gcd}[2]{\mbox{gcd} (#1, #2)}
+\newcommand{\Naturals}{{\mathbb N}}
+\newcommand{\Integers}{{\mathbb Z}}
+\newcommand{\Znoneg}{{\mathbb Z}^{\mbox{\tiny noneg}}}
+\newcommand{\Enoneg}{{\mathbb E}^{\mbox{\tiny noneg}}}
+\newcommand{\Qnoneg}{{\mathbb Q}^{\mbox{\tiny noneg}}}
+\newcommand{\Rnoneg}{{\mathbb R}^{\mbox{\tiny noneg}}}
+\newcommand{\Rationals}{{\mathbb Q}}
+\newcommand{\Reals}{{\mathbb R}}
+\newcommand{\Complexes}{{\mathbb C}}
+\newcommand{\relQ}{\mbox{\textsf Q}}
+\newcommand{\relR}{\mbox{\textsf R}}
+\newcommand{\nrelR}{\mbox{\raisebox{1pt}{$\not$}\rule{1pt}{0pt}{\textsf R}}}
+\newcommand{\relS}{\mbox{\textsf S}}
+\newcommand{\relA}{\mbox{\textsf A}}
+\newcommand{\Dom}[1]{\mbox{Dom}(#1)}
+\newcommand{\Cod}[1]{\mbox{Cod}(#1)}
+\newcommand{\Rng}[1]{\mbox{Rng}(#1)}
+\newcommand{\aij}[2]{a_{#1\:\!#2}}
+\newcommand{\bij}[2]{b_{#1\:\!#2}}
+\newcommand{\suchthat}{\;\mid\;}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
+<header id="masthead"><div class="banner"><div class="container">
+<a id="logo-link" href="../images/gilamonster.jpg" target="_blank"><img src="../images/gilamonster.jpg"></a><div class="title-container">
+<h1 class="heading"><span class="title">A Gentle Introduction to Linear Algebra</span></h1>
+<p class="byline">Joe Fields</p>
+</div>
+</div></div>
+<nav id="primary-navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="previous-button toolbar-item button" href="section-start.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-vectors.html">Next</a>
+</div>
+<button class="sidebar-right-toggle-button button active">Annotations</button>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-start.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-vectors.html">Next</a>
+</div>
+</div></nav></header><div class="page">
+<aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
+<nav id="toc"><h2 class="link"><a href="frontmatter-1.html"><span class="title">Front Matter</span></a></h2>
+<ul>
+<li><a href="colophon-1.html">Colophon</a></li>
+<li><a href="dedication-1.html">Dedication</a></li>
+<li><a href="acknowledgement-1.html">Acknowledgements</a></li>
+<li><a href="foreword-1.html">Foreword</a></li>
+<li><a href="preface-1.html">Preface</a></li>
+</ul>
+<h2 class="link active"><a href="chapter-1.html"><span class="codenumber">1</span><span class="title">Introduction</span></a></h2>
+<ul>
+<li><a href="section-start.html">Getting started</a></li>
+<li><a href="section-sys_eqs.html" class="active">Systems of equations</a></li>
+<li><a href="section-vectors.html">Vector equations</a></li>
+<li><a href="section-transformations.html">Transformations</a></li>
+<li><a href="section-5.html">Matrix notation</a></li>
+</ul>
+<h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">RREF</span></a></h2>
+<ul>
+<li><a href="section-6.html">Triangular systems</a></li>
+<li><a href="section-7.html">Echelon form</a></li>
+<li><a href="section-rref.html">RREF</a></li>
+<li><a href="section-row-ops.html">Row operations and Gaussian elimination</a></li>
+<li><a href="section-10.html">Solving linear systems</a></li>
+</ul>
+<h2 class="link"><a href="chapter-3.html"><span class="codenumber">3</span><span class="title">Vectors</span></a></h2>
+<ul>
+<li><a href="section-11.html">Vectors and scalars</a></li>
+<li><a href="section-12.html">The matrix-vector product</a></li>
+<li><a href="section-13.html">Homogeneous and non-homogeneous systems</a></li>
+<li><a href="section-14.html">Matrix-matrix products</a></li>
+<li><a href="section-15.html">Vector spaces - an introduction</a></li>
+<li><a href="section-16.html">Dependence and independence</a></li>
+<li><a href="section-17.html">Bases and dimension</a></li>
+</ul>
+<h2 class="link"><a href="chapter-4.html"><span class="codenumber">4</span><span class="title">Determinants</span></a></h2>
+<ul>
+<li><a href="section-18.html">Torque, Area and Volume</a></li>
+<li><a href="section-19.html">Determinants by recursion</a></li>
+<li><a href="section-20.html">Formal definition</a></li>
+</ul>
+<h2 class="link"><a href="chapter-5.html"><span class="codenumber">5</span><span class="title">The spectral decomposition</span></a></h2>
+<ul>
+<li><a href="section-21.html">Diagonal and diagonalizable systems</a></li>
+<li><a href="section-22.html">Eigenvalues and eigenvectors</a></li>
+<li><a href="section-23.html">Jordan form</a></li>
+<li><a href="section-24.html">The Singular value decomposition</a></li>
+</ul>
+<h2 class="link"><a href="chapter-6.html"><span class="codenumber">6</span><span class="title">Algebraic structures</span></a></h2>
+<ul>
+<li><a href="section-25.html">Groups, Rings and Fields</a></li>
+<li><a href="section-26.html">Modules</a></li>
+<li><a href="section-27.html">Algebras</a></li>
+<li><a href="section-28.html">Inner product spaces</a></li>
+</ul>
+<h2 class="link"><a href="chapter-7.html"><span class="codenumber">7</span><span class="title">Abstract vector spaces</span></a></h2>
+<ul>
+<li><a href="section-29.html">Vector spaces</a></li>
+<li><a href="section-30.html">Infinite dimensional spaces</a></li>
+<li><a href="section-31.html">Hilbert space</a></li>
+<li><a href="section-32.html">Fourier analysis</a></li>
+</ul>
+<h2 class="link"><a href="backmatter-1.html"><span class="title">Back Matter</span></a></h2>
+<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="http://osj1961.github.io/gila/">Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-sys_eqs"><header title="Section 1.2 Systems of equations"><h1 class="heading hide-type" alt="Section 1.2 Systems of equations">
+<span class="type">Section</span><span class="codenumber">1.2</span><span class="title">Systems of equations</span><a href="section-sys_eqs.html" class="permalink">¶ permalink</a>
+</h1></header><p id="p-37">In this section we'll look much more closely at the “systems of equations” approach to linear algebra.</p>
+<p id="p-38">First a few words about notation.  When there are seventeen variables in a problem it becomes <!--Style me with CSS--><em>really</em> awkward to use different letters for each variable.  When there are a thousand variables it's impossible!  We will follow the almost universal convention that the letter \(x\) will be used for the variables, with a subscript to identify which one.  If we were to translate the problem from Section  <a href="section-start.html" alt="Section 1.1 Getting started" title="Section 1.1 Getting started">1.1</a> into this notation it would become
+
+\begin{gather*}
+x_1 + x_2 = 42 \\
+x_1 - x_2 = 6. 
+\end{gather*}
+</p>
+<p id="p-39">A <!--Style me with CSS--><em>linear combination</em> of some set of numbers \(\{ x_1, x_2, \ldots, x_n \}\) is created by multiplying each of the \(x\)'s by constants and then adding everything up. Of course if the constants are \(1\) or \(-1\) (as in the previous example) we tend to forget that they're there!
+</p>
+<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-example-1" id="example-1"><article class="example-like"><h5 class="heading">
+<span class="type">Example</span><span class="codenumber">1.2.1</span>
+</h5></article></a></div>
+<div id="hk-example-1" style="display: none;" class="tex2jax_ignore"><article class="example-like"><p id="p-40">Consider \(x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5\). This is a linear combination of the five variables \(\{x_1, x_2, x_3, x_4, x_5\}\).  The constants (\(1, 2, 3, 4,\) and \(5\)) are called the coefficients of the linear combination.
+  </p></article></div>
+<p id="p-41">An equation is <!--Style me with CSS--><em>linear</em> if it has the form of a linear combination set equal to some value on the right-hand side -- or if it can be put into that form.  For example
+
+\begin{gather*}
+ x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5 = 15 
+\end{gather*}
+
+is a linear equation in five variables.
+</p>
+<p id="p-42">Also,
+\begin{gather*}
+ x_1 + 3x_3 = x_2 + x_4 
+\end{gather*}
+
+is a linear equation (in four variables) because we can manipulate it into the form
+
+\begin{gather*}
+ x_1 - x_2 + 3x_3 - x_4 = 0. 
+\end{gather*}
+</p>
+<article class="exercise-like" id="exercise-2"><h5 class="heading">
+<span class="type">Exercise</span> <span class="codenumber">1.2.2</span>
+</h5>
+<p id="p-43">The linear equation
+\begin{gather*}
+ x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5 = 15 
+\end{gather*}
+
+has a solution where all of the variables are set equal to 1.  Are there others?
+    </p></article><div class="hidden-knowl-wrapper">
+<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-hint-2" id="hint-2"><span class="heading"><span class="type">Hint</span></span></a></span><span id="hk-hint-2" style="display: none;" class="tex2jax_ignore"><span class="solution"><p id="p-44">Try setting one of the variables to zero.  That essentially eliminates that one and gives you a new equation with only four variables.  Does the new equation have a solution?
+    </p></span></span>
+</div>
+<p id="p-45">A <!--Style me with CSS--><em>system of equations</em> is just a collection of linear equations.</p>
+<p id="p-46">The notation for systems of equations gets a bit complicated when we try to write them in general (that is, without particular values given for the various constants involved).  There are three sorts of things that need names in such a system: the variables, the coefficients of the variables, and the numbers on the right-hand sides.  There is a convention that is fairly universal for the names and numbering of these elements.  The variables are \(x\)'s with subscripts, the right-hand sides are \(b\)'s with subscripts, and the coefficients are \(a\)'s with <!--Style me with CSS--><em>two</em> subscripts (we need to indicate the equation that a given coefficient is in and also, which variable it is multiplying.
+</p>
+<p id="p-47">For example, here is how we would write the general form of a system of three equations in four unknowns:
+ 
+\begin{equation*}
+\begin{alignedat}{5}
+\aij{1}{1} x_1 \amp {}+{} \amp  \aij{1}{2} x_2 \amp {}+{} \amp \aij{1}{3} x_3 \amp {}+{} \amp  \aij{1}{4} x_4 \amp {}={} \amp b_1 \\
+\aij{2}{1} x_1 \amp {}+{} \amp  \aij{2}{2} x_2 \amp {}+{} \amp \aij{2}{3} x_3 \amp {}+{} \amp  \aij{2}{4} x_4 \amp {}={} \amp b_2 \\
+\aij{3}{1} x_1 \amp {}+{} \amp  \aij{3}{2} x_2 \amp {}+{} \amp \aij{3}{3} x_3 \amp {}+{} \amp  \aij{3}{4} x_4 \amp {}={} \amp b_3 \\
+\end{alignedat}
+\end{equation*}
+
+Notice that the indices on the \(x\)'s run from 1 to 4, the indices on the \(b\)'s run from 1 to 3, and that there are a total of 12 coefficients.
+</p>
+<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-ex-invest" id="ex-invest"><article class="example-like"><h5 class="heading">
+<span class="type">Example</span><span class="codenumber">1.2.3</span><span class="title">Investments</span>
+</h5></article></a></div>
+<div id="hk-ex-invest" style="display: none;" class="tex2jax_ignore">
+<article class="example-like"><p id="p-48">Suppose you have $\(10,000\) that you want to invest in the stock market. After some research you've found three companies that you think will be good investments.  SolarCity Corp (SCTY) is trading at about $\(20\) per share.  SunPower - Solar energy company (SPWR) is trading at about $\(9\) per share. First Trust Global Wind Energy (FAN) is at about $\(12\) per share.  One equation you can immediately write down is
+
+\begin{gather*}
+20 x_1 + 9 x_2 + 12 x_3 = 10000,
+\end{gather*}
+
+where \(x_1\) is the number of shares of SCTY we will buy, \(x_2\) is the number of shares of SPWR, and \(x_3\) is the number of shares of FAN.
+</p>
+<p id="p-49">If we said nothing further, we'd have just this one equation and there are many possible sets of values for the variables that satisfy it.  Notice that there are two broad categories of companies represented in our stock picks -- solar energy and wind power.  Perhaps we'd be wise to split our investment between them based on some rational theory, for the sake of argument let's say that we've been advised to use a 60/40 split between solar and wind.  What was previously a single equation is now two:
+
+\begin{gather*}
+20 x_1 + 9 x_2 = 60000,\\
+12 x_3 = 40000.
+\end{gather*}
+</p>
+<p id="p-50">Notice that the second equation uniquely determines the value of \(x_3\) but that the other variables still have a bit of freedom.  (For instance, notice that we could set either \(x_1\) or \(x_2\) to \(0\), and the other variable's value would then be uniquely determined. Or, of course we could have some mixture where our $\(6,000\) is split up between the two companies.  As it happens, these two companies are competitors and there is some probability that one will succeed and the other will fail.  A wise investor tries to guess what that probability is and “hedge” their bets on the market.  For the sake of argument let's say we think SCTY is three times more likely to come out the winner in this competition.  You might be inclined to just buy only the SCTY stock, but that's not what a hedging strategy would indicate -- you should mix your investments in a proportion that reflects the probabilities involved.  As an equation in the \(x\)'s we have
+
+\begin{gather*}
+20 x_1 = 3 \cdot 9 x_2.
+\end{gather*}
+</p>
+<p id="p-51">At this point we've obtained a system of 3 equations in 3 variables which, after manipulating the last one a little bit, looks like the following.
+
+\begin{gather*}
+20 x_1 + 9 x_2 = 60000\\
+12 x_3 = 40000\\
+20 x_1 - 27 x_2 = 0
+\end{gather*}
+</p>
+<p id="p-52">It is usually a good idea to format your systems so that the variables in each equation line up in columns.
+
+\begin{equation*}
+\begin{alignedat}{4}
+20 x_1 \amp {}+{} \amp  9 x_2 \amp  \amp  \amp {}={} \amp 6000 \\
+ \amp  \amp   \amp  \amp  12 x_3 \amp {}={} \amp 4000 \\
+20 x_1 \amp {}-{} \amp 27 x_2 \amp  \amp  \amp {}={} \amp 0
+\end{alignedat}
+\end{equation*}
+</p></article><div class="posterior"><div>
+<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-1" id="solution-1"><span class="">Solution</span></a></span><span id="hk-solution-1" style="display: none;" class="tex2jax_ignore"><div class="remark-like">
+<p id="p-53">Now, let's go ahead and figure out what the values of the variables should be.  In other words, how many shares of each stock should we purchase?
+</p>
+<p id="p-54">First, look at that middle equation.  It isn't very complicated, indeed, it basically <!--Style me with CSS--><em>tells</em> us the value of \(x_3\) — we just need to divide both sides by 12 to get that \(x_3 = 333.\overline{3}\).  Unfortunately, we can't buy fractions of a share of stock so we'll round to \(333\).
+</p>
+<p id="p-55">We're somewhat lucky in that the variable \(x_3\) doesn't appear in the other equations, but <!--Style me with CSS--><em>even if it did</em>, we could now substitute the value we just determined for it.  Furthermore, at this point, we have no more use for that middle equation; we've used it up in finding the value of \(x_3\).  So now we've reduced our problem to a simpler system — one that consists of just two equations in the remaining two unknowns.
+
+\begin{equation*}
+\begin{alignedat}{3}
+20 x_1 \amp {}+{} \amp  9 x_2   \amp {}={} \amp 6000 \\
+20 x_1 \amp {}-{} \amp 27 x_2   \amp {}={} \amp 0
+\end{alignedat}
+\end{equation*}
+</p>
+<p id="p-56">If we subtract the first equation from the second we get
+\begin{equation*}
+\begin{alignedat}{3}
+  \amp {}-{} \amp 36 x_2   \amp {}={} \amp -6000
+\end{alignedat}
+\end{equation*}
+and this tells us (just divide both sides by \(-36\)) the value of \(x_2\). 
+</p>
+<p id="p-57">What we've determined so far is that \(x_3 = 333\) and \(x_2 = 167\). By substituting those values into the very first equation we wrote down we'll be able to find the value of \(x_1\).
+</p>
+<p id="p-58">After making those substitutions we get an equation that only has one variable:
+
+\begin{gather*}
+20 x_1 + 9 \cdot 167 + 12 \cdot 333 = 10000.
+\end{gather*}
+
+It's child's play to find the solution is \(x_3=225\).
+
+So in the end we should put in an order for 225 share of SCTY, 167 shares of SPWR and 333 shares of FAN.  Notice that because of rounding we've come up one dollar short of our intended investment.
+</p>
+</div></span>
+</div></div>
+</div>
+<p id="p-59">A bit more formalism is appropriate now.  We'll start with some definitions.
+</p>
+<article class="definition-like" id="definition-1"><h5 class="heading">
+<span class="type">Definition</span><span class="codenumber">1.2.4</span><span class="title">linear system</span>
+</h5>
+<p id="p-60">A <em class="terminology">linear system</em>, also known (a bit more formally) as a <em class="terminology">system of linear equations</em> is a collection of \(m\) equations in \(n\) unknowns of the form
+\begin{equation*}
+\begin{alignedat}{5}
+a_{11} x_1 \amp {}+{} \amp  a_{12} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \amp {}+{} a_{1n} x_n \amp {}={} \amp b_1 \\
+a_{21} x_1 \amp {}+{} \amp  a_{22} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \amp {}+{} a_{2n} x_n \amp {}={} \amp b_2 \\
+ \amp \amp \amp  \amp \amp \vdots \amp  \amp \amp \amp \\
+a_{m1} x_1 \amp {}+{} \amp  a_{m2} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \amp {}+{} a_{mn} x_n \amp {}={} \amp b_m \\
+\end{alignedat}
+\end{equation*}
+</p>
+<p id="p-61">Note that the doubly-indexed quantities (\(a_{ij}\)) as well as the singly-indexed quantities (\(b_i\)) are real numbers and that the \(m\) variables are indicated by \(x\)'s (with subscripts).
+</p></article><article class="remark-like" id="remark-1"><h5 class="heading">
+<span class="type">Remark</span><span class="codenumber">1.2.5</span>
+</h5>
+<p id="p-62">The use of variables with multiple indices in the above definition bears comment.  First of all, note that we are trying to deal with the general situation where there is an unknown number of equations (\(m\)) in an unknown number of variables (\(n\)).  Let's consider the \(b\)'s first — these are the constants that appear on the right-hand sides of the equations, so there are \(m\) of them.  The situation for the \(a\)'s is more complicated.  The \(a\)'s are the coefficients, they are constant numbers that the variables are multiplied by, and there are two indices on each of them.  The first index tells us which equation we are in.  The second index matches with the subscript on the variable.  For example \(\aij{14}{23}\) would be the coefficient of \(x_{23}\) in the \(14\)th equation in a system.
+</p></article><p id="p-63">What does it mean to say we have found an “answer” to a system of equations?  Essentially, it is this: we have found a set of values for the variables that “work” in all of the equations.  Sometimes people say that this set of values “satisfies” the equations.  To be completely clear, what is meant is that if one substitutes these values for the variables in the equations of the system, all of them (the equations) will be true.  It is convenient to regard such a set of values as a vector.  For example the solution we obtained in Example <a knowl="./knowl/ex-invest.html" knowl-id="xref-ex-invest" alt="Example 1.2.3 Investments" title="Example 1.2.3 Investments">1.2.3</a> would be regarded as the vector \(\langle 225, 167, 333 \rangle\).
+</p>
+<article class="definition-like" id="definition-2"><h5 class="heading">
+<span class="type">Definition</span><span class="codenumber">1.2.6</span><span class="title">solution sets</span>
+</h5>
+<p id="p-64">Given a system of \(m\) linear equations in \(n\) unknowns, the <em class="terminology">solution set</em> of the system is the set of all vectors of length \(n\) that satisfy all \(m\) of the equations in the system.
+</p></article><article class="definition-like" id="definition-3"><h5 class="heading">
+<span class="type">Definition</span><span class="codenumber">1.2.7</span><span class="title">equivalent systems</span>
+</h5>
+<p id="p-65">Two linear systems are called <em class="terminology">equivalent</em> if and only if they have identical solution sets.
+</p></article><article class="remark-like" id="remark-2"><h5 class="heading">
+<span class="type">Remark</span><span class="codenumber">1.2.8</span>
+</h5>
+<p id="p-66">The equivalence of linear systems is an example of what is known  as an equivalence relation.  Equivalence relations are used in theoretical mathematics when we are trying to capture the notion that two things — while not <!--Style me with CSS--><em>actually</em> equal — are similar enough that we can treat them as being sort of a junior version of equal…  
+</p>
+<p id="p-67">For a relationship to earn the title “equivalence relation” it must have a short list of properties.  These properties are certainly true of the ordinary equals sign:
+</p>
+<p id="p-68">
+<dl class="description-list">
+<dt id="li-1">reflexivity</dt>
+<dd><p id="p-69">A relation is reflexive iff all elements are related to themselves.
+</p></dd>
+<dt id="li-2">symmetry</dt>
+<dd><p id="p-70">A relation is symmetric iff whenever \(x\) and \(y\) are a pair of elements that are related, then \(y\) and \(x\) are also a pair that are related.  (I.e. the order can always be reversed.)
+</p></dd>
+<dt id="li-3">transitivity</dt>
+<dd><p id="p-71">Perhaps you've heard the phrase “Two things that are equal to a third must be equal to each other.” That's the essence of transitivity.
+</p></dd>
+</dl>
+</p>
+<p id="p-72">
+There really is much more that we should say about equivalence relations in general and the consequences that ensue when we can show that some relation is an equivalence relation.  We refer the interested reader to chapter 6 in <a class="external-url" href="https://osj1961.github.io/giam/" target="_blank">GIAM</a>.  In the remainder of this book we are going to <!--Style me with CSS--><em>see</em> how very useful the notion of equivalence of linear systems can be.  Hopefully this will give you some indication of how useful equivalence relations in general can be!  
+</p>
+<p id="p-73">One final word about equivalence relations (in general) and the equivalence of linear systems (in particular):  It is customary, when introducing this notion, to ask students to come up with a proof that shows that some given relation (in this case, equivalence of linear systems) is indeed an equivalence relation.  Such proofs are actually relatively straightforward, but <!--Style me with CSS--><em>relax</em>, we're going to let you off the hook this time!  Showing that equivalence of linear systems is an equivalence relation is actually too easy.  What one needs to do is show that it has each of the three properties: reflexivity, symmetry and transitivity.  Each of those is an almost immediate consequence of the way this equivalence is defined.  We define two systems to be equivalent if and only if they have the same solution set. In other words, equivalence is <!--Style me with CSS--><em>defined</em> in terms of set equality.  Set equality is definitely an equivalence relation, so it has the three properties.  Finally, the arguments that show that equivalence of linear systems has the three properties all have the same form: in order to show that the equivalence of linear systems has a property we use the fact that set equality has that property.  This is called inheritance.  
+</p></article><p id="p-74">The general idea is this:  there are lots and lots of different linear systems that are equivalent.  They all have the same solution set.  Some of these systems are in a nice form that allows us to see what the solution set is.  Others are not.  We need to transform the latter into the former!
+</p>
+<p id="p-75">More specifically, there are three operations that can be applied to linear systems which <!--Style me with CSS--><em>do not have any effect on solution sets</em>.  We can apply these three operations in any way we like!  We'll just be transforming our linear system into a slightly different one that is equivalent to the original.  Finally, you'll see that it is pretty easy to strategize a bit and transform difficult linear systems into the nice sort (where the solution set is very evident) using these three operations.
+</p>
+<p id="p-76">The three operations go by many names; we'll refer to them as Reordering, Scaling and Combining.  In the next few paragraphs we'll discuss each of them in turn and explain why they don't have an effect on the solution set of a system.
+</p>
+<p id="p-77"><!--Style me with CSS--><em>Reordering</em> means what it sounds like.  The solution set is determined by checking whether a given solution vector satisfies <!--Style me with CSS--><em>all</em> of the equations.  It is pretty clear that the order that the equations are listed in is of little importance.  In many treatments of linear algebra an operation called “swapping” is used instead — swapping two equations is a special (particularly simple) instance of reordering and any more general reordering can be accomplished by a succession of swaps.
+</p>
+<article class="exercise-like" id="exercise-3"><h5 class="heading">
+<span class="type">Exercise</span> <span class="codenumber">1.2.9</span> <span class="title">permutations and swaps</span>
+</h5>
+<p id="p-78">We have placed the letters A through F in sequence below — however they are not in the usual (alphabetic) order.  Determine a sequence of swaps that will reorder them so that they <!--Style me with CSS--><em>are</em> in alphabetic order.
+
+\begin{equation*} DCABFE \end{equation*}
+</p></article><div class="hidden-knowl-wrapper">
+<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-hint-3" id="hint-3"><span class="heading"><span class="type">Hint</span></span></a></span><span id="hk-hint-3" style="display: none;" class="tex2jax_ignore"><span class="solution"><p id="p-79">There are many ways to proceed, but putting A then B then C <i class="foreign">et cetera</i> where they belong using swaps is one possibility.  What swap puts A in the first position?
+</p></span></span><span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-2" id="solution-2"><span class="">Solution</span></a></span><span id="hk-solution-2" style="display: none;" class="tex2jax_ignore"><div class="remark-like"><p id="p-80">
+\begin{gather*}
+ DCABFE \quad \mbox{(given) \phantom{swap D}} \\
+ ACDBFE \quad \mbox{swap D and A}\\
+ ABDCFE \quad \mbox{swap C and B}\\
+ ABCDFE \quad \mbox{swap D and C}\\
+ ABCDEF \quad \mbox{swap F and E}
+\end{gather*}
+</p></div></span>
+</div>
+<p id="p-81">Scaling is another operation where it is fairly obvious that there will be no effect on solution sets.  Scaling involves multiplying both sides of an equation by some non-zero constant.  Very often that non-zero constant will be the reciprocal of the coefficient of one of the variables; scaling by such a constant is useful in solving for that variable.  Perhaps it is clear that multiplying both sides of an equation by the same thing will have no impact on what values of the variables satisfy the equation…  But why does the constant need to be non-zero?  Multiplying both sides of <!--Style me with CSS--><em>any</em> equation by \(0\) will produce a new equation that looks like \(0 = 0\) which is certainly true!  In fact, of course, that's what the problem is; if the equation was previously false for some vector of variable values (thus it served to exclude that vector from the solution set) it will now be true.  So vectors of variable values that previously were not in the solution set will now be in it — that's the sort of thing we are trying to avoid!
+</p>
+<p id="p-82">Combining (a.k.a replacement) is the most difficult of the three operations and as you might guess, it is also the most useful.  Combining consists of adding a multiple of some other equation to a given one.  Another way to think of this is that we replace some equation 
+by <!--Style me with CSS--><em>itself</em> plus a multiple of some other equation. This is probably why some people call this operation Replacement.
+</p>
+<p id="p-83">When we added the equations \(x+y=42\) and \(x-y=6\), obtaining the new equation \(2x=48\) back in Section <a href="section-start.html" alt="Section 1.1 Getting started" title="Section 1.1 Getting started">1.1</a> we were really doing a “Combining” operation.  By the way, when we divided both sides of that new equation by \(2\) we were “Scaling.”
+</p>
+<p id="p-84">We'll close this section by giving an example — using the three operations to find the solution of a small linear system.
+</p>
+<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-example-3" id="example-3"><article class="example-like"><h5 class="heading">
+<span class="type">Example</span><span class="codenumber">1.2.10</span><span class="title">A small linear system</span>
+</h5></article></a></div>
+<div id="hk-example-3" style="display: none;" class="tex2jax_ignore">
+<article class="example-like"><p id="p-85">
+There is a unique solution to the following system of 3 equations in 3 unknowns.  What is it?
+\begin{equation*}
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}={} \amp 21 \\
+ 2 x_1  \amp {}-{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}={} \amp 12 \\
+   x_1  \amp {}+{} \amp 3 x_2 \amp {}-{} \amp x_3  \amp {}={} \amp 17
+\end{alignedat}
+\end{equation*}
+</p></article><div class="posterior"><div>
+<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-3" id="solution-3"><span class="">Solution</span></a></span><span id="hk-solution-3" style="display: none;" class="tex2jax_ignore"><div class="remark-like">
+<p id="p-86">The first thing we'll do is a combining operation.  We'll subtract twice the first equation from the second.  It will be convenient to develop a shorthand for expressing these operations.  This one could be written as \(E_2 = E_2 - 2E_1\).
+\begin{equation*}
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp {}-{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -30 \\
+   x_1  \amp {}+{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp 17
+\end{alignedat}
+\end{equation*}
+</p>
+<p id="p-87">Next we'll do a similar combining operation to eliminate \(x_1\) from the 3rd equation.
+This one would be expressed as \(E_3 = E_3 - E_1\).
+\begin{equation*}
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp {}-{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -30 \\
+        \amp {}+{} \amp 2 x_2 \amp {}-{} \amp 2 x_3  \amp {}={} \amp -4
+\end{alignedat}
+\end{equation*}
+</p>
+<p id="p-88">You should take note that we have done something mildly clever in eliminating the occurrences of \(x_1\) in the latter two equations. Now we can use them in further combination operations without fear that they will effect terms involving \(x_1\).
+</p>
+<p id="p-89">For our next operation let's scale the last equation by \(1/2\); this isn't strictly necessary but it makes things <!--Style me with CSS--><em>look</em> a little simpler and since every coefficient in the 3rd equation is even we won't end up dealing with fractions …  \(E_3 = \frac{1}{2} E_3\).
+\begin{equation*}
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp {}-{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -30 \\
+        \amp       \amp   x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -2
+\end{alignedat}
+\end{equation*}
+</p>
+<p id="p-90">We've just cleaned up the 3rd equation so that the first non-zero term in it (the one involving \(x_2\)) has a coefficient of 1.   This makes equation 3 very useful as a tool for eliminating the variable \(x_2\) from other equations, so next we'll do a reordering operation to move it a bit closer to the top of the heap.
+\begin{equation*}
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp       \amp   x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -2 \\
+        \amp {}-{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -30 \\
+\end{alignedat}
+\end{equation*}
+</p>
+<p id="p-91">Next, let's use what is now equation 2 to eliminate \(x_2\) from (the new) equation 3:
+\(E_3 = E_3 + 3 E_2\). 
+\begin{equation*}
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp       \amp   x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -2 \\
+        \amp       \amp       \amp {}-{} \amp 4 x_3  \amp {}={} \amp -36 \\
+\end{alignedat}
+\end{equation*}
+</p>
+<p id="p-92">Finally, although (again) this isn't strictly necessary, let's scale the 3rd equation so that the coefficient of \(x_3\) is 1… \(E_3 = \frac{-1}{4} E_3\).
+\begin{equation*}
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp       \amp   x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -2 \\
+        \amp       \amp       \amp       \amp   x_3  \amp {}={} \amp 9 \\ 
+\end{alignedat}
+\end{equation*}
+</p>
+<p id="p-93">Wait!  Should the last sentence really have started with the word “Finally”?  It seems like the system is still pretty complicated.  We certainly haven't achieved the simplest possible sort of linear system, but we <!--Style me with CSS--><em>have</em> turned the original system into a type that is known as “triangular”.  Do you see why?  This kind of system is very easy to solve by a process known as back-substitution.  The 3rd equation tells you the exact value of the third variable (\(x_3 = 9\)), you can then substitute that value into the second equation to obtain \(x_2 - 9 = -2\).  So now we can easily see that \(x_2=7\).  Hmmm.  Now we've got known values for \(x_2\) and \(x_3\) which we can substitute into the 1st equation to get
+\begin{equation*}
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   7 \amp {}+{} \amp   9  \amp {}={} \amp 21 \\
+\end{alignedat}
+\end{equation*}
+</p>
+<p id="p-94">Okay.  That's easy, \(x_1=5\).
+</p>
+</div></span>
+</div></div>
+</div></section></div></main>
+</div>
+</body>
+</html>

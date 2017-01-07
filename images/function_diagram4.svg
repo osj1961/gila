@@ -1,0 +1,92 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: fig2dev Version 3.2.6 -->
+<!-- CreationDate: Mon Oct 17 18:35:25 2016 -->
+<!-- Magnification: 1.050 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="3.1in" height="0.7in"
+	viewBox="3385 2727 3683 781">
+<g style="stroke-width:.025in; fill:none">
+<!-- Text -->
+<text xml:space="preserve" x="6330" y="3212" fill="#000000"  font-family="Times" font-style="normal" font-weight="bold" font-size="152" text-anchor="start">f</text>
+<!-- Line -->
+<polyline points="4157,2976
+4724,2976
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Line: box -->
+<rect x="4724" y="2740" width="708" height="755" rx="0" 
+style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Line -->
+<polyline points="4157,3259
+4724,3259
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Line -->
+<polyline points="5433,2976
+5874,2976
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 5433 2976 - 6015 2976-->
+<polygon points="5872 3007
+5998 2976
+5872 2944
+5872 3007
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="5433,3259
+5874,3259
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 5433 3259 - 6015 3259-->
+<polygon points="5872 3291
+5998 3259
+5872 3228
+5872 3291
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="6117,2929
+6212,2976
+6212,3070
+6259,3118
+6212,3165
+6212,3259
+6117,3307
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Text -->
+<text xml:space="preserve" x="5007" y="3165" fill="#000000"  font-family="Times" font-style="normal" font-weight="bold" font-size="152" text-anchor="start">f</text>
+<!-- Text -->
+<text xml:space="preserve" x="4299" y="2929" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="152" text-anchor="start">x</text>
+<!-- Text -->
+<text xml:space="preserve" x="4299" y="3212" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="152" text-anchor="start">y</text>
+<!-- Text -->
+<text xml:space="preserve" x="3401" y="3165" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="152" text-anchor="start">&#60;x,y&#62;</text>
+<!-- Text -->
+<text xml:space="preserve" x="6425" y="3212" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="152" text-anchor="start">(&#60;x,y&#62;)</text>
+<!-- Line -->
+<polyline points="4062,2929
+3968,2976
+3968,3070
+3921,3118
+3968,3165
+3968,3259
+4062,3307
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+</g>
+</svg>

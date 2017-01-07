@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--* Generated from MathBook XML source *-->
+<!--*    on 2016-12-30T14:51:44-05:00    *-->
+<!--*                                    *-->
+<!--*   http://mathbook.pugetsound.edu   *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GILA Getting started</title>
+<meta name="Keywords" content="Authored in MathBook XML">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']],
+    },
+    TeX: {
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
+        equationNumbers: { autoNumber: "none",
+                           useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
+                           formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
+                         },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    "HTML-CSS": {
+        scale: 88,
+    },
+});
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate Sage Code'});
+});
+</script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+<link href="extra.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<div style="display:none;">\(\require{graphicx}\require{cancel}\newcommand{\divides}{\!\mid\!}
+\newcommand{\tdiv}{\; \mbox{div} \;}
+\newcommand{\restrict}[2]{#1 \,\rule[-4pt]{.125pt}{14pt}_{\,#2}}
+\newcommand{\lcm}[2]{\mbox{lcm} (#1, #2)}
+\renewcommand{\gcd}[2]{\mbox{gcd} (#1, #2)}
+\newcommand{\Naturals}{{\mathbb N}}
+\newcommand{\Integers}{{\mathbb Z}}
+\newcommand{\Znoneg}{{\mathbb Z}^{\mbox{\tiny noneg}}}
+\newcommand{\Enoneg}{{\mathbb E}^{\mbox{\tiny noneg}}}
+\newcommand{\Qnoneg}{{\mathbb Q}^{\mbox{\tiny noneg}}}
+\newcommand{\Rnoneg}{{\mathbb R}^{\mbox{\tiny noneg}}}
+\newcommand{\Rationals}{{\mathbb Q}}
+\newcommand{\Reals}{{\mathbb R}}
+\newcommand{\Complexes}{{\mathbb C}}
+\newcommand{\relQ}{\mbox{\textsf Q}}
+\newcommand{\relR}{\mbox{\textsf R}}
+\newcommand{\nrelR}{\mbox{\raisebox{1pt}{$\not$}\rule{1pt}{0pt}{\textsf R}}}
+\newcommand{\relS}{\mbox{\textsf S}}
+\newcommand{\relA}{\mbox{\textsf A}}
+\newcommand{\Dom}[1]{\mbox{Dom}(#1)}
+\newcommand{\Cod}[1]{\mbox{Cod}(#1)}
+\newcommand{\Rng}[1]{\mbox{Rng}(#1)}
+\newcommand{\aij}[2]{a_{#1\:\!#2}}
+\newcommand{\bij}[2]{b_{#1\:\!#2}}
+\newcommand{\suchthat}{\;\mid\;}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
+<header id="masthead"><div class="banner"><div class="container">
+<a id="logo-link" href="../images/gilamonster.jpg" target="_blank"><img src="../images/gilamonster.jpg"></a><div class="title-container">
+<h1 class="heading"><span class="title">A Gentle Introduction to Linear Algebra</span></h1>
+<p class="byline">Joe Fields</p>
+</div>
+</div></div>
+<nav id="primary-navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="previous-button toolbar-item button" href="chapter-1.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-sys_eqs.html">Next</a>
+</div>
+<button class="sidebar-right-toggle-button button active">Annotations</button>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-1.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-sys_eqs.html">Next</a>
+</div>
+</div></nav></header><div class="page">
+<aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
+<nav id="toc"><h2 class="link"><a href="frontmatter-1.html"><span class="title">Front Matter</span></a></h2>
+<ul>
+<li><a href="colophon-1.html">Colophon</a></li>
+<li><a href="dedication-1.html">Dedication</a></li>
+<li><a href="acknowledgement-1.html">Acknowledgements</a></li>
+<li><a href="foreword-1.html">Foreword</a></li>
+<li><a href="preface-1.html">Preface</a></li>
+</ul>
+<h2 class="link active"><a href="chapter-1.html"><span class="codenumber">1</span><span class="title">Introduction</span></a></h2>
+<ul>
+<li><a href="section-start.html" class="active">Getting started</a></li>
+<li><a href="section-sys_eqs.html">Systems of equations</a></li>
+<li><a href="section-vectors.html">Vector equations</a></li>
+<li><a href="section-transformations.html">Transformations</a></li>
+<li><a href="section-5.html">Matrix notation</a></li>
+</ul>
+<h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">RREF</span></a></h2>
+<ul>
+<li><a href="section-6.html">Triangular systems</a></li>
+<li><a href="section-7.html">Echelon form</a></li>
+<li><a href="section-rref.html">RREF</a></li>
+<li><a href="section-row-ops.html">Row operations and Gaussian elimination</a></li>
+<li><a href="section-10.html">Solving linear systems</a></li>
+</ul>
+<h2 class="link"><a href="chapter-3.html"><span class="codenumber">3</span><span class="title">Vectors</span></a></h2>
+<ul>
+<li><a href="section-11.html">Vectors and scalars</a></li>
+<li><a href="section-12.html">The matrix-vector product</a></li>
+<li><a href="section-13.html">Homogeneous and non-homogeneous systems</a></li>
+<li><a href="section-14.html">Matrix-matrix products</a></li>
+<li><a href="section-15.html">Vector spaces - an introduction</a></li>
+<li><a href="section-16.html">Dependence and independence</a></li>
+<li><a href="section-17.html">Bases and dimension</a></li>
+</ul>
+<h2 class="link"><a href="chapter-4.html"><span class="codenumber">4</span><span class="title">Determinants</span></a></h2>
+<ul>
+<li><a href="section-18.html">Torque, Area and Volume</a></li>
+<li><a href="section-19.html">Determinants by recursion</a></li>
+<li><a href="section-20.html">Formal definition</a></li>
+</ul>
+<h2 class="link"><a href="chapter-5.html"><span class="codenumber">5</span><span class="title">The spectral decomposition</span></a></h2>
+<ul>
+<li><a href="section-21.html">Diagonal and diagonalizable systems</a></li>
+<li><a href="section-22.html">Eigenvalues and eigenvectors</a></li>
+<li><a href="section-23.html">Jordan form</a></li>
+<li><a href="section-24.html">The Singular value decomposition</a></li>
+</ul>
+<h2 class="link"><a href="chapter-6.html"><span class="codenumber">6</span><span class="title">Algebraic structures</span></a></h2>
+<ul>
+<li><a href="section-25.html">Groups, Rings and Fields</a></li>
+<li><a href="section-26.html">Modules</a></li>
+<li><a href="section-27.html">Algebras</a></li>
+<li><a href="section-28.html">Inner product spaces</a></li>
+</ul>
+<h2 class="link"><a href="chapter-7.html"><span class="codenumber">7</span><span class="title">Abstract vector spaces</span></a></h2>
+<ul>
+<li><a href="section-29.html">Vector spaces</a></li>
+<li><a href="section-30.html">Infinite dimensional spaces</a></li>
+<li><a href="section-31.html">Hilbert space</a></li>
+<li><a href="section-32.html">Fourier analysis</a></li>
+</ul>
+<h2 class="link"><a href="backmatter-1.html"><span class="title">Back Matter</span></a></h2>
+<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="http://osj1961.github.io/gila/">Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-start"><header title="Section 1.1 Getting started"><h1 class="heading hide-type" alt="Section 1.1 Getting started">
+<span class="type">Section</span><span class="codenumber">1.1</span><span class="title">Getting started</span><a href="section-start.html" class="permalink">¶ permalink</a>
+</h1></header><p id="p-11">The first problem we're going to look at is fairly trivial.  I bet you can solve this in your head:</p>
+<blockquote><p id="p-12">I'm thinking of two numbers \(x\) and \(y\).  Their sum is 42, and their difference is 6.  What are they?</p></blockquote>
+<p id="p-13">This word problem can be instantly translated into a pair of equations.  Later, when we have more sophisticated problems there may be many more unknown quantities and there may be many more equations.  Here we are dealing with a system of equations having 2 equations in 2 unknowns.
+
+\begin{gather*}
+x+y=42\\
+x-y=6
+\end{gather*}
+</p>
+<p id="p-14">This one is about as easy as a system of two equations in two variables can get. Actually, that's not quite true.  The <!--Style me with CSS--><em>easiest</em> form for a system of two equations in two unknowns is if they basically just are statements of the answer, like:
+
+\begin{gather*}
+x=24\\
+y=18.
+\end{gather*}
+
+Solving a system of equations just means (somehow) transforming it from something like the first form to something like this latter form.
+</p>
+<p id="p-15">There are a small number of simple procedures that we can apply to systems without effecting their solutions.  We can use these operations to convert almost any system into one that looks like that latter form (each equation just states what the value of some variable is). We'll get around to the full story in section <a href="section-sys_eqs.html" alt="Section 1.2 Systems of equations" title="Section 1.2 Systems of equations">1.2</a>, but for now, notice that if we add the two original equations together (adding equations means adding left sides and adding right sides separately) we get something that only involves \(x\).  And of course, once we know one of the variables it isn't very hard to find the other.
+</p>
+<p id="p-16">For this example problem, finding the solution was very easy.  There are more difficult systems where finding the solution by hand would be challenging so we are going to want to become familiar with some kind of computer tools for automating these things.  In this book, we'll be using Sage, a free, open-source, computer algebra system developed by William Stein.  Here is a sample of how Sage can be used to solve a system of equations:
+</p>
+<div class="sagecell-sage"><script type="text/x-sage">x, y = var('x, y')
+solve([x+y==42, x-y==6], x, y)
+</script></div>
+<p id="p-17">We glossed-over a small but important issue in the above.  How do we know that our answer was the only answer?  And for that matter, is it necessarily true that there must <!--Style me with CSS--><em>be</em> an answer to some system of equations?  These are what are known as existence and uniqueness questions:  Does there exist an answer to our problem?  (Existence.) And, if there <!--Style me with CSS--><em>is</em> an answer, how do we know it is the only answer? (Uniqueness.)  There are systems of equations where all of the possible behaviors are exhibited: no solutions, unique solutions and lots of solutions.
+</p>
+<article class="exercise-like" id="exercise-1"><h5 class="heading">
+<span class="type">Exercise</span> <span class="codenumber">1.1.1</span>
+</h5>
+<p id="p-18">Explain why the following system has no solutions at all.
+    \begin{gather*}
+2x - y = 7\\
+2y - 4x = 8.
+\end{gather*}
+    </p></article><div class="hidden-knowl-wrapper">
+<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-hint-1" id="hint-1"><span class="heading"><span class="type">Hint</span></span></a></span><span id="hk-hint-1" style="display: none;" class="tex2jax_ignore"><span class="solution"><p id="p-19">Put both equations into slope-intercept form (\(y = mx + b\)).</p></span></span>
+</div>
+<p id="p-20">
+  That was a linear algebra problem seen from the “systems of equations” perspective. We still need to look at the “vector equations” and “transformations” viewpoints. So next we'll look at a question of the vector flavor. We're going to think about playing chess, not on a board, but on the infinite \(x\)—\(y\) plane.
+</p>
+<p id="p-21">
+  Consider the piece known as a bishop. If you're not familiar with chess, this is the piece that can move in the diagonal directions. Think of the bishop as having two moves that it can do (but it can do them any number of times). It can do a move we'll refer to as UR; move one unit in the \(x\) direction while simultaneously moving one unit in the \(y\) direction — by doing this multiple times the bishop can travel in the upper right direction. It also has a move that allows it to travel along the other diagonal — move one unit in the \(x\) direction while simultaneously moving negative one unit in the \(y\) direction. We'll call that move LR.
+</p>
+<p id="p-22">For those who are familiar with chess, you'll know that bishops are forever trapped on the same color square — one of your bishops is always on black and the other always on white. This means that some “bishop moving questions” won't have solutions — for example, a bishop sitting at the origin, \((0, 0)\), can never move to \((0, 5)\); those squares have opposite colors! To get around this limitation we're going to let our bishops make fractional moves. For instance if it starts at the origin and makes \(1/2\) of the upper-right move then it will arrive at \((1/2, 1/2)\).  Now, getting a little stranger, we're going to also allow our bishops to make negative moves. Maybe we should think of a negative move as “undoing” a regular move…
+</p>
+<p id="p-23">In any case negative moves allow us to move the bishop in the opposite directions along the diagonals.  Finally, we may as well give our bishops the freedom to move <!--Style me with CSS--><em>any amount</em> — that is, any real number can be used as a so-called scalar, shrinking or stretching either of the two basic moves. Got it?
+We can do things like \(\pi \cdot UR\) and \(\sqrt{2} \cdot LR\).
+</p>
+<p id="p-24">So, after all that setup, here's the question: If a bishop starts at \((0,0)\), can it make some number of UR and LR moves and wind up at \((42,6)\)?  If so, how many URs and how many LRs?
+</p>
+<p id="p-25">The things we've been calling UR and LR are <!--Style me with CSS--><em>vectors</em>.  If you ask someone from the physical sciences to define a vector they'll say “it's a thing that has both a magnitude and a direction”.
+(Which is fine as far as it goes.)  Meteorology provides some nice examples. A weather map often shows a lot of basic data about the conditions at various places — wind, temperature, barometric pressure and humidity are common.  Of these, only the wind is a vector quantity, it needs to be specified with both a magnitude and a direction (e.g. 15 mph out of the Northeast), the others all just have magnitudes.
+</p>
+<p id="p-26">There is a different way of thinking about what a vector is, that is preferable in many circumstances.  A vector is the difference between two positions.  Let me put this another way: a vector gives you a set of <!--Style me with CSS--><em>directions</em> to go from one point to another.  (I mean “directions” in the sense of the things someone tells you if you ask “How do I get to the Kwik-E-Mart from here?”)
+</p>
+<p id="p-27">If you are currently at the point \((3,4)\) and you want to move to the point \((5,12)\) you
+need to increase your \(x\)-coordinate by 2 units and you must increase your \(y\)-coordinate by 8 units.  We just described the vector \(\langle 2, 8 \rangle\), the numbers \(2\) and \(8\) are known as the components of the vector.  Note that this is different in a not-so-subtle way from the <!--Style me with CSS--><em>point</em> \((2,8)\).  The point is stationary, the vector is there to describe a change.  If you start at the origin and follow the directions specified by the vector \(\langle 2, 8 \rangle\) you will of course wind up at the point \((2,8)\), but if you start at some other point, it's equally obvious that you won't!.  Sometimes people will talk about “position vectors” in this sort of context — the position vector  \(\langle x,y \rangle\) goes from the origin to the point  \((x,y)\).  Generally, it is preferable to keep the distinction between points and vectors clear.  When you treat a vector as a position vector (i.e. think of it as a point) you are loosing something.  Ordinarily a vector is free; it can be slid around from one point to another so long as its components aren't changed.
+</p>
+<p id="p-28">Here's how solving the vector variant of our problem might look in Sage:
+</p>
+<div class="sagecell-sage"><script type="text/x-sage">x, y, u, v = var('x, y, u, v')
+u = vector(QQ, [1, 1])
+v = vector(QQ, [1,-1])
+lhs = x*u+y*v
+rhs = vector(QQ, [42,6])
+solve([lhs[0]==rhs[0], lhs[1]==rhs[1]], x, y)
+</script></div>
+<p id="p-29">So, at this point we've looked at a simple linear algebra problem from the systems of equations perspective and from the vector equations perspective.  The final perspective we want to illustrate is that of linear transformations.
+</p>
+<p id="p-30">Basically, a linear transformation is a function that takes vectors as inputs and spits out vectors as outputs.  You're probably familiar with the following sort of diagram for functions.
+</p>
+<figure class="figure-like" id="figure-1"><object type="image/svg+xml" style="width:40%; margin:auto; display:block;" data="images/function_diagram.svg" alt=""><p style="margin:auto">&lt;&lt;SVG image is unavailable, or your browser cannot render it&gt;&gt;</p></object></figure><p id="p-31">In Multivariable Calculus you may also encounter functions that are diagramed like so:
+</p>
+<div class="sidebyside" style="" id="sidebyside-1"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel" style="width:44.4444444444444%;justify-content:flex-start;"><object type="image/svg+xml" style="width:100%; margin:auto; display:block;" data="images/function_diagram2.svg" alt=""><p style="margin:auto">&lt;&lt;SVG image is unavailable, or your browser cannot render it&gt;&gt;</p></object></div>
+<div class="sbspanel" style="width:44.4444444444444%;justify-content:flex-start;"><object type="image/svg+xml" style="width:100%; margin:auto; display:block;" data="images/function_diagram3.svg" alt=""><p style="margin:auto">&lt;&lt;SVG image is unavailable, or your browser cannot render it&gt;&gt;</p></object></div>
+</div></div>
+<p id="p-32">The first is a real-valued function of two variables — think of it as taking a vector as input and returning a scalar.  The second is a vector-valued function of a single real variable.  The mapping that gives temperature as a function of position on a metal plate is an example of the first sort.  When we represent the position of a particle moving around in space (as a function of time) we are using the second sort.</p>
+<p id="p-33">Linear transformations are functions where there are vectors on both the input and the output side.
+</p>
+<figure class="figure-like" id="figure-2"><object type="image/svg+xml" style="width:70%; margin:auto; display:block;" data="images/function_diagram4.svg" alt=""><p style="margin:auto">&lt;&lt;SVG image is unavailable, or your browser cannot render it&gt;&gt;</p></object></figure><p id="p-34">Moreover, linear transformations are <!--Style me with CSS--><em>linear</em>, which means the components of the output are computed in a very simplistic way from the components of the inputs.  The only things that are allowed are adding things up and multiplying by constants. 
+</p>
+<p id="p-35">So let's give an example of a linear transformation.  This will be a function that takes a vector \(\langle x, y \rangle\) as input, and returns a vector \(\langle u, v \rangle\) as output.  We will compute \(u\) and \(v\) (the components of the output vector) from \(x\) and \(y\) (the components of the input vector by “adding things up and multiplying by constants”:
+
+\begin{gather*}
+u = x+y\\
+v = x-y
+\end{gather*}
+</p>
+<p id="p-36">By convention, people usually call a linear transformation \(T\) and use a notation that looks just like Euler notation for functions (because in fact, that's what it is!)
+
+\begin{gather*}
+ T( \langle x,y \rangle ) = \langle u, v \rangle . 
+\end{gather*}
+
+There are two kinds of problems one can ask: maybe you know the input vector and you'd like to find the output vector, or vice versa.  When you've got the input it's very easy to find the output!  You just plug in.  The more interesting question is when it's vice versa, suppose you know that \(\langle u, v \rangle = \langle 42, 6 \rangle\) how can you arrive at the solution \( \langle x,y \rangle  = \langle 24, 18 \rangle \)?  We'll be looking at this kind of thing in more depth in Section <a href="section-transformations.html" alt="Section 1.4 Transformations" title="Section 1.4 Transformations">1.4</a>.
+</p></section></div></main>
+</div>
+</body>
+</html>

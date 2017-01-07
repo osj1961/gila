@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--* Generated from MathBook XML source *-->
+<!--*    on 2016-12-30T14:51:44-05:00    *-->
+<!--*                                    *-->
+<!--*   http://mathbook.pugetsound.edu   *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GILA Transformations</title>
+<meta name="Keywords" content="Authored in MathBook XML">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']],
+    },
+    TeX: {
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
+        equationNumbers: { autoNumber: "none",
+                           useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
+                           formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
+                         },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    "HTML-CSS": {
+        scale: 88,
+    },
+});
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+<link href="extra.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<div style="display:none;">\(\require{graphicx}\require{cancel}\newcommand{\divides}{\!\mid\!}
+\newcommand{\tdiv}{\; \mbox{div} \;}
+\newcommand{\restrict}[2]{#1 \,\rule[-4pt]{.125pt}{14pt}_{\,#2}}
+\newcommand{\lcm}[2]{\mbox{lcm} (#1, #2)}
+\renewcommand{\gcd}[2]{\mbox{gcd} (#1, #2)}
+\newcommand{\Naturals}{{\mathbb N}}
+\newcommand{\Integers}{{\mathbb Z}}
+\newcommand{\Znoneg}{{\mathbb Z}^{\mbox{\tiny noneg}}}
+\newcommand{\Enoneg}{{\mathbb E}^{\mbox{\tiny noneg}}}
+\newcommand{\Qnoneg}{{\mathbb Q}^{\mbox{\tiny noneg}}}
+\newcommand{\Rnoneg}{{\mathbb R}^{\mbox{\tiny noneg}}}
+\newcommand{\Rationals}{{\mathbb Q}}
+\newcommand{\Reals}{{\mathbb R}}
+\newcommand{\Complexes}{{\mathbb C}}
+\newcommand{\relQ}{\mbox{\textsf Q}}
+\newcommand{\relR}{\mbox{\textsf R}}
+\newcommand{\nrelR}{\mbox{\raisebox{1pt}{$\not$}\rule{1pt}{0pt}{\textsf R}}}
+\newcommand{\relS}{\mbox{\textsf S}}
+\newcommand{\relA}{\mbox{\textsf A}}
+\newcommand{\Dom}[1]{\mbox{Dom}(#1)}
+\newcommand{\Cod}[1]{\mbox{Cod}(#1)}
+\newcommand{\Rng}[1]{\mbox{Rng}(#1)}
+\newcommand{\aij}[2]{a_{#1\:\!#2}}
+\newcommand{\bij}[2]{b_{#1\:\!#2}}
+\newcommand{\suchthat}{\;\mid\;}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
+<header id="masthead"><div class="banner"><div class="container">
+<a id="logo-link" href="../images/gilamonster.jpg" target="_blank"><img src="../images/gilamonster.jpg"></a><div class="title-container">
+<h1 class="heading"><span class="title">A Gentle Introduction to Linear Algebra</span></h1>
+<p class="byline">Joe Fields</p>
+</div>
+</div></div>
+<nav id="primary-navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="previous-button toolbar-item button" href="section-vectors.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-5.html">Next</a>
+</div>
+<button class="sidebar-right-toggle-button button active">Annotations</button>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-vectors.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-5.html">Next</a>
+</div>
+</div></nav></header><div class="page">
+<aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
+<nav id="toc"><h2 class="link"><a href="frontmatter-1.html"><span class="title">Front Matter</span></a></h2>
+<ul>
+<li><a href="colophon-1.html">Colophon</a></li>
+<li><a href="dedication-1.html">Dedication</a></li>
+<li><a href="acknowledgement-1.html">Acknowledgements</a></li>
+<li><a href="foreword-1.html">Foreword</a></li>
+<li><a href="preface-1.html">Preface</a></li>
+</ul>
+<h2 class="link active"><a href="chapter-1.html"><span class="codenumber">1</span><span class="title">Introduction</span></a></h2>
+<ul>
+<li><a href="section-start.html">Getting started</a></li>
+<li><a href="section-sys_eqs.html">Systems of equations</a></li>
+<li><a href="section-vectors.html">Vector equations</a></li>
+<li><a href="section-transformations.html" class="active">Transformations</a></li>
+<li><a href="section-5.html">Matrix notation</a></li>
+</ul>
+<h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">RREF</span></a></h2>
+<ul>
+<li><a href="section-6.html">Triangular systems</a></li>
+<li><a href="section-7.html">Echelon form</a></li>
+<li><a href="section-rref.html">RREF</a></li>
+<li><a href="section-row-ops.html">Row operations and Gaussian elimination</a></li>
+<li><a href="section-10.html">Solving linear systems</a></li>
+</ul>
+<h2 class="link"><a href="chapter-3.html"><span class="codenumber">3</span><span class="title">Vectors</span></a></h2>
+<ul>
+<li><a href="section-11.html">Vectors and scalars</a></li>
+<li><a href="section-12.html">The matrix-vector product</a></li>
+<li><a href="section-13.html">Homogeneous and non-homogeneous systems</a></li>
+<li><a href="section-14.html">Matrix-matrix products</a></li>
+<li><a href="section-15.html">Vector spaces - an introduction</a></li>
+<li><a href="section-16.html">Dependence and independence</a></li>
+<li><a href="section-17.html">Bases and dimension</a></li>
+</ul>
+<h2 class="link"><a href="chapter-4.html"><span class="codenumber">4</span><span class="title">Determinants</span></a></h2>
+<ul>
+<li><a href="section-18.html">Torque, Area and Volume</a></li>
+<li><a href="section-19.html">Determinants by recursion</a></li>
+<li><a href="section-20.html">Formal definition</a></li>
+</ul>
+<h2 class="link"><a href="chapter-5.html"><span class="codenumber">5</span><span class="title">The spectral decomposition</span></a></h2>
+<ul>
+<li><a href="section-21.html">Diagonal and diagonalizable systems</a></li>
+<li><a href="section-22.html">Eigenvalues and eigenvectors</a></li>
+<li><a href="section-23.html">Jordan form</a></li>
+<li><a href="section-24.html">The Singular value decomposition</a></li>
+</ul>
+<h2 class="link"><a href="chapter-6.html"><span class="codenumber">6</span><span class="title">Algebraic structures</span></a></h2>
+<ul>
+<li><a href="section-25.html">Groups, Rings and Fields</a></li>
+<li><a href="section-26.html">Modules</a></li>
+<li><a href="section-27.html">Algebras</a></li>
+<li><a href="section-28.html">Inner product spaces</a></li>
+</ul>
+<h2 class="link"><a href="chapter-7.html"><span class="codenumber">7</span><span class="title">Abstract vector spaces</span></a></h2>
+<ul>
+<li><a href="section-29.html">Vector spaces</a></li>
+<li><a href="section-30.html">Infinite dimensional spaces</a></li>
+<li><a href="section-31.html">Hilbert space</a></li>
+<li><a href="section-32.html">Fourier analysis</a></li>
+</ul>
+<h2 class="link"><a href="backmatter-1.html"><span class="title">Back Matter</span></a></h2>
+<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="http://osj1961.github.io/gila/">Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-transformations"><header title="Section 1.4 Transformations"><h1 class="heading hide-type" alt="Section 1.4 Transformations">
+<span class="type">Section</span><span class="codenumber">1.4</span><span class="title">Transformations</span><a href="section-transformations.html" class="permalink">¶ permalink</a>
+</h1></header><p id="p-119">A transformation is a function whose inputs and outputs are vectors.  In order to discuss concepts like the range and domain of a transformation we'll need some terminology for <!--Style me with CSS--><em>sets</em> of vectors.  When we are considering the set of all possible vectors of some type it is known as a <!--Style me with CSS--><em>vector space</em>.  At first, we are going to be looking at the most basic and fundamental sorts of vector spaces — where the vectors are ordered tuples of real numbers — but be advised that later we will see that there are many other sorts of vectors! 
+</p>
+<article class="definition-like" id="definition-7"><h5 class="heading">
+<span class="type">Definition</span><span class="codenumber">1.4.1</span><span class="title">Real Euclidean spaces</span>
+</h5>
+<p id="p-120">Given a positive integer \(n\) we define the <em class="terminology">real Euclidean space of dimension \(n\)</em> (denoted \(\Reals^n\)) to 
+be the set of all ordered \(n\)-tuples of real numbers.  
+\begin{gather*}
+\Reals^n \; = \; \{ \langle v_1, v_2, \ldots , v_n \rangle \, \suchthat \, \forall i, 1 \leq i \leq n, \, v_i \in \Reals \} 
+\end{gather*}
+</p></article><p id="p-121">Recall that the <em class="terminology">domain</em> of a function is the set from which the inputs come.  The set where the outputs may appear is known as the <em class="terminology">codomain</em> of the function. The codomain must be contrasted with the <em class="terminology">range</em> which is the set of outputs that actually <!--Style me with CSS--><em>do</em> occur.  We are going to be presuming a certain familiarity with the basic terminology used with functions.  You can skip over the following list of (informal) definitions if you are already familiar.
+</p>
+<p id="p-122">
+<dl class="description-list">
+<dt id="li-4">domain</dt>
+<dd><p id="p-123">The set of all inputs for a function.  The domain is sometimes specified while defining the function, but if it isn't, the convention is to use the biggest possible set for the domain.</p></dd>
+<dt id="li-5">codomain</dt>
+<dd><p id="p-124">The set where the outputs of a function lie.</p></dd>
+<dt id="li-6">range</dt>
+<dd><p id="p-125">The set of outputs that actually occur. (The range is generally a subset of the codomain.) </p></dd>
+<dt id="li-7">image</dt>
+<dd><p id="p-126">If an element, \(x\), of the domain is given, we refer to \(f(x)\) as the <!--Style me with CSS--><em>image</em> of \(x\).</p></dd>
+<dt id="li-8">pre-image</dt>
+<dd><p id="p-127">If we have some \(y\) (an output) in mind, any \(x\) (an input) such that \(f(x) = y\) is called a <!--Style me with CSS--><em>pre-image</em> of \(y\).</p></dd>
+</dl>
+</p>
+<p id="p-128">There is a bit of an asymmetry in the way we speak of the various sets that are related to a function.  On the output side we have the codomain and the range.  On the input side we have only the domain.  There is no agreed upon name for a set that contains the domain, we simply insist that the function must be defined for every element of the domain (which basically sidesteps the issue).  For the ordinary functions that one sees in calculus, the codomain is the real numbers; the range and domain are generally subsets of the real numbers.  And so, the situation isn't terribly complex.  When we are dealing with transformations things are harder.  The domain and codomain of a transformation are generally real Euclidean spaces — potentially of different dimensions — so we will usually want to spell out what sorts of vectors are expected as inputs, what sorts of vectors will we see as outputs and only then do we get around to the heart of the matter: how do we compute the output from the input?  We'll introduce the notation for a transformation via an example and then treat the general case.
+</p>
+<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-example-6" id="example-6"><article class="example-like"><h5 class="heading">
+<span class="type">Example</span><span class="codenumber">1.4.2</span><span class="title">an example transformation</span>
+</h5></article></a></div>
+<div id="hk-example-6" style="display: none;" class="tex2jax_ignore"><article class="example-like"><p id="p-129">Let's look at a transformation that takes vectors of length 6 as inputs, and outputs vectors of length 3.  We'll refer to the input vector as \(\vec{x}\) and, as usual, its components will be \(x\)'s with subscripts:
+\(\vec{x} = \langle x_1, x_2, x_3, x_4, x_5, x_6 \rangle\).  Similarly, the output will be \(\vec{y} = \langle y_1, y_2, y_3 \rangle\).  This is only an example so we'll just make up the rules that determine those output components from the input components, the point here is simply to demonstrate how one should write such a thing — which is as follows:
+\begin{gather*}
+T:\Reals^6 \longrightarrow \Reals^3\\
+T(\langle x_1, x_2, x_3, x_4, x_5, x_6 \rangle) \quad = \quad \langle x_1, x_3, x_5 \rangle .
+\end{gather*}
+</p>
+<p id="p-130">So this transformation just picks out the odd-numbered components of \(\vec{x}\) and puts them in \(\vec{y}\).
+</p></article></div>
+<p id="p-131">The most important transformations for us in this context are the <!--Style me with CSS--><em>linear</em> ones.  In a linear transformation, the components of the output vector are computed from the components of the input vector by “multiplying by constants and adding everything up.”  Because of the simplistic way that the outputs are computed there is really nothing that can go wrong!  With ordinary functions from \(\Reals\) to \(\Reals\) we usually look at the rule for computing the output and recognize certain values that must be eliminated from the domain — typically where one sees “division by zero” or “square root of a negative” errors.  No such problem can arise with linear transformations, the domain will always be a real Euclidean space of some dimension.  Similarly, the codomain will be a real Euclidean space; one whose dimension is simply the number of components in the output vectors.  The dimensions of the domain and codomain are easy to think about — how many components do the input and output vectors have?  The range of a linear transformation is slightly more complicated.  The output vectors that actually occur will certainly be vectors having the number of components as specified by the codomain, but do all such vectors necessarily have to appear as outputs?  In general, no.
+</p>
+<p id="p-132">The notation for a linear transformation first spells out the domain and codomain and then gives the rule(s) for computing the output.  Thus the domain and codomain are known in advance; we need to do a little extra work to figure out the range.</p>
+<p id="p-133">Before proceeding further we'll give some formal definitions.</p>
+<article class="definition-like" id="definition-8"><h5 class="heading">
+<span class="type">Definition</span><span class="codenumber">1.4.3</span><span class="title">Transformations</span>
+</h5>
+<p id="p-134">Given positive integers \(m\) and \(n\), a <em class="terminology">transformation from \(\Reals^m\) to \(\Reals^n\)</em> is a function, \(T\), that takes vectors of length \(m\) as inputs and returns vectors of length \(n\). We write
+
+\begin{gather*}
+T:\Reals^m \longrightarrow \Reals^n\\
+T(\vec{x}) \quad = \quad \vec{y},
+\end{gather*}
+
+where the components of the vector \(\vec{y}\) will need to be specified in terms of the components of \(\vec{x}\).
+</p></article><article class="definition-like" id="definition-9"><h5 class="heading">
+<span class="type">Definition</span><span class="codenumber">1.4.4</span><span class="title">Domain of a transformations</span>
+</h5>
+<p id="p-135">The <em class="terminology">domain</em> of a transformation, \(T\) is denoted by \(\Dom{T}\) and is generally a subset of \(\Reals^m\) (provided \(T\) is defined as above). 
+
+\begin{gather*}
+ \Dom{T} \; = \; \{ \vec{x} \in \Reals^m \suchthat T(\vec{x}) \, \mbox{is defined} \} 
+\end{gather*}
+</p></article><article class="definition-like" id="definition-10"><h5 class="heading">
+<span class="type">Definition</span><span class="codenumber">1.4.5</span><span class="title">Co-domain of a transformations</span>
+</h5>
+<p id="p-136">The <em class="terminology">codomain</em> of a transformation, \(T\) is denoted by \(\Cod{T}\) and is equal to \(\Reals^n\) (provided \(T\) is defined as above). 
+</p></article><article class="definition-like" id="linearity-1"><h5 class="heading">
+<span class="type">Definition</span><span class="codenumber">1.4.6</span><span class="title">Linearity</span>
+</h5>
+<p id="p-137">A transformation \(T\) is <em class="terminology">linear</em> if and only if given any two elements \(\vec{u},\vec{v} \in \Dom{T}\) and any two real numbers \(\alpha\) and \(\beta\) we have
+\begin{equation*} T(\alpha \vec{u} + \beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v}).\end{equation*}
+</p></article><p id="p-138">Linearity is a really important concept!  We will be using the definition above over and over again.  Let's try to nail down our understanding of this definition by translating it into ordinary language: A transformation is linear if and only if when you apply it to a linear combination of vectors, the result is equal to what you get if you form the same linear combination of the images of those vectors.  More succinctly: “The image of a linear combination is the same linear combination of the images.”  My advice (seriously!) is to treat that last phrasing like a mantra — repeat it to yourself until you fully absorb the meaning and it becomes second nature to you.  
+</p>
+<p id="p-139">Look back at the formal definition of linearity, and notice what it looks like symbolically: It appears as if the transformation \(T\) distributes over the sum and that the scalars can be moved to the outside of the \(T\)'s.  
+Sometimes an alternative definition of linearity is given which splits out these two issues.  This is sometimes useful in formulating a proof that some transformation is linear (because it separates the argument into simpler parts).
+</p>
+<article class="definition-like" id="linearity-2"><h5 class="heading">
+<span class="type">Definition</span><span class="codenumber">1.4.7</span><span class="title">Linearity (alternate definition)</span>
+</h5>
+<p id="p-140">A transformation \(T\) is <em class="terminology">linear</em> if and only if given any two elements \(\vec{u},\vec{v} \in \Dom{T}\) and any real number \(\alpha\), both of the following hold:
+\begin{equation*} T(\vec{u} + \vec{v}) \; = \; T(\vec{u}) + T(\vec{v}),\end{equation*}
+and 
+\begin{equation*} T(\alpha \vec{u}) = \alpha T(\vec{u}). \end{equation*}
+</p></article><p id="p-141">Before we can go any further we have a small moral obligation to take care of.  Since we've just presented two  definitions for a concept we have a duty to verify that they actually define the same concept.  If we state that two things are the same, that really aren't, we're making a <em class="terminology">false equivalence</em>.  One of the hallmarks of a good critical thinker is that they won't be taken in by false equivalences.  So, what do you think?  Are they definitely the same idea, or are there transformations that are linear by one definition but not by the other?</p>
+<article class="theorem-like" id="theorem-1"><h5 class="heading">
+<span class="type">Theorem</span><span class="codenumber">1.4.8</span><span class="title">The two definitions of linearity are equivalent</span>
+</h5>
+<p id="p-142">Consider a given transformation \(T\) from \(\Reals^m\) to \(\Reals^n\).  Let \(\vec{u}\) and \(\vec{v}\) be arbitrary vectors in \(\Reals^m\), also let \(\alpha\) and \(\beta\) be arbitrary real numbers.  Then
+  	\begin{gather*}
+ T(\alpha \vec{u} + \beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v})\\
+\end{gather*}
+<p> if and only if </p>\begin{gather*}
+ T(\vec{u} + \vec{v}) \; = \; T(\vec{u}) + T(\vec{v}) \quad \mbox{and} \quad T(\alpha \vec{u}) = \alpha T(\vec{u})
+\end{gather*}
+    </p></article><div class="posterior">
+<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-proof-1" id="proof-1"><article class="hiddenproof"><h5 class="heading"><span class="type">Proof</span></h5></article></a></span><span id="hk-proof-1" style="display: none;" class="tex2jax_ignore"><article class="hiddenproof"><article class="case" id="case-1"><h6 class="heading">
+<!--Style arrows in CSS?-->(⇒)  </h6>
+<p id="p-143">In this part of the proof we will be presuming the first statement (the definition of linearity given first) and showing that the second statement must be true.  
+  		</p>
+<p id="p-144">Assume that \(T\) is a transformation and that for every pair of vectors \(\vec{u}\) and \(\vec{v}\), and every pair of real numbers \(\alpha\) and \(\beta\), 
+  		\begin{equation*}T(\alpha \vec{u} + \beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v}).\end{equation*}
+        if we set \(\alpha = \beta = 1\) we get 
+        \begin{equation*}T(\vec{u} + \vec{v}) \; = \; T(\vec{u}) + T(\vec{v}).\end{equation*}  
+        Similarly, if we leave \(\alpha\) arbitrary but set \(\beta = 0\) we get
+        \begin{equation*}T(\alpha \vec{u}) = \alpha T(\vec{u}).\end{equation*}
+  	    </p></article><article class="case" id="case-2"><h6 class="heading">
+<!--Style arrows in CSS?-->(⇐)  </h6>
+<p id="p-145">In this part of the proof we will be working in the reverse direction, so we assume that both
+  	    \begin{equation*}T(\vec{u} + \vec{v}) \; = \; T(\vec{u}) + T(\vec{v}) \quad \mbox{and} \quad T(\alpha \vec{u}) = \alpha T(\vec{u})\end{equation*} hold.  
+  		</p>
+<blockquote><p id="p-146">It's important to realize that the hypotheses we are using above are generic statements.  When we write 
+  			\(T(\alpha \vec{u}) = \alpha T(\vec{u})\) the scalar \(\alpha\) and the vector \(\vec{u}\) are really beside the point.  We are really asserting a general rule about how \(T\) interacts with scaled vectors 
+  			— any other scalar times any other vector will work the same way.  So for example, that hypothesis will also let us deduce that \begin{equation*}T(\beta \vec{v}) = \beta T(\vec{v}).\end{equation*}
+  		    </p></blockquote>
+<p id="p-147">Consider \(T(\alpha \vec{u} + \beta \vec{v})\).  Using our first hypothesis (the one that shows how \(T\) distributes over sums) we get 
+  	    \begin{equation*}T(\alpha \vec{u} + \beta \vec{v}) \; = \; T(\alpha \vec{u}) + T(\beta \vec{v})\end{equation*}.  
+  	    Using the second hypothesis (twice) we get 
+  	    \begin{equation*}T(\alpha \vec{u}) + T(\beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v}).\end{equation*}
+  	    Finally, putting these pieces together we have
+  	    \begin{equation*}T(\alpha \vec{u} + \beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v})\end{equation*}
+  	    which is the desired result.
+  	</p></article></article></span>
+</div>
+<article class="definition-like" id="definition-13"><h5 class="heading">
+<span class="type">Definition</span><span class="codenumber">1.4.9</span><span class="title">Linear transformations</span>
+</h5>
+<p id="p-148">Given positive integers \(m\) and \(n\), a <em class="terminology">linear transformation from \(\Reals^m\) to \(\Reals^n\)</em> is a transformation \(T\), that takes vectors of length \(m\) as inputs and returns vectors of length \(n\) and that is <!--Style me with CSS--><em>linear</em>.  We write
+
+\begin{gather*}
+T:\Reals^m \longrightarrow \Reals^n\\
+T(\vec{x}) \quad = \quad \vec{y},
+\end{gather*}
+
+where the components of the vector \(\vec{y}\) will need to be specified in terms of the components of \(\vec{x}\).
+</p></article><p id="p-149">There is an interesting connection between our use of the word “linear” in talking about linear transformations
+and linear combinations.  When a transformation is linear the functions that determine the output's components in terms of the input's components must <!--Style me with CSS--><em>be</em> linear combinations.  And <i class="foreign">vice versa</i>, if the component functions are linear combinations then the transformation will be linear.
+</p>
+<p id="p-150">The content of the previous paragraph may not be surprising from a linguistic perspective; they wouldn't use the same word if the underlying concepts were really different, would they?  From a mathematical perspective it's a bit less obvious.  Indeed this is the sort of thing that mathematicians call a <!--Style me with CSS--><em>theorem</em>.  We'll state this theorem now, but we'll leave the proof to a later chapter.
+</p>
+<article class="theorem-like" id="theorem-2"><h5 class="heading">
+<span class="type">Theorem</span><span class="codenumber">1.4.10</span><span class="title">coefficients of a linear transformation</span>
+</h5>
+<p id="p-151">Given a transformation \(T: \Reals^m \longrightarrow \Reals^n\), \(T\) is linear if and only if,
+for all input vectors \(\vec{x}\) the components of \(T(\vec{x})\) can be expressed as particular linear combinations of the components of \(\vec{x}\).
+</p></article><p id="p-152">In order to fully specify a linear transformation we need to give values for all of the constants that are used in the linear combinations where the \(y_i\)'s are written in terms of the \(x_i\)'s.  For each of the \(n\) components of \(\vec{y}\), we will need \(m\) numbers (as many as there are components in \(\vec{x}\)).  In other words we must specify \(mn\) constants.</p>
+<article class="definition-like" id="definition-14"><h5 class="heading">
+<span class="type">Definition</span><span class="codenumber">1.4.11</span><span class="title">components of a linear transformation</span>
+</h5>
+<p id="p-153">Given \(mn\) real numbers, \(\aij{1}{1}, \ldots \aij{m}{n}\), we say they are the components of a 
+  linear transformation \(T\),
+
+  \begin{gather*}
+T:\Reals^m \longrightarrow \Reals^n\\
+T(\vec{x}) \quad = \quad \vec{y},
+\end{gather*}
+
+provided 
+
+\begin{gather*}
+ y_1 = \aij{1}{1} x_1 + \ldots + \aij{1}{m} x_m \\
+ \vdots \\
+ y_n = \aij{n}{1} x_1 + \ldots + \aij{n}{m} x_m .
+\end{gather*}
+</p></article></section></div></main>
+</div>
+</body>
+</html>

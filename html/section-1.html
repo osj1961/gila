@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--* Generated from MathBook XML source *-->
+<!--*    on 2016-09-26T11:41:05-04:00    *-->
+<!--*                                    *-->
+<!--*   http://mathbook.pugetsound.edu   *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Getting started</title>
+<meta name="Keywords" content="Authored in MathBook XML">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']],
+    },
+    TeX: {
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
+        equationNumbers: { autoNumber: "none",
+                           useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
+                           formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
+                         },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    "HTML-CSS": {
+        scale: 88,
+    },
+});
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<div style="display:none;">\(
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
+<header id="masthead"><div class="banner"><div class="container">
+<a id="logo-link" href="../images/gilamonster.jpg" target="_blank"><img src="../images/gilamonster.jpg"></a><div class="title-container">
+<h1 class="heading"><span class="title">A Gentle Introduction to Linear Algebra</span></h1>
+<p class="byline">Joe Fields</p>
+</div>
+</div></div>
+<nav id="primary-navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="previous-button toolbar-item button" href="chapter-1.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-2.html">Next</a>
+</div>
+<button class="sidebar-right-toggle-button button active">Annotations</button>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-1.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-2.html">Next</a>
+</div>
+</div></nav></header><div class="page">
+<aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
+<nav id="toc"><h2 class="link"><a href="frontmatter-1.html"><span class="title">Front Matter</span></a></h2>
+<ul>
+<li><a href="colophon-1.html">Colophon</a></li>
+<li><a href="dedication-1.html">Dedication</a></li>
+<li><a href="acknowledgement-1.html">Acknowledgements</a></li>
+<li><a href="foreword-1.html">Foreword</a></li>
+<li><a href="preface-1.html">Preface</a></li>
+</ul>
+<h2 class="link active"><a href="chapter-1.html"><span class="codenumber">1</span><span class="title">Introduction</span></a></h2>
+<ul>
+<li><a href="section-1.html" class="active">Getting started</a></li>
+<li><a href="section-2.html">Systems of equations</a></li>
+<li><a href="section-3.html">Vector equations</a></li>
+<li><a href="section-4.html">Transformations</a></li>
+<li><a href="section-5.html">Matrix notation</a></li>
+</ul>
+<h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">RREF</span></a></h2>
+<ul>
+<li><a href="section-6.html">Triangular systems</a></li>
+<li><a href="section-7.html">Echelon form</a></li>
+<li><a href="section-8.html">RREF</a></li>
+<li><a href="section-9.html">Row operations and Gaussian elimination</a></li>
+<li><a href="section-10.html">Solving linear systems</a></li>
+</ul>
+<h2 class="link"><a href="chapter-3.html"><span class="codenumber">3</span><span class="title">Vectors</span></a></h2>
+<ul>
+<li><a href="section-11.html">Vectors and scalars</a></li>
+<li><a href="section-12.html">The matrix-vector product</a></li>
+<li><a href="section-13.html">Homogeneous and non-homogeneous systems</a></li>
+<li><a href="section-14.html">Matrix-matrix products</a></li>
+<li><a href="section-15.html">Vector spaces - an introduction</a></li>
+<li><a href="section-16.html">Dependence and independence</a></li>
+<li><a href="section-17.html">Bases and dimension</a></li>
+</ul>
+<h2 class="link"><a href="chapter-4.html"><span class="codenumber">4</span><span class="title">Determinants</span></a></h2>
+<ul>
+<li><a href="section-18.html">Torque, Area and Volume</a></li>
+<li><a href="section-19.html">Determinants by recursion</a></li>
+<li><a href="section-20.html">Formal definition</a></li>
+</ul>
+<h2 class="link"><a href="chapter-5.html"><span class="codenumber">5</span><span class="title">The spectral decomposition</span></a></h2>
+<ul>
+<li><a href="section-21.html">Diagonal and diagonalizable systems</a></li>
+<li><a href="section-22.html">Eigenvalues and eigenvectors</a></li>
+<li><a href="section-23.html">Jordan form</a></li>
+<li><a href="section-24.html">The Singular value decomposition</a></li>
+</ul>
+<h2 class="link"><a href="chapter-6.html"><span class="codenumber">6</span><span class="title">Algebraic structures</span></a></h2>
+<ul>
+<li><a href="section-25.html">Groups, Rings and Fields</a></li>
+<li><a href="section-26.html">Modules</a></li>
+<li><a href="section-27.html">Algebras</a></li>
+<li><a href="section-28.html">Inner product spaces</a></li>
+</ul>
+<h2 class="link"><a href="chapter-7.html"><span class="codenumber">7</span><span class="title">Abstract vector spaces</span></a></h2>
+<ul>
+<li><a href="section-29.html">Vector spaces</a></li>
+<li><a href="section-30.html">Infinite dimensional spaces</a></li>
+<li><a href="section-31.html">Hilbert space</a></li>
+<li><a href="section-32.html">Fourier analysis</a></li>
+</ul>
+<h2 class="link"><a href="backmatter-1.html"><span class="title">Back Matter</span></a></h2>
+<ul></ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-1"><header title="Section 1.1 Getting started"><h1 class="heading hide-type" alt="Section 1.1 Getting started">
+<span class="type">Section</span><span class="codenumber">1.1</span><span class="title">Getting started</span>
+</h1></header><p id="p-10">The first problem we're going to look at is fairly trivial.  I bet you can solve this in your head:</p>
+<blockquote><p id="p-11">I'm thinking of two numbers \(x\) and \(y\).  Their sum is 42, and their difference is 6.  What are they?</p></blockquote>
+<p id="p-12">This word problem can be instantly translated into a pair of equations.  Later, when we have more sophisticated problems there may be many more unknown quantities and there may be many more equations.  Here we are dealing with a system of equations having 2 equations in 2 unknowns.
+
+\begin{gather*}
+x+y=42\\
+x-y=6
+\end{gather*}
+</p>
+<p id="p-13">This one is about as easy as a system of two equations in two variables can get.</p></section></div></main>
+</div>
+</body>
+</html>

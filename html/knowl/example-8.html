@@ -1,0 +1,41 @@
+<!--**************************************-->
+<!--* Generated from MathBook XML source *-->
+<!--*    on 2016-12-30T14:51:45-05:00    *-->
+<!--*                                    *-->
+<!--*   http://mathbook.pugetsound.edu   *-->
+<!--*                                    *-->
+<!--**************************************-->
+<article class="example-like"><h5 class="heading">
+<span class="type">Example</span><span class="codenumber">1.5.3</span><span class="title">Converting a linear system to matrix form</span>
+</h5>
+<p>
+Consider the following system of \(3\) equations in \(4\) variables.
+\begin{equation*}
+\begin{alignedat}{8}
+   x_1  \amp {}+{} \amp   x_2 \amp       \amp      \amp {}+{} \amp 3 x_4 \amp {}={} \amp 101 \\
+ 2 x_1  \amp {}-{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}+{} \amp x_4 \amp {}={} \amp 102 \\
+        \amp       \amp 3 x_2 \amp {}-{} \amp x_3  \amp {}+{} \amp 2x_4 \amp {}={} \amp 103
+\end{alignedat}
+\end{equation*}
+</p>
+<p>Now we'll take one step backwards before proceeding two steps forward.  If a variable appears, but has no coefficient, that just means the coefficient is \(1\).  If a variable doesn't appear at all, that means the coefficient is \(0\).
+Finally, if we see subtraction we can always replace it by addition (by putting a minus sign on the coefficient).  So, let's re-express this system in a fully anal-retentive way…
+
+ \begin{equation*}
+\begin{alignedat}{8}
+ 1x_1  \amp {}+{} \amp  1x_2 \amp {}+{} \amp  0 x_3  \amp {}+{} \amp 3 x_4 \amp {}={} \amp 101 \\
+ 2x_1  \amp {}+{} \amp {-1}x_2 \amp {}+{} \amp  1 x_3  \amp {}+{} \amp 1 x_4 \amp {}={} \amp 102 \\
+ 0x_1  \amp {}+{} \amp  3x_2 \amp {}+{} \amp {-1} x_3  \amp {}+{} \amp 2 x_4 \amp {}={} \amp 103
+\end{alignedat}
+\end{equation*}
+</p>
+<p>Okay, so now the promised two steps forward.  First, notice that in every equation in the system every variable is present and they all appear in ascending order.  If we were only given the lists of coefficients we'd easily be able to reconstruct the equations.  So, we're going to eject all of the plus signs and all of the variables with all of those subscripts.  We just won't deign to write them down! Sometimes it's a good idea to imagine their presence but it certainly isn't necessary to  Also, the equals signs that separate the left- and right-hand sides of the equations always come before the very last number.  There really isn't a lot of information conveyed by the appearance of those equals signs, but we usually keep a slight vestige of them around — a thin vertical line separates the last column of the matrix form from everything else.  So, with no further ado, here is the matrix form of this system:
+
+\begin{equation*}
+\left[ \begin{array}{rrrr|r}
+ 1 \amp  1 \amp  0 \amp 3  \amp 101 \\
+ 2 \amp {-1} \amp  1  \amp 1 \amp  102 \\
+ 0 \amp  3 \amp {-1}  \amp 2  \amp 103
+\end{array} \right]
+\end{equation*}
+</p></article><span class="incontext"><a href="section-5.html#example-8">in-context</a></span>
