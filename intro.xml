@@ -354,7 +354,7 @@ So in the end we should put in an order for 225 share of SCTY, 167 shares of SPW
 <index><main>linear system</main>
 </index>
 
-<statement><p>A <term>linear system</term>, also known (a bit more formally) as a <term>system of linear equations</term> is a collection of <m>m</m> equations in <m>n</m> unknowns of the form
+<statement><p>A <term>linear system</term>, also known as a <term>system of linear equations</term> is a collection of <m>m</m> equations in <m>n</m> unknowns of the form
 <me>
 \begin{alignedat}{5}
 a_{11} x_1 \amp {}+{} \amp  a_{12} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \amp {}+{} a_{1n} x_n \amp {}={} \amp b_1 \\
@@ -1007,7 +1007,7 @@ Finally, if we see subtraction we can always replace it by addition (by putting 
 </me>
 </p>
 
-<p>Okay, so now the promised two steps forward.  First, notice that in every equation in the system every variable is present and they all appear in ascending order.  If we were only given the lists of coefficients we'd easily be able to reconstruct the equations.  So, we're going to eject all of the plus signs and all of the variables with all of those subscripts.  We just won't deign to write them down! Sometimes it's a good idea to imagine their presence but it certainly isn't necessary to  Also, the equals signs that separate the left- and right-hand sides of the equations always come before the very last number.  There really isn't a lot of information conveyed by the appearance of those equals signs, but we usually keep a slight vestige of them around <mdash /> a thin vertical line separates the last column of the matrix form from everything else.  So, with no further ado, here is the matrix form of this system:
+<p>Okay, so now the promised two steps forward.  First, notice that in every equation in the system every variable is present and they all appear in ascending order.  If we were only given the lists of coefficients we'd easily be able to reconstruct the equations.  So, we're going to eject all of the plus signs and all of the variables with all of those subscripts.  We just won't deign to write them down! Sometimes it's a good idea to imagine their presence but it certainly isn't necessary to. Also, the equals signs that separate the left- and right-hand sides of the equations always come before the very last number.  There really isn't a lot of information conveyed by the appearance of those equals signs, but we usually keep a slight vestige of them around <mdash /> a thin vertical line separates the last column of the matrix form from everything else.  So, with no further ado, here is the matrix form of this system:
 
 <me>
 \left[ \begin{array}{rrrr|r}
@@ -1088,12 +1088,13 @@ write <m>\vec{x}^T\vec{y}</m> rather than <m>\vec{x} \cdot \vec{y}</m> when refe
 <p>Suppose 
 	<me>\vec{x} = \left[ \begin{array}{c} 3 \\ 1 \\ -2 \\ 5 \end{array} \right] \quad \mbox{and} \quad  \vec{y} = \left[ \begin{array}{c} -1 \\ 6 \\ 4 \\ 7 \end{array} \right] </me>
 then the inner product of these two vectors (<m>\vec{x}^T\vec{y}</m>) is the following row/column matrix computation:
-<me>\vec{x}^T \vec{y} \quad = \quad \left[ \begin{array}{cccc} 3 \amp 1 \amp -2 \amp 5 \end{array} \right]  \cdot \left[ \begin{array}{c} -1 \\ 6 \\ 4 \\ 7 \end{array} \right] \quad = \quad 3\cdot (-1) + 1\cdot 6 + (-2)\cdot 4 + 5\cdot 7 \quad = \quad 30</me>
+<me>\vec{x}^T \vec{y} \quad = \quad \left[ \begin{array}{cccc} 3 \amp 1 \amp -2 \amp 5 \end{array} \right]  \cdot \left[ \begin{array}{c} -1 \\ 6 \\ 4 \\ 7 \end{array} \right] \\
+ = \quad 3\cdot (-1) + 1\cdot 6 + (-2)\cdot 4 + 5\cdot 7 \quad = \quad 30</me>
 </p>
 </statement>
 </example>
 
-<p>Notice that if the vectors had different lengths (I mean <q>lengths</q> as in <q>number of entries</q>) the process we've described wouldn't work out so good<ellipsis />  One of your fingers would be out of entries before the other!  This is our first example of an idea known as <term>conformability</term>. Suppose we have a row vector of length <m>m</m> (that is, a <m>1 \times m</m> matrix) and a column vector of length <m>n</m> (in other words a <m>n \times 1</m> matrix), then they are <term>conformable</term> if <m>m=n</m> and if <m>m\neq m</m> they are <em>not</em> conformable, in which case the matrix product can't be computed.
+<p>Notice that if the vectors had different lengths (I mean <q>lengths</q> as in <q>number of entries</q>) the process we've described wouldn't work out so good<ellipsis />  One of your fingers would be out of entries before the other!  This is our first example of an idea known as <term>conformability</term>. Suppose we have a row vector of length <m>m</m> (that is, a <m>1 \times m</m> matrix) and a column vector of length <m>n</m> (in other words a <m>n \times 1</m> matrix), then they are <term>conformable</term> if <m>m=n</m> and if <m>m\neq n</m> they are <em>not</em> conformable, in which case the matrix product can't be computed.
 </p>
 
 <p>The general rule for computing matrix products involves doing this row/column product multiple times. Suppose <m>A</m> is a <m>p \times q</m> matrix and <m>B</m> is an <m>r \times s</m> matrix.  The product <m>AB</m> will be a <m>p \times s</m> matrix, but it can only be computed if <m>q=r</m>.  The entry in the <m>p</m>-th row and <m>s</m>-th column of the result is obtained using the <m>p</m>-th row of <m>A</m> and the <m>s</m>-th column of <m>B</m>.  When you physically write the sizes of the multiplicands next to one another, the inner two numbers must match and the outer two numbers tell you the size of the result!
