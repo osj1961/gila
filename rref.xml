@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>RREF</title>
+
+<introduction>
+</introduction>
+
+<section>
+<title>Triangular systems</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+<section>
+<title>Echelon form</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+<section xml:id="section-rref">
+<title>RREF</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+<section xml:id="section-row-ops">
+<title>Row operations and Gaussian elimination</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+<section>
+<title>Solving linear systems</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+</chapter>

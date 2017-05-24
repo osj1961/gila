@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: fig2dev Version 3.2 Patchlevel 5e -->
+<!-- CreationDate: Tue Sep 13 20:53:16 2016 -->
+<!-- Magnification: 2.100 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="10.4in" height="2.9in"
+	viewBox="7464 6047 12501 3538">
+<g style="stroke-width:.025in; fill:none">
+<!-- Image -->
+<image xlink:href="file:///home/fields/Desktop/gilamonster_sm.jpg" preserveAspectRatio="none"
+x="7464" y="6047" width="4619" height="3538" />
+<!-- Text -->
+<text xml:space="preserve" x="12377" y="9165" fill="#000000"  font-family="Helvetica" font-style="normal" font-weight="bold" font-size="252" text-anchor="start">A Gentle Introduction to Linear Algebra</text>
+<!-- Text -->
+<text xml:space="preserve" x="12566" y="8409" fill="#000000"  font-family="Helvetica" font-style="normal" font-weight="bold" font-size="1815" text-anchor="start">GILA</text>
+</g>
+</svg>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Vectors</title>
+
+<introduction>
+</introduction>
+
+<section>
+<title>Vectors and scalars</title>
+<introduction>
+<p>Dummy text for introduction.</p>
+</introduction>
+
+<subsection>
+<title>Vectors</title>
+</subsection>
+
+<subsection>
+<title>Vector operations</title>
+</subsection>
+
+<subsection>
+<title>Linear combinations</title>
+</subsection>
+
+<subsection>
+<title>The Euclidean basis</title>
+</subsection>
+
+<subsection>
+<title>parametric equations for lines and planes in 3-space</title>
+</subsection>
+
+</section>
+
+<section>
+<title>The matrix-vector product</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+<section>
+<title>Homogeneous and non-homogeneous systems</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+<section>
+<title>Matrix-matrix products</title>
+<introduction>
+<p>Dummy text for introduction.</p>
+</introduction>
+
+<subsection>
+<title>Basic transformations</title>
+</subsection>
+
+<subsection>
+<title>Compositions</title>
+</subsection>
+
+<subsection>
+<title>The matrix of a composition</title>
+</subsection>
+
+<subsection>
+<title>Matrix multiplication</title>
+</subsection>
+
+</section>
+
+<section>
+<title>Vector spaces - an introduction</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+<section>
+<title>Dependence and independence</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+<section>
+<title>Bases and dimension</title>
+<p>Dummy text for introduction.</p>
+</section>
+
+</chapter>

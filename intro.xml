@@ -1,0 +1,1121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Introduction</title>
+
+<introduction>
+<p>The subject we are about to study, Linear Algebra, sounds like it might have something to do with lines and doing algebra with them.  This is true if you are willing to think metaphorically<ellipsis /> It might be somewhat closer to the truth if we were to say that Linear Algebra is about learning to understand higher dimensions.  We'll be surprisingly far along in our study of the topic before we can precisely define what <q>dimension</q> actually means, but we expect that you have some notion already: the Euclidean plane where we studied Geometry is two dimensional, the world we live in is three dimensional, Albert Einstein taught us to view the world not just as space <mdash /> but as space-time <mdash /> a four dimensional concept.  We needn't jump off into super advanced physics (or science fiction for that matter) in order to understand higher dimensionality.  Dimension, at least informally, just means the number of real numbers it takes to describe something. Locating a point in three-dimensional space requires three numbers <mdash /> usually <m>x</m>, <m>y</m> and <m>z</m>.  If we are keeping track of aircraft, knowing where they are in 3-space is certainly necessary, but it might also be a good idea to keep abreast of <em>which way they are going</em>!  To truly understand an aircraft's state, one needs to have six numbers: <m>x</m>, <m>y</m> and <m>z</m>, but also the velocity components <m>x'</m>, <m>y'</m> and <m>z'</m>.  This make the state of an airplane 6-dimensional.  Perhaps this is why air traffic controllers make the big bucks.
+</p>
+
+<p>The 6-dimensionality of an aircraft's state may seem somewhat artificial.  Aren't we really just dealing with two separate 3-dimensional entities?
+</p>
+
+<p>In Economics there is a high-dimensional entity known as the Leontief Input-Output model.  In
+this model the state of an Economic system is described by a large number of real quantities, one for each sector of the economy.  In a 1965 Scientific American article Wassily Leontief (who won a Nobel prize for this work) described his model in terms of a <q>toy example</q> where the economy was divided into 82 sectors.  Today one could easily develop a Leontief I/O model where the economy was divided up into a million sectors.  Perhaps this is why Economists make even bigger bucks.
+</p>
+
+<p>When we do Linear Algebra in two dimensions we are indeed talking about lines.  One of the classic problems is to figure out whether two lines intersect and if so, where.  This is a situation where our ability to visualize things in two dimensions can lead us straight to the answer.  That is certainly not the case in a million (or even in six) dimensions.  Fortunately, there are calculational techniques that work (and even work fairly quickly on a good computer) in
+just about any number of dimensions you may be interested in.
+</p>
+
+<p>There are three different ways of looking at linear algebra problems: systems of linear equations, vector equations, and transformations.  These three views actually represent the same underlying structure, just in different ways.  There are various situations where one of these three viewpoints is preferable, so it is a good idea to be able to switch back and forth between these representations.
+</p>
+
+<p>In Section <xref ref="section-start" /> we will look at the same (really easy) problem from each of these 3 perspectives.
+</p>
+
+</introduction>
+
+<section xml:id="section-start">
+<title>Getting started</title>
+<p>The first problem we're going to look at is fairly trivial.  I bet you can solve this in your head:</p>
+
+<blockquote>
+  <p>I'm thinking of two numbers <m>x</m> and <m>y</m>.  Their sum is 42, and their difference is 6.  What are they?</p>
+</blockquote>
+
+<p>This word problem can be instantly translated into a pair of equations.  Later, when we have more sophisticated problems there may be many more unknown quantities and there may be many more equations.  Here we are dealing with a system of equations having 2 equations in 2 unknowns.
+
+<md>
+<mrow>x+y=42</mrow>
+<mrow>x-y=6</mrow>
+</md>
+</p>
+
+
+<p>This one is about as easy as a system of two equations in two variables can get. Actually, that's not quite true.  The <em>easiest</em> form for a system of two equations in two unknowns is if they basically just are statements of the answer, like:
+
+<md>
+<mrow>x=24</mrow>
+<mrow>y=18.</mrow>
+</md>
+
+Solving a system of equations just means (somehow) transforming it from something like the first form to something like this latter form.
+</p>
+
+<p>There are a small number of simple procedures that we can apply to systems without effecting their solutions.  We can use these operations to convert almost any system into one that looks like that latter form (each equation just states what the value of some variable is). We'll get around to the full story in section <xref ref="section-sys_eqs" />, but for now, notice that if we add the two original equations together (adding equations means adding left sides and adding right sides separately) we get something that only involves <m>x</m>.  And of course, once we know one of the variables it isn't very hard to find the other.
+</p>
+
+<p>For this example problem, finding the solution was very easy.  There are more difficult systems where finding the solution by hand would be challenging so we are going to want to become familiar with some kind of computer tools for automating these things.  In this book, we'll be using Sage, a free, open-source, computer algebra system developed by William Stein.  Here is a sample of how Sage can be used to solve a system of equations:
+</p>
+
+<sage>
+<input>
+x, y = var('x, y')
+solve([x+y==42, x-y==6], x, y)
+</input>
+<output>
+	[[x == 24, y == 18]]
+</output>
+</sage>
+
+<p>We glossed-over a small but important issue in the above.  How do we know that our answer was the only answer?  And for that matter, is it necessarily true that there must <em>be</em> an answer to some system of equations?  These are what are known as existence and uniqueness questions:  Does there exist an answer to our problem?  (Existence.) And, if there <em>is</em> an answer, how do we know it is the only answer? (Uniqueness.)  There are systems of equations where all of the possible behaviors are exhibited: no solutions, unique solutions and lots of solutions.
+</p>
+
+<exercise>
+  <statement>
+    <p>Explain why the following system has no solutions at all.
+    <md>
+      <mrow>2x - y = 7</mrow>
+      <mrow>2y - 4x = 8.</mrow>
+    </md>
+    </p>
+  </statement>
+  <hint>
+    <p>Put both equations into slope-intercept form (<m>y = mx + b</m>).</p>
+  </hint>
+</exercise>
+
+<p>
+  That was a linear algebra problem seen from the <q>systems of equations</q> perspective. We still need to look at the <q>vector equations</q> and <q>transformations</q> viewpoints. So next we'll look at a question of the vector flavor. We're going to think about playing chess, not on a board, but on the infinite <m>x</m><mdash /><m>y</m> plane.
+</p>
+<p>
+  Consider the piece known as a bishop. If you're not familiar with chess, this is the piece that can move in the diagonal directions. Think of the bishop as having two moves that it can do (but it can do them any number of times). It can do a move we'll refer to as UR; move one unit in the <m>x</m> direction while simultaneously moving one unit in the <m>y</m> direction <mdash /> by doing this multiple times the bishop can travel in the upper right direction. It also has a move that allows it to travel along the other diagonal <mdash /> move one unit in the <m>x</m> direction while simultaneously moving negative one unit in the <m>y</m> direction. We'll call that move LR.
+</p>
+<p>For those who are familiar with chess, you'll know that bishops are forever trapped on the same color square <mdash /> one of your bishops is always on black and the other always on white. This means that some <q>bishop moving questions</q> won't have solutions <mdash /> for example, a bishop sitting at the origin, <m>(0, 0)</m>, can never move to <m>(0, 5)</m>; those squares have opposite colors! To get around this limitation we're going to let our bishops make fractional moves. For instance if it starts at the origin and makes <m>1/2</m> of the upper-right move then it will arrive at <m>(1/2, 1/2)</m>.  Now, getting a little stranger, we're going to also allow our bishops to make negative moves. Maybe we should think of a negative move as <q>undoing</q> a regular move<ellipsis />
+</p>
+
+
+<p>In any case negative moves allow us to move the bishop in the opposite directions along the diagonals.  Finally, we may as well give our bishops the freedom to move <em>any amount</em> <mdash /> that is, any real number can be used as a so-called scalar, shrinking or stretching either of the two basic moves. Got it?
+We can do things like <m>\pi \cdot UR</m> and <m>\sqrt{2} \cdot LR</m>.
+</p>
+
+<p>So, after all that setup, here's the question: If a bishop starts at <m>(0,0)</m>, can it make some number of UR and LR moves and wind up at <m>(42,6)</m>?  If so, how many URs and how many LRs?
+</p>
+
+
+
+<p>The things we've been calling UR and LR are <em>vectors</em>.  If you ask someone from the physical sciences to define a vector they'll say <q>it's a thing that has both a magnitude and a direction</q>.
+(Which is fine as far as it goes.)  Meteorology provides some nice examples. A weather map often shows a lot of basic data about the conditions at various places <mdash /> wind, temperature, barometric pressure and humidity are common.  Of these, only the wind is a vector quantity, it needs to be specified with both a magnitude and a direction (<eg /> 15 mph out of the Northeast), the others all just have magnitudes.
+</p>
+
+<p>There is a different way of thinking about what a vector is, that is preferable in many circumstances.  A vector is the difference between two positions.  Let me put this another way: a vector gives you a set of <em>directions</em> to go from one point to another.  (I mean <q>directions</q> in the sense of the things someone tells you if you ask <q>How do I get to the Kwik-E-Mart from here?</q>)
+</p>
+
+<p>If you are currently at the point <m>(3,4)</m> and you want to move to the point <m>(5,12)</m> you
+need to increase your <m>x</m>-coordinate by 2 units and you must increase your <m>y</m>-coordinate by 8 units.  We just described the vector <m>\langle 2, 8 \rangle</m>, the numbers <m>2</m> and <m>8</m> are known as the components of the vector.  Note that this is different in a not-so-subtle way from the <em>point</em> <m>(2,8)</m>.  The point is stationary, the vector is there to describe a change.  If you start at the origin and follow the directions specified by the vector <m>\langle 2, 8 \rangle</m> you will of course wind up at the point <m>(2,8)</m>, but if you start at some other point, it's equally obvious that you won't!.  Sometimes people will talk about <q>position vectors</q> in this sort of context <mdash /> the position vector  <m>\langle x,y \rangle</m> goes from the origin to the point  <m>(x,y)</m>.  Generally, it is preferable to keep the distinction between points and vectors clear.  When you treat a vector as a position vector (i.e. think of it as a point) you are loosing something.  Ordinarily a vector is free; it can be slid around from one point to another so long as its components aren't changed.
+</p>
+
+<p>Here's how solving the vector variant of our problem might look in Sage:
+</p>
+
+<sage>
+  <input>
+x, y, u, v = var('x, y, u, v')
+u = vector(QQ, [1, 1])
+v = vector(QQ, [1,-1])
+lhs = x*u+y*v
+rhs = vector(QQ, [42,6])
+solve([lhs[0]==rhs[0], lhs[1]==rhs[1]], x, y)
+  </input>
+  <output>
+    [[x == 24, y == 18]]
+  </output>
+</sage>
+
+<p>So, at this point we've looked at a simple linear algebra problem from the systems of equations perspective and from the vector equations perspective.  The final perspective we want to illustrate is that of linear transformations.
+</p>
+
+<p>Basically, a linear transformation is a function that takes vectors as inputs and spits out vectors as outputs.  You're probably familiar with the following sort of diagram for functions.
+</p>
+
+<figure>
+    <image source="images/function_diagram" width="40%" />
+</figure>
+
+<p>In Multivariable Calculus you may also encounter functions that are diagramed like so:
+</p>
+
+<sidebyside width="40%" margins="auto">
+  <image source="images/function_diagram2" />
+  <image source="images/function_diagram3" />
+</sidebyside>
+
+<p>The first is a real-valued function of two variables <mdash /> think of it as taking a vector as input and returning a scalar.  The second is a vector-valued function of a single real variable.  The mapping that gives temperature as a function of position on a metal plate is an example of the first sort.  When we represent the position of a particle moving around in space (as a function of time) we are using the second sort.</p>
+
+<p>Linear transformations are functions where there are vectors on both the input and the output side.
+</p>
+
+<figure>
+    <image source="images/function_diagram4" width="70%" />
+</figure>
+
+<p>Moreover, linear transformations are <em>linear</em>, which means the components of the output are computed in a very simplistic way from the components of the inputs.  The only things that are allowed are adding things up and multiplying by constants. 
+</p>
+
+<p>So let's give an example of a linear transformation.  This will be a function that takes a vector <m>\langle x, y \rangle</m> as input, and returns a vector <m>\langle u, v \rangle</m> as output.  We will compute <m>u</m> and <m>v</m> (the components of the output vector) from <m>x</m> and <m>y</m> (the components of the input vector by <q>adding things up and multiplying by constants</q>:
+
+<md>
+  <mrow>u = x+y</mrow>
+  <mrow>v = x-y</mrow>
+</md>
+</p>
+
+<p>By convention, people usually call a linear transformation <m>T</m> and use a notation that looks just like Euler notation for functions (because in fact, that's what it is!)
+
+<md>
+  <mrow> T( \langle x,y \rangle ) = \langle u, v \rangle . </mrow>
+</md>
+
+There are two kinds of problems one can ask: maybe you know the input vector and you'd like to find the output vector, or vice versa.  When you've got the input it's very easy to find the output!  You just plug in.  The more interesting question is when it's vice versa, suppose you know that <m>\langle u, v \rangle = \langle 42, 6 \rangle</m> how can you arrive at the solution <m> \langle x,y \rangle  = \langle 24, 18 \rangle </m>?  We'll be looking at this kind of thing in more depth in Section <xref ref="section-transformations" />.
+</p>
+
+</section>
+
+<section xml:id="section-sys_eqs">
+<title>Systems of equations</title>
+<p>In this section we'll look much more closely at the <q>systems of equations</q> approach to linear algebra.</p>
+
+<p>First a few words about notation.  When there are seventeen variables in a problem it becomes <em>really</em> awkward to use different letters for each variable.  When there are a thousand variables it's impossible!  We will follow the almost universal convention that the letter <m>x</m> will be used for the variables, with a subscript to identify which one.  If we were to translate the problem from Section  <xref ref="section-start" /> into this notation it would become
+
+<md>
+  <mrow>x_1 + x_2 = 42 </mrow>
+  <mrow>x_1 - x_2 = 6. </mrow>
+</md>
+</p>
+
+<p>A <em>linear combination</em> of some set of numbers <m>\{ x_1, x_2, \ldots, x_n \}</m> is created by multiplying each of the <m>x</m>'s by constants and then adding everything up. Of course if the constants are <m>1</m> or <m>-1</m> (as in the previous example) we tend to forget that they're there!
+</p>
+
+<example>
+  <p>Consider <m>x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5</m>. This is a linear combination of the five variables <m>\{x_1, x_2, x_3, x_4, x_5\}</m>.  The constants (<m>1, 2, 3, 4,</m> and <m>5</m>) are called the coefficients of the linear combination.
+  </p>
+</example>
+
+<p>An equation is <em>linear</em> if it has the form of a linear combination set equal to some value on the right-hand side -- or if it can be put into that form.  For example
+
+<md>
+  <mrow> x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5 = 15 </mrow>
+</md>
+
+is a linear equation in five variables.
+</p>
+
+<p>Also,
+<md>
+  <mrow> x_1 + 3x_3 = x_2 + x_4 </mrow>
+</md>
+
+is a linear equation (in four variables) because we can manipulate it into the form
+
+<md>
+  <mrow> x_1 - x_2 + 3x_3 - x_4 = 0. </mrow>
+</md>
+</p>
+
+<exercise>
+  <statement>
+    <p>The linear equation
+<md>
+  <mrow> x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5 = 15 </mrow>
+</md>
+
+has a solution where all of the variables are set equal to 1.  Are there others?
+    </p>
+  </statement>
+  <hint>
+    <p>Try setting one of the variables to zero.  That essentially eliminates that one and gives you a new equation with only four variables.  Does the new equation have a solution?
+    </p>
+  </hint>
+</exercise>
+
+<p>A <em>system of equations</em> is just a collection of linear equations.</p>
+
+<p>The notation for systems of equations gets a bit complicated when we try to write them in general (that is, without particular values given for the various constants involved).  There are three sorts of things that need names in such a system: the variables, the coefficients of the variables, and the numbers on the right-hand sides.  There is a convention that is fairly universal for the names and numbering of these elements.  The variables are <m>x</m>'s with subscripts, the right-hand sides are <m>b</m>'s with subscripts, and the coefficients are <m>a</m>'s with <em>two</em> subscripts (we need to indicate the equation that a given coefficient is in and also, which variable it is multiplying.
+</p>
+
+<p>For example, here is how we would write the general form of a system of three equations in four unknowns:
+ 
+<me>
+\begin{alignedat}{5}
+\aij{1}{1} x_1 \amp {}+{} \amp  \aij{1}{2} x_2 \amp {}+{} \amp \aij{1}{3} x_3 \amp {}+{} \amp  \aij{1}{4} x_4 \amp {}={} \amp b_1 \\
+\aij{2}{1} x_1 \amp {}+{} \amp  \aij{2}{2} x_2 \amp {}+{} \amp \aij{2}{3} x_3 \amp {}+{} \amp  \aij{2}{4} x_4 \amp {}={} \amp b_2 \\
+\aij{3}{1} x_1 \amp {}+{} \amp  \aij{3}{2} x_2 \amp {}+{} \amp \aij{3}{3} x_3 \amp {}+{} \amp  \aij{3}{4} x_4 \amp {}={} \amp b_3 \\
+\end{alignedat}
+</me>
+
+Notice that the indices on the <m>x</m>'s run from 1 to 4, the indices on the <m>b</m>'s run from 1 to 3, and that there are a total of 12 coefficients.
+</p>
+  
+<example xml:id="ex-invest">
+<title>Investments</title>
+<statement>
+<p>Suppose you have <dollar /><m>10,000</m> that you want to invest in the stock market. After some research you've found three companies that you think will be good investments.  SolarCity Corp (SCTY) is trading at about <dollar /><m>20</m> per share.  SunPower - Solar energy company (SPWR) is trading at about <dollar /><m>9</m> per share. First Trust Global Wind Energy (FAN) is at about <dollar /><m>12</m> per share.  One equation you can immediately write down is
+
+<md>
+<mrow>20 x_1 + 9 x_2 + 12 x_3 = 10000,</mrow>
+</md>
+
+where <m>x_1</m> is the number of shares of SCTY we will buy, <m>x_2</m> is the number of shares of SPWR, and <m>x_3</m> is the number of shares of FAN.
+</p>
+
+<p>If we said nothing further, we'd have just this one equation and there are many possible sets of values for the variables that satisfy it.  Notice that there are two broad categories of companies represented in our stock picks -- solar energy and wind power.  Perhaps we'd be wise to split our investment between them based on some rational theory, for the sake of argument let's say that we've been advised to use a 60/40 split between solar and wind.  What was previously a single equation is now two:
+
+<md>
+<mrow>20 x_1 + 9 x_2 = 60000,</mrow>
+<mrow>12 x_3 = 40000.</mrow>
+</md>
+</p>
+
+<p>Notice that the second equation uniquely determines the value of <m>x_3</m> but that the other variables still have a bit of freedom.  (For instance, notice that we could set either <m>x_1</m> or <m>x_2</m> to <m>0</m>, and the other variable's value would then be uniquely determined. Or, of course we could have some mixture where our <dollar /><m>6,000</m> is split up between the two companies.  As it happens, these two companies are competitors and there is some probability that one will succeed and the other will fail.  A wise investor tries to guess what that probability is and <q>hedge</q> their bets on the market.  For the sake of argument let's say we think SCTY is three times more likely to come out the winner in this competition.  You might be inclined to just buy only the SCTY stock, but that's not what a hedging strategy would indicate -- you should mix your investments in a proportion that reflects the probabilities involved.  As an equation in the <m>x</m>'s we have
+
+<md>
+<mrow>20 x_1 = 3 \cdot 9 x_2.</mrow>
+</md>
+</p>
+
+<p>At this point we've obtained a system of 3 equations in 3 variables which, after manipulating the last one a little bit, looks like the following.
+
+<md>
+<mrow>20 x_1 + 9 x_2 = 60000</mrow>
+<mrow>12 x_3 = 40000</mrow>
+<mrow>20 x_1 - 27 x_2 = 0</mrow>
+</md>
+</p>
+
+<p>It is usually a good idea to format your systems so that the variables in each equation line up in columns.
+
+<me>
+\begin{alignedat}{4}
+20 x_1 \amp {}+{} \amp  9 x_2 \amp  \amp  \amp {}={} \amp 6000 \\
+ \amp  \amp   \amp  \amp  12 x_3 \amp {}={} \amp 4000 \\
+20 x_1 \amp {}-{} \amp 27 x_2 \amp  \amp  \amp {}={} \amp 0
+\end{alignedat}
+</me>
+</p>
+</statement>
+
+<solution>
+<p>Now, let's go ahead and figure out what the values of the variables should be.  In other words, how many shares of each stock should we purchase?
+</p>
+  
+<p>First, look at that middle equation.  It isn't very complicated, indeed, it basically <em>tells</em> us the value of <m>x_3</m> <mdash /> we just need to divide both sides by 12 to get that <m>x_3 = 333.\overline{3}</m>.  Unfortunately, we can't buy fractions of a share of stock so we'll round to <m>333</m>.
+</p>
+
+<p>We're somewhat lucky in that the variable <m>x_3</m> doesn't appear in the other equations, but <em>even if it did</em>, we could now substitute the value we just determined for it.  Furthermore, at this point, we have no more use for that middle equation; we've used it up in finding the value of <m>x_3</m>.  So now we've reduced our problem to a simpler system <mdash /> one that consists of just two equations in the remaining two unknowns.
+
+<me>
+\begin{alignedat}{3}
+20 x_1 \amp {}+{} \amp  9 x_2   \amp {}={} \amp 6000 \\
+20 x_1 \amp {}-{} \amp 27 x_2   \amp {}={} \amp 0
+\end{alignedat}
+</me>
+</p>
+
+<p>If we subtract the first equation from the second we get
+<me>
+\begin{alignedat}{3}
+  \amp {}-{} \amp 36 x_2   \amp {}={} \amp -6000
+\end{alignedat}
+</me>
+and this tells us (just divide both sides by <m>-36</m>) the value of <m>x_2</m>. 
+</p>
+
+<p>What we've determined so far is that <m>x_3 = 333</m> and <m>x_2 = 167</m>. By substituting those values into the very first equation we wrote down we'll be able to find the value of <m>x_1</m>.
+</p>
+
+<p>After making those substitutions we get an equation that only has one variable:
+
+<md>
+<mrow>20 x_1 + 9 \cdot 167 + 12 \cdot 333 = 10000.</mrow>
+</md>
+
+It's child's play to find the solution is <m>x_3=225</m>.
+
+So in the end we should put in an order for 225 share of SCTY, 167 shares of SPWR and 333 shares of FAN.  Notice that because of rounding we've come up one dollar short of our intended investment.
+</p>
+</solution>
+</example>
+
+<p>A bit more formalism is appropriate now.  We'll start with some definitions.
+</p>
+
+<definition>
+<title>linear system</title>
+<index><main>linear system</main>
+</index>
+
+<statement><p>A <term>linear system</term>, also known as a <term>system of linear equations</term> is a collection of <m>m</m> equations in <m>n</m> unknowns of the form
+<me>
+\begin{alignedat}{5}
+a_{11} x_1 \amp {}+{} \amp  a_{12} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \amp {}+{} a_{1n} x_n \amp {}={} \amp b_1 \\
+a_{21} x_1 \amp {}+{} \amp  a_{22} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \amp {}+{} a_{2n} x_n \amp {}={} \amp b_2 \\
+ \amp \amp \amp  \amp \amp \vdots \amp  \amp \amp \amp \\
+a_{m1} x_1 \amp {}+{} \amp  a_{m2} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \amp {}+{} a_{mn} x_n \amp {}={} \amp b_m \\
+\end{alignedat}
+</me>
+</p>
+
+<p>Note that the doubly-indexed quantities (<m>a_{ij}</m>) as well as the singly-indexed quantities (<m>b_i</m>) are real numbers and that the <m>m</m> variables are indicated by <m>x</m>'s (with subscripts).
+</p>
+</statement>
+</definition>
+<remark><p>The use of variables with multiple indices in the above definition bears comment.  First of all, note that we are trying to deal with the general situation where there is an unknown number of equations (<m>m</m>) in an unknown number of variables (<m>n</m>).  Let's consider the <m>b</m>'s first <mdash /> these are the constants that appear on the right-hand sides of the equations, so there are <m>m</m> of them.  The situation for the <m>a</m>'s is more complicated.  The <m>a</m>'s are the coefficients, they are constant numbers that the variables are multiplied by, and there are two indices on each of them.  The first index tells us which equation we are in.  The second index matches with the subscript on the variable.  For example <m>\aij{14}{23}</m> would be the coefficient of <m>x_{23}</m> in the <m>14</m>th equation in a system.
+</p> 
+</remark>
+
+<p>What does it mean to say we have found an <q>answer</q> to a system of equations?  Essentially, it is this: we have found a set of values for the variables that <q>work</q> in all of the equations.  Sometimes people say that this set of values <q>satisfies</q> the equations.  To be completely clear, what is meant is that if one substitutes these values for the variables in the equations of the system, all of them (the equations) will be true.  It is convenient to regard such a set of values as a vector.  For example the solution we obtained in Example <xref ref="ex-invest" /> would be regarded as the vector <m>\langle 225, 167, 333 \rangle</m>.
+</p>
+
+
+<definition>
+<title>solution sets</title>
+<index><main>solution sets</main>
+</index>
+<statement>
+<p>Given a system of <m>m</m> linear equations in <m>n</m> unknowns, the <term>solution set</term> of the system is the set of all vectors of length <m>n</m> that satisfy all <m>m</m> of the equations in the system.
+</p>
+</statement>
+</definition>
+
+<definition>
+<title>equivalent systems</title>
+<index><main>equivalence of linear systems</main>
+</index>
+<statement>
+<p>Two linear systems are called <term>equivalent</term> if and only if they have identical solution sets.
+</p>
+</statement>
+</definition>
+<remark>
+<p>The equivalence of linear systems is an example of what is known  as an equivalence relation.  Equivalence relations are used in theoretical mathematics when we are trying to capture the notion that two things <mdash /> while not <em>actually</em> equal <mdash /> are similar enough that we can treat them as being sort of a junior version of equal<ellipsis />  
+</p>
+<p>For a relationship to earn the title <q>equivalence relation</q> it must have a short list of properties.  These properties are certainly true of the ordinary equals sign:
+</p>
+
+<p>
+<dl>
+<li><title>reflexivity</title><p>A relation is reflexive iff all elements are related to themselves.
+</p>
+</li>
+<li><title>symmetry</title><p>A relation is symmetric iff whenever <m>x</m> and <m>y</m> are a pair of elements that are related, then <m>y</m> and <m>x</m> are also a pair that are related.  (I.e. the order can always be reversed.)
+</p>
+</li>
+<li><title>transitivity</title><p>Perhaps you've heard the phrase <q>Two things that are equal to a third must be equal to each other.</q> That's the essence of transitivity.
+</p>
+</li>
+</dl>
+</p>
+
+<p>
+There really is much more that we should say about equivalence relations in general and the consequences that ensue when we can show that some relation is an equivalence relation.  We refer the interested reader to chapter 6 in <url href="https://osj1961.github.io/giam/">GIAM</url>.  In the remainder of this book we are going to <em>see</em> how very useful the notion of equivalence of linear systems can be.  Hopefully this will give you some indication of how useful equivalence relations in general can be!  
+</p>
+  
+<p>One final word about equivalence relations (in general) and the equivalence of linear systems (in particular):  It is customary, when introducing this notion, to ask students to come up with a proof that shows that some given relation (in this case, equivalence of linear systems) is indeed an equivalence relation.  Such proofs are actually relatively straightforward, but <em>relax</em>, we're going to let you off the hook this time!  Showing that equivalence of linear systems is an equivalence relation is actually too easy.  What one needs to do is show that it has each of the three properties: reflexivity, symmetry and transitivity.  Each of those is an almost immediate consequence of the way this equivalence is defined.  We define two systems to be equivalent if and only if they have the same solution set. In other words, equivalence is <em>defined</em> in terms of set equality.  Set equality is definitely an equivalence relation, so it has the three properties.  Finally, the arguments that show that equivalence of linear systems has the three properties all have the same form: in order to show that the equivalence of linear systems has a property we use the fact that set equality has that property.  This is called inheritance.  
+</p>
+</remark>
+
+<p>The general idea is this:  there are lots and lots of different linear systems that are equivalent.  They all have the same solution set.  Some of these systems are in a nice form that allows us to see what the solution set is.  Others are not.  We need to transform the latter into the former!
+</p>
+
+<p>More specifically, there are three operations that can be applied to linear systems which <em>do not have any effect on solution sets</em>.  We can apply these three operations in any way we like!  We'll just be transforming our linear system into a slightly different one that is equivalent to the original.  Finally, you'll see that it is pretty easy to strategize a bit and transform difficult linear systems into the nice sort (where the solution set is very evident) using these three operations.
+</p> 
+
+<p>The three operations go by many names; we'll refer to them as Reordering, Scaling and Combining.  In the next few paragraphs we'll discuss each of them in turn and explain why they don't have an effect on the solution set of a system.
+</p>
+
+<p><em>Reordering</em> means what it sounds like.  The solution set is determined by checking whether a given solution vector satisfies <em>all</em> of the equations.  It is pretty clear that the order that the equations are listed in is of little importance.  In many treatments of linear algebra an operation called <q>swapping</q> is used instead <mdash /> swapping two equations is a special (particularly simple) instance of reordering and any more general reordering can be accomplished by a succession of swaps.
+</p>
+
+<exercise><title>permutations and swaps</title>
+  <statement><p>We have placed the letters A through F in sequence below <mdash /> however they are not in the usual (alphabetic) order.  Determine a sequence of swaps that will reorder them so that they <em>are</em> in alphabetic order.
+
+<me> DCABFE </me>
+</p>
+  </statement>
+  <hint><p>There are many ways to proceed, but putting A then B then C <foreign>et cetera</foreign> where they belong using swaps is one possibility.  What swap puts A in the first position?
+</p>
+  </hint>
+  <solution><p>
+<md>
+  <mrow> DCABFE \quad \mbox{(given) \phantom{swap D}} </mrow>
+  <mrow> ACDBFE \quad \mbox{swap D and A}</mrow>
+  <mrow> ABDCFE \quad \mbox{swap C and B}</mrow>
+  <mrow> ABCDFE \quad \mbox{swap D and C}</mrow>
+  <mrow> ABCDEF \quad \mbox{swap F and E}</mrow>
+</md>
+</p>
+  </solution>
+</exercise>
+
+<p>Scaling is another operation where it is fairly obvious that there will be no effect on solution sets.  Scaling involves multiplying both sides of an equation by some non-zero constant.  Very often that non-zero constant will be the reciprocal of the coefficient of one of the variables; scaling by such a constant is useful in solving for that variable.  Perhaps it is clear that multiplying both sides of an equation by the same thing will have no impact on what values of the variables satisfy the equation<ellipsis />  But why does the constant need to be non-zero?  Multiplying both sides of <em>any</em> equation by <m>0</m> will produce a new equation that looks like <m>0 = 0</m> which is certainly true!  In fact, of course, that's what the problem is; if the equation was previously false for some vector of variable values (thus it served to exclude that vector from the solution set) it will now be true.  So vectors of variable values that previously were not in the solution set will now be in it <mdash /> that's the sort of thing we are trying to avoid!
+</p>
+
+<p>Combining (a.k.a replacement) is the most difficult of the three operations and as you might guess, it is also the most useful.  Combining consists of adding a multiple of some other equation to a given one.  Another way to think of this is that we replace some equation 
+by <em>itself</em> plus a multiple of some other equation. This is probably why some people call this operation Replacement.
+</p>
+
+<p>When we added the equations <m>x+y=42</m> and <m>x-y=6</m>, obtaining the new equation <m>2x=48</m> back in Section <xref ref="section-start" /> we were really doing a <q>Combining</q> operation.  By the way, when we divided both sides of that new equation by <m>2</m> we were <q>Scaling.</q>
+</p>
+
+<p>We'll close this section by giving an example <mdash /> using the three operations to find the solution of a small linear system.
+</p>
+
+<example><title>A small linear system</title>
+<statement>
+<p>
+There is a unique solution to the following system of 3 equations in 3 unknowns.  What is it?
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}={} \amp 21 \\
+ 2 x_1  \amp {}-{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}={} \amp 12 \\
+   x_1  \amp {}+{} \amp 3 x_2 \amp {}-{} \amp x_3  \amp {}={} \amp 17
+\end{alignedat}
+</me>
+</p>
+
+</statement>
+<solution>
+<p>The first thing we'll do is a combining operation.  We'll subtract twice the first equation from the second.  It will be convenient to develop a shorthand for expressing these operations.  This one could be written as <m>E_2 = E_2 - 2E_1</m>.
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp {}-{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -30 \\
+   x_1  \amp {}+{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp 17
+\end{alignedat}
+</me>
+</p>
+
+<p>Next we'll do a similar combining operation to eliminate <m>x_1</m> from the 3rd equation.
+This one would be expressed as <m>E_3 = E_3 - E_1</m>.
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp {}-{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -30 \\
+        \amp {}+{} \amp 2 x_2 \amp {}-{} \amp 2 x_3  \amp {}={} \amp -4
+\end{alignedat}
+</me>
+</p>
+
+<p>You should take note that we have done something mildly clever in eliminating the occurrences of <m>x_1</m> in the latter two equations. Now we can use them in further combination operations without fear that they will effect terms involving <m>x_1</m>.
+</p>
+
+<p>For our next operation let's scale the last equation by <m>1/2</m>; this isn't strictly necessary but it makes things <em>look</em> a little simpler and since every coefficient in the 3rd equation is even we won't end up dealing with fractions <ellipsis />  <m>E_3 = \frac{1}{2} E_3</m>.
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp {}-{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -30 \\
+        \amp       \amp   x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -2
+\end{alignedat}
+</me>
+</p>
+
+<p>We've just cleaned up the 3rd equation so that the first non-zero term in it (the one involving <m>x_2</m>) has a coefficient of 1.   This makes equation 3 very useful as a tool for eliminating the variable <m>x_2</m> from other equations, so next we'll do a reordering operation to move it a bit closer to the top of the heap.
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp       \amp   x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -2 \\
+        \amp {}-{} \amp 3 x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -30 \\
+\end{alignedat}
+</me>
+</p>
+
+<p>Next, let's use what is now equation 2 to eliminate <m>x_2</m> from (the new) equation 3:
+<m>E_3 = E_3 + 3 E_2</m>. 
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp       \amp   x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -2 \\
+        \amp       \amp       \amp {}-{} \amp 4 x_3  \amp {}={} \amp -36 \\
+\end{alignedat}
+</me>
+</p>
+
+<p>Finally, although (again) this isn't strictly necessary, let's scale the 3rd equation so that the coefficient of <m>x_3</m> is 1<ellipsis /> <m>E_3 = \frac{-1}{4} E_3</m>.
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
+        \amp       \amp   x_2 \amp {}-{} \amp   x_3  \amp {}={} \amp -2 \\
+        \amp       \amp       \amp       \amp   x_3  \amp {}={} \amp 9 \\ 
+\end{alignedat}
+</me>
+</p>
+
+<p>Wait!  Should the last sentence really have started with the word <q>Finally</q>?  It seems like the system is still pretty complicated.  We certainly haven't achieved the simplest possible sort of linear system, but we <em>have</em> turned the original system into a type that is known as <q>triangular</q>.  Do you see why?  This kind of system is very easy to solve by a process known as back-substitution.  The 3rd equation tells you the exact value of the third variable (<m>x_3 = 9</m>), you can then substitute that value into the second equation to obtain <m>x_2 - 9 = -2</m>.  So now we can easily see that <m>x_2=7</m>.  Hmmm.  Now we've got known values for <m>x_2</m> and <m>x_3</m> which we can substitute into the 1st equation to get
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   7 \amp {}+{} \amp   9  \amp {}={} \amp 21 \\
+\end{alignedat}
+</me>
+</p>
+
+<p>Okay.  That's easy, <m>x_1=5</m>.
+</p>
+</solution>
+</example>
+</section>
+
+
+<section xml:id="section-vectors">
+<title>Vector equations</title>
+<p>We have previously seen the idea of a linear combination of numbers.  In this section we will look at forming linear combinations of vectors.  The typical problem of the vector equations sort is: can we find the coefficients so that a linear combination of some set of vectors (with those coefficients) is equal to a given vector?  
+</p>
+
+<p>Recall that when we formed linear combinations of numbers we were allowed to <q>multiply by constants and add things up.</q>   So if we are planning to do the same thing with vectors we need to understand what it means to multiply a vector by a constant
+and what it means to add vectors.  
+</p>
+
+<p>We use the term <em>scalar</em> to refer to real numbers, <em>especially</em> when referring to the numbers that we multiply vectors by.  Calling them <q>constants</q> is probably not the best plan; both a scalar and a vector can be <em>constant</em> <mdash /> that just means they aren't changing.  It's usually more important to distinguish the vectors from the scalars <mdash /> which things have multiple components and which don't?  When we think of vectors as <q>those things that have both a direction and a magnitude,</q> the effect of multiplying by a scalar is to leave the direction unchanged, but change the magnitude by scaling it as the scalar indicates.  If the scalar is less than 1, the magnitude of the vector will be reduced; if the scalar is greater than 1 it will be increased.  Of course, if the scalar is negative the direction <em>will</em> be effected, but in a rather simplistic way: the vector ends up facing the opposite direction.
+</p>
+
+<p>When we have an actual vector and a scalar we'd like to multiply it by, the operation we perform is almost the only thing it could be!  Just multiply each of the components of the vector by the scalar.
+</p>
+
+<definition>
+  <title>scalar-vector product</title>
+  <statement>
+    <p>If <m>\vec{v}</m> is a vector having <m>m</m> components, <m>\vec{v} = \langle v_1, v_2, \ldots , v_m \rangle</m> and <m>s</m> is a scalar, then the <term>scalar multiplication</term> of <m>\vec{v}</m> by <m>s</m> is defined by
+<me>s\vec{v} = s \langle v_1, v_2, \ldots , v_m \rangle = \langle sv_1, sv_2, \ldots , sv_m \rangle </me>
+</p>
+</statement>
+</definition>
+
+<remark><p>The scalar-vector product looks rather like a funny version of the distributive law!
+</p>
+</remark>
+
+<p>The addition of vectors is best thought of in terms of <q>directions</q>.  Suppose the directions to got from my house to the Kwik-E-Mart are: <q>go 3 blocks north and 1 block east</q> (call that vector <m>\vec{v}</m>, we might write it's component form as <m>\vec{v} = \langle 1, 3 \rangle</m>).  Suppose in addition that the directions to go from the Kwik-E-Mart to Moe's Tavern are <q>go 1 block north and 2 blocks west</q>
+ (let's call this <m>\vec{w} = \langle -2, 1\rangle</m>).  The meaning of the vector sum is the vector that describes the change that would be effected if we follow one set of directions followed by the other <mdash /> except we don't have to be slavish about it <mdash /> we don't literally follow the first set of directions and then do the second.  The sum is the set of directions that take us directly to Moe's without making a Kwik-E-Mart pit stop.
+</p>
+
+<p>When we actually compute vector sums using the component forms of the vectors involved the computation is probably exactly what you would expect: just add up the corresponding components.
+</p>
+
+<definition>
+ <title>vector addition</title>
+ <statement>
+  <p>If <m>\vec{v}</m> and <m>\vec{w}</m> are both vectors having <m>m</m> components,
+
+<md>
+ <mrow>\vec{v} = \langle v_1, v_2, \ldots , v_m \rangle</mrow>
+ <intertext> and </intertext>
+ <mrow>\vec{w} = \langle w_1, w_2, \ldots , w_m \rangle</mrow>
+</md>
+
+then their <term>vector sum</term> is defined by
+
+<md>
+ <mrow>\vec{v} + \vec{w} = \langle v_1+w_1, v_2+w_2, \ldots , v_m+w_m \rangle.</mrow>
+</md>
+</p>
+ </statement>
+</definition>
+
+<remark><p>The addition of vectors is also known as <em>componentwise</em> addition.  It's worth pointing out that if two vectors have different numbers of components, adding them together generally doesn't make sense.
+</p>
+</remark>
+
+<p>One last definition will be needed to work with vector equations.  What does it mean for two vectors to be equal to one another?  The answer is probably entirely obvious, but we'll include a formal definition here for completeness.
+</p>
+
+<definition>
+ <title>vector equality</title>
+ <statement>
+  <p>If <m>\vec{v}</m> and <m>\vec{w}</m> are two vectors of length <m>m</m> having components 
+
+<md>
+ <mrow>\vec{v} = \langle v_1, v_2, \ldots , v_m \rangle</mrow>
+ <intertext> and </intertext>
+ <mrow>\vec{w} = \langle w_1, w_2, \ldots , w_m \rangle</mrow>
+</md>
+
+then we say <m>\vec{v}</m> and <m>\vec{w}</m> are <term>equal</term> and write <m>\vec{v} = \vec{w}</m> if and only if for every <m>i</m>, <m>1\leq i \leq m</m>, <m>v_i = w_i</m>.
+</p>
+</statement>
+</definition>
+
+<example><title>a small vector problem</title>
+<statement>
+<p>Consider the following set of vectors: <m>\langle 1, 1, 0 \rangle</m>,
+<m>\langle 1, 1, 1 \rangle</m> and <m>\langle 0, 0, 1 \rangle</m>. Is it possible to find scalars <m>x_1</m>, <m>x_2</m> and <m>x_3</m> so that
+<md><mrow>x_1 \langle 1, 1, 0 \rangle + x_2 \langle 1, 1, 1 \rangle + x_3 \langle 0, 0, 1 \rangle = \langle 2, 3, 4 \rangle </mrow>
+</md>
+</p>
+</statement>
+<solution>
+<p>Let's modify the given problem by using the definitions of (first) scalar multiplication (and then) vector addition:
+
+ <md><mrow>\langle x_1, x_1, 0 \rangle + \langle x_2, x_2, x_2 \rangle + \langle 0, 0, x_3 \rangle = \langle 2, 3, 4 \rangle .</mrow>
+<intertext> and then </intertext>
+<mrow>\langle x_1 + x_2, x_1 + x_2, x_2 + x_3 \rangle = \langle 2, 3, 4 \rangle .</mrow>
+</md>
+</p>
+
+<p>
+Now (surprise!) that final form <mdash /> after we use the definition of vector equality <mdash /> becomes a system of three equations in three unknowns.
+
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp \amp \amp {}={} \amp 2 \\
+   x_1  \amp {}+{} \amp   x_2 \amp \amp \amp {}={} \amp 3 \\
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}={} \amp 4
+\end{alignedat}
+</me>
+</p>
+
+<p>This system is different from the other systems we've seen so far.  It doesn't have a solution.  Its statement includes an impossibility; if <m>x_1</m> and <m>x_2</m> have a sum of <m>2</m> (from the first equation) how can they also have a sum of <m>3</m> (which is what the second equation asserts).  So there simply <em>aren't</em> three numbers which can be used as the coefficients!
+</p>
+</solution>
+</example>
+
+<p>Let's make a tiny change to the previous problem.  Sometimes small changes have large effects!  We'll change the second component in the vector on the right-hand side to a <m>2</m>.
+</p>
+
+
+<example><title>a slightly tweaked vector problem</title>
+<statement>
+<p>Consider the following set of vectors: <m>\langle 1, 1, 0 \rangle</m>,
+<m>\langle 1, 1, 1 \rangle</m> and <m>\langle 0, 0, 1 \rangle</m>. Is it possible to find scalars <m>x_1</m>, <m>x_2</m> and <m>x_3</m> so that
+<md><mrow>x_1 \langle 1, 1, 0 \rangle + x_2 \langle 1, 1, 1 \rangle + x_3 \langle 0, 0, 1 \rangle = \langle 2, 2, 4 \rangle </mrow>
+</md>
+</p>
+</statement>
+<solution>
+<p>Notice that since the left-hand side vectors are all the same as before we can reuse our previous work.  The final form of the vector equation is 
+<md>
+ <mrow>\langle x_1 + x_2, x_1 + x_2, x_2 + x_3 \rangle = \langle 2, 2, 4 \rangle .</mrow>
+</md>
+</p>
+
+<p>Now, as a system of equations, we have
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp \amp \amp {}={} \amp 2 \\
+   x_1  \amp {}+{} \amp   x_2 \amp \amp \amp {}={} \amp 2 \\
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}={} \amp 4
+\end{alignedat}
+</me>
+
+and the first two equations are identical <mdash /> they no longer cause a contradiction.  This system not only has a solution, it has <em>lots</em> of them!
+</p>
+
+<p>When one equation is an exact duplicate of the other, is there really any reason to retain both copies in the system?  Remember that we are mostly concerned with solution sets to linear systems. Either of the copies of this equation will have the same effect on solution sets.  For a given vector, they will both either say <q>Sure! it works for me, put it in the solution set</q> or <q>No way, that vector is <em>not</em> okay with me! It makes me false.</q>  So, from the perspective of solution sets, this system is really just a system of two equations in three unknowns.
+<me>
+\begin{alignedat}{4}
+   x_1  \amp {}+{} \amp   x_2 \amp \amp \amp {}={} \amp 2 \\
+   x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}={} \amp 4
+\end{alignedat}
+</me>
+</p>
+
+<p>By subtracting the first equation from the second we get a unique value for <m>x_3</m> (<m>x_3=2</m>).  But any pair of numbers that add up to <m>2</m> will work for <m>x_1</m> and <m>x_2</m>.  Not only is the solution not unique, the solution set for this system is infinite!
+</p>
+
+<p>We can express the solution set of this system using set-builder notation and a parameter.
+  <md><mrow> \left\{ \langle 2-t, t, 2 \rangle \suchthat t \in \Reals \right\} </mrow></md>
+</p>
+
+<p>Notice how the parameter <m>t</m> allows the values of <m>x_1</m> and <m>x_2</m> to range over all possibilities that add up to <m>2</m>?  We essentially let <m>x_2</m> have any value whatsoever (<m>t</m> can be any real number) and then we choose <m>x_1</m> in such a way that the sum is <m>2</m>.  In a situation like this, <m>x_2</m> is known as a <em>free variable</em>.
+</p>
+</solution>
+</example>
+</section>
+
+<section xml:id="section-transformations">
+<title>Transformations</title>
+<p>A transformation is a function whose inputs and outputs are vectors.  In order to discuss concepts like the range and domain of a transformation we'll need some terminology for <em>sets</em> of vectors.  When we are considering the set of all possible vectors of some type it is known as a <em>vector space</em>.  At first, we are going to be looking at the most basic and fundamental sorts of vector spaces <mdash /> where the vectors are ordered tuples of real numbers <mdash /> but be advised that later we will see that there are many other sorts of vectors! 
+</p>
+
+<definition>
+	<title>Real Euclidean spaces</title>
+<statement><p>Given a positive integer <m>n</m> we define the <term>real Euclidean space of dimension <m>n</m></term> (denoted <m>\Reals^n</m>) to 
+be the set of all ordered <m>n</m>-tuples of real numbers.  
+<md><mrow>\Reals^n \; = \; \{ \langle v_1, v_2, \ldots , v_n \rangle \, \suchthat \, \forall i, 1 \leq i \leq n, \, v_i \in \Reals \} </mrow></md>
+</p>
+</statement>
+</definition>
+
+<p>Recall that the <term>domain</term> of a function is the set from which the inputs come.  The set where the outputs may appear is known as the <term>codomain</term> of the function. The codomain must be contrasted with the <term>range</term> which is the set of outputs that actually <em>do</em> occur.  We are going to be presuming a certain familiarity with the basic terminology used with functions.  You can skip over the following list of (informal) definitions if you are already familiar.
+</p>
+
+<p>
+<dl>
+  <li><title>domain</title> <p>The set of all inputs for a function.  The domain is sometimes specified while defining the function, but if it isn't, the convention is to use the biggest possible set for the domain.</p></li>
+  <li><title>codomain</title> <p>The set where the outputs of a function lie.</p></li>
+  <li><title>range</title> <p>The set of outputs that actually occur. (The range is generally a subset of the codomain.) </p></li>
+  <li><title>image</title> <p>If an element, <m>x</m>, of the domain is given, we refer to <m>f(x)</m> as the <em>image</em> of <m>x</m>.</p></li>
+  <li><title>pre-image</title> <p>If we have some <m>y</m> (an output) in mind, any <m>x</m> (an input) such that <m>f(x) = y</m> is called a <em>pre-image</em> of <m>y</m>.</p></li>
+</dl>
+</p>
+
+<p>There is a bit of an asymmetry in the way we speak of the various sets that are related to a function.  On the output side we have the codomain and the range.  On the input side we have only the domain.  There is no agreed upon name for a set that contains the domain, we simply insist that the function must be defined for every element of the domain (which basically sidesteps the issue).  For the ordinary functions that one sees in calculus, the codomain is the real numbers; the range and domain are generally subsets of the real numbers.  And so, the situation isn't terribly complex.  When we are dealing with transformations things are harder.  The domain and codomain of a transformation are generally real Euclidean spaces <mdash /> potentially of different dimensions <mdash /> so we will usually want to spell out what sorts of vectors are expected as inputs, what sorts of vectors will we see as outputs and only then do we get around to the heart of the matter: how do we compute the output from the input?  We'll introduce the notation for a transformation via an example and then treat the general case.
+</p>
+
+<example>
+  <title>an example transformation</title>
+  <statement><p>Let's look at a transformation that takes vectors of length 6 as inputs, and outputs vectors of length 3.  We'll refer to the input vector as <m>\vec{x}</m> and, as usual, its components will be <m>x</m>'s with subscripts:
+<m>\vec{x} = \langle x_1, x_2, x_3, x_4, x_5, x_6 \rangle</m>.  Similarly, the output will be <m>\vec{y} = \langle y_1, y_2, y_3 \rangle</m>.  This is only an example so we'll just make up the rules that determine those output components from the input components, the point here is simply to demonstrate how one should write such a thing <mdash /> which is as follows:
+<md>
+	<mrow>T:\Reals^6 \longrightarrow \Reals^3</mrow>
+	<mrow>T(\langle x_1, x_2, x_3, x_4, x_5, x_6 \rangle) \quad = \quad \langle x_1, x_3, x_5 \rangle .</mrow>
+</md>
+</p>
+
+<p>So this transformation just picks out the odd-numbered components of <m>\vec{x}</m> and puts them in <m>\vec{y}</m>.
+</p>
+</statement>
+</example>
+
+<p>The most important transformations for us in this context are the <em>linear</em> ones.  In a linear transformation, the components of the output vector are computed from the components of the input vector by <q>multiplying by constants and adding everything up.</q>  Because of the simplistic way that the outputs are computed there is really nothing that can go wrong!  With ordinary functions from <m>\Reals</m> to <m>\Reals</m> we usually look at the rule for computing the output and recognize certain values that must be eliminated from the domain <mdash /> typically where one sees <q>division by zero</q> or <q>square root of a negative</q> errors.  No such problem can arise with linear transformations, the domain will always be a real Euclidean space of some dimension.  Similarly, the codomain will be a real Euclidean space; one whose dimension is simply the number of components in the output vectors.  The dimensions of the domain and codomain are easy to think about <mdash /> how many components do the input and output vectors have?  The range of a linear transformation is slightly more complicated.  The output vectors that actually occur will certainly be vectors having the number of components as specified by the codomain, but do all such vectors necessarily have to appear as outputs?  In general, no.
+</p>
+
+<p>The notation for a linear transformation first spells out the domain and codomain and then gives the rule(s) for computing the output.  Thus the domain and codomain are known in advance; we need to do a little extra work to figure out the range.</p>
+
+<p>Before proceeding further we'll give some formal definitions.</p>
+
+<definition>
+  <title>Transformations</title>
+<statement><p>Given positive integers <m>m</m> and <m>n</m>, a <term>transformation from <m>\Reals^m</m> to <m>\Reals^n</m></term> is a function, <m>T</m>, that takes vectors of length <m>m</m> as inputs and returns vectors of length <m>n</m>. We write
+
+<md>
+  <mrow>T:\Reals^m \longrightarrow \Reals^n</mrow>
+  <mrow>T(\vec{x}) \quad = \quad \vec{y},</mrow>
+</md>
+
+where the components of the vector <m>\vec{y}</m> will need to be specified in terms of the components of <m>\vec{x}</m>.
+</p>
+</statement>
+</definition>
+<definition>
+  <title>Domain of a transformations</title>
+<statement><p>The <term>domain</term> of a transformation, <m>T</m> is denoted by <m>\Dom{T}</m> and is generally a subset of <m>\Reals^m</m> (provided <m>T</m> is defined as above). 
+
+<md>
+  <mrow> \Dom{T} \; = \; \{ \vec{x} \in \Reals^m \suchthat T(\vec{x}) \, \mbox{is defined} \} </mrow>
+</md>
+</p>
+</statement>
+</definition>
+
+<definition>
+  <title>Co-domain of a transformations</title>
+<statement><p>The <term>codomain</term> of a transformation, <m>T</m> is denoted by <m>\Cod{T}</m> and is equal to <m>\Reals^n</m> (provided <m>T</m> is defined as above). 
+</p>
+</statement>
+</definition>
+
+<definition xml:id="linearity-1">
+  <title>Linearity</title>
+  <statement><p>A transformation <m>T</m> is <term>linear</term> if and only if given any two elements <m>\vec{u},\vec{v} \in \Dom{T}</m> and any two real numbers <m>\alpha</m> and <m>\beta</m> we have
+<me> T(\alpha \vec{u} + \beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v}).</me>
+</p>
+</statement>
+</definition>
+
+<p>Linearity is a really important concept!  We will be using the definition above over and over again.  Let's try to nail down our understanding of this definition by translating it into ordinary language: A transformation is linear if and only if when you apply it to a linear combination of vectors, the result is equal to what you get if you form the same linear combination of the images of those vectors.  More succinctly: <q>The image of a linear combination is the same linear combination of the images.</q>  My advice (seriously!) is to treat that last phrasing like a mantra <mdash /> repeat it to yourself until you fully absorb the meaning and it becomes second nature to you.  
+</p>
+
+<p>Look back at the formal definition of linearity, and notice what it looks like symbolically: It appears as if the transformation <m>T</m> distributes over the sum and that the scalars can be moved to the outside of the <m>T</m>'s.  
+Sometimes an alternative definition of linearity is given which splits out these two issues.  This is sometimes useful in formulating a proof that some transformation is linear (because it separates the argument into simpler parts).
+</p>
+
+<definition xml:id="linearity-2">
+  <title>Linearity (alternate definition)</title>
+  <statement><p>A transformation <m>T</m> is <term>linear</term> if and only if given any two elements <m>\vec{u},\vec{v} \in \Dom{T}</m> and any real number <m>\alpha</m>, both of the following hold:
+<me> T(\vec{u} + \vec{v}) \; = \; T(\vec{u}) + T(\vec{v}),</me>
+and 
+<me> T(\alpha \vec{u}) = \alpha T(\vec{u}). </me>
+</p>
+</statement>
+</definition>
+
+<p>Before we can go any further we have a small moral obligation to take care of.  Since we've just presented two  definitions for a concept we have a duty to verify that they actually define the same concept.  If we state that two things are the same, that really aren't, we're making a <term>false equivalence</term>.  One of the hallmarks of a good critical thinker is that they won't be taken in by false equivalences.  So, what do you think?  Are they definitely the same idea, or are there transformations that are linear by one definition but not by the other?</p>
+
+<theorem><title>The two definitions of linearity are equivalent</title>
+  <statement>
+  	<p>Consider a given transformation <m>T</m> from <m>\Reals^m</m> to <m>\Reals^n</m>.  Let <m>\vec{u}</m> and <m>\vec{v}</m> be arbitrary vectors in <m>\Reals^m</m>, also let <m>\alpha</m> and <m>\beta</m> be arbitrary real numbers.  Then
+  	<md>
+  		<mrow> T(\alpha \vec{u} + \beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v})</mrow>
+  	    <intertext> if and only if </intertext>
+  	    <mrow> T(\vec{u} + \vec{v}) \; = \; T(\vec{u}) + T(\vec{v}) \quad \mbox{and} \quad T(\alpha \vec{u}) = \alpha T(\vec{u})</mrow>
+  	</md>
+    </p>
+  </statement>
+  <proof>
+  	<case direction="forward">
+  		<p>In this part of the proof we will be presuming the first statement (the definition of linearity given first) and showing that the second statement must be true.  
+  		</p>
+  		<p>Assume that <m>T</m> is a transformation and that for every pair of vectors <m>\vec{u}</m> and <m>\vec{v}</m>, and every pair of real numbers <m>\alpha</m> and <m>\beta</m>, 
+  		<me>T(\alpha \vec{u} + \beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v}).</me>
+        if we set <m>\alpha = \beta = 1</m> we get 
+        <me>T(\vec{u} + \vec{v}) \; = \; T(\vec{u}) + T(\vec{v}).</me>  
+        Similarly, if we leave <m>\alpha</m> arbitrary but set <m>\beta = 0</m> we get
+        <me>T(\alpha \vec{u}) = \alpha T(\vec{u}).</me>
+  	    </p>
+  	</case>
+  	<case direction="backward">
+  		<p>In this part of the proof we will be working in the reverse direction, so we assume that both
+  	    <me>T(\vec{u} + \vec{v}) \; = \; T(\vec{u}) + T(\vec{v}) \quad \mbox{and} \quad T(\alpha \vec{u}) = \alpha T(\vec{u})</me> hold.  
+  		</p>
+  		<blockquote>
+  			<p>It's important to realize that the hypotheses we are using above are generic statements.  When we write 
+  			<m>T(\alpha \vec{u}) = \alpha T(\vec{u})</m> the scalar <m>\alpha</m> and the vector <m>\vec{u}</m> are really beside the point.  We are really asserting a general rule about how <m>T</m> interacts with scaled vectors 
+  			<mdash /> any other scalar times any other vector will work the same way.  So for example, that hypothesis will also let us deduce that <me>T(\beta \vec{v}) = \beta T(\vec{v}).</me>
+  		    </p>
+  	    </blockquote>
+  	    <p>Consider <m>T(\alpha \vec{u} + \beta \vec{v})</m>.  Using our first hypothesis (the one that shows how <m>T</m> distributes over sums) we get 
+  	    <me>T(\alpha \vec{u} + \beta \vec{v}) \; = \; T(\alpha \vec{u}) + T(\beta \vec{v})</me>.  
+  	    Using the second hypothesis (twice) we get 
+  	    <me>T(\alpha \vec{u}) + T(\beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v}).</me>
+  	    Finally, putting these pieces together we have
+  	    <me>T(\alpha \vec{u} + \beta \vec{v}) \; = \; \alpha T(\vec{u}) + \beta T(\vec{v})</me>
+  	    which is the desired result.
+  	</p>
+  	</case>
+  </proof>
+</theorem>
+
+<definition>
+  <title>Linear transformations</title>
+<statement><p>Given positive integers <m>m</m> and <m>n</m>, a <term>linear transformation from <m>\Reals^m</m> to <m>\Reals^n</m></term> is a transformation <m>T</m>, that takes vectors of length <m>m</m> as inputs and returns vectors of length <m>n</m> and that is <em>linear</em>.  We write
+
+<md>
+  <mrow>T:\Reals^m \longrightarrow \Reals^n</mrow>
+  <mrow>T(\vec{x}) \quad = \quad \vec{y},</mrow>
+</md>
+
+where the components of the vector <m>\vec{y}</m> will need to be specified in terms of the components of <m>\vec{x}</m>.
+</p>
+</statement>
+</definition>
+
+<p>There is an interesting connection between our use of the word <q>linear</q> in talking about linear transformations
+and linear combinations.  When a transformation is linear the functions that determine the output's components in terms of the input's components must <em>be</em> linear combinations.  And <foreign>vice versa</foreign>, if the component functions are linear combinations then the transformation will be linear.
+</p>
+
+<p>The content of the previous paragraph may not be surprising from a linguistic perspective; they wouldn't use the same word if the underlying concepts were really different, would they?  From a mathematical perspective it's a bit less obvious.  Indeed this is the sort of thing that mathematicians call a <em>theorem</em>.  We'll state this theorem now, but we'll leave the proof to a later chapter.
+</p>
+
+<theorem><title>coefficients of a linear transformation</title>
+<statement><p>Given a transformation <m>T: \Reals^m \longrightarrow \Reals^n</m>, <m>T</m> is linear if and only if,
+for all input vectors <m>\vec{x}</m> the components of <m>T(\vec{x})</m> can be expressed as particular linear combinations of the components of <m>\vec{x}</m>.
+</p>
+</statement>
+</theorem>
+
+<p>In order to fully specify a linear transformation we need to give values for all of the constants that are used in the linear combinations where the <m>y_i</m>'s are written in terms of the <m>x_i</m>'s.  For each of the <m>n</m> components of <m>\vec{y}</m>, we will need <m>m</m> numbers (as many as there are components in <m>\vec{x}</m>).  In other words we must specify <m>mn</m> constants.</p>
+
+<definition>
+  <title>components of a linear transformation</title>
+  <statement><p>Given <m>mn</m> real numbers, <m>\aij{1}{1}, \ldots \aij{m}{n}</m>, we say they are the components of a 
+  linear transformation <m>T</m>,
+
+  <md>
+  <mrow>T:\Reals^m \longrightarrow \Reals^n</mrow>
+  <mrow>T(\vec{x}) \quad = \quad \vec{y},</mrow>
+</md>
+
+provided 
+
+<md>
+  <mrow> y_1 = \aij{1}{1} x_1 + \ldots + \aij{1}{m} x_m </mrow>
+  <mrow> \vdots </mrow>
+  <mrow> y_n = \aij{n}{1} x_1 + \ldots + \aij{n}{m} x_m .</mrow>
+</md>
+</p>
+</statement>
+</definition>
+
+
+</section>
+
+<section>
+<title>Matrix notation</title>
+<p>The three seemingly distinct viewpoints we've considered are unified by the concept of a <term>matrix</term>.</p>
+
+<p>The word <q>matrix</q> is from Latin.  The word entered the English language with a variety of meanings <mdash /> in Latin it means <em>womb</em>.   In mathematics, matrix (pl. matrices) always means a table containing numerical values.  It is rather hard to guess how a word meaning <q>uterus</q> could get morphed into one meaning <q>table of numbers</q>, but languages are funny that way<ellipsis />
+</p>
+
+<p>Generally speaking, a table of numbers will have some arbitrary number of rows and of columns.  There are some special cases that we'll need to talk about, but let's look at the general situation first.  We'll use the variable <m>m</m> to refer to the number of rows in a matrix and the variable <m>n</m> to refer to the number of columns.  We'll use upper-case letters (about 90% of the time: <m>A</m>) to refer to the whole table as a single entity, in which case we'll speak of <m>A</m> being an <m>m \times n</m> matrix.  The entries of a matrix will usually be denoted using the corresponding lower-case letter with <em>two</em> subscripts.  This is (hopefully) reminiscent of the doubly-indexed quantities we saw near the end of Section <xref  ref="section-transformations" />; the components of a linear transformation.
+</p>
+
+<example><title>matrix notation</title>
+<p>Here are a couple of matrices:
+	<me> A = \left[ \begin{array}{ccc} 1 \amp 4 \amp 9 \\ 7 \amp \pi \amp 42 \end{array} \right] \quad \mbox{and} \quad B = \left[ \begin{array}{cc} -1 \amp 11 \\ -3 \amp e \end{array} \right]</me>
+</p>
+<p>Notice how we are referring to the entire tables with the variables <m>A</m> and <m>B</m>?  If we need to refer to the individual entries of a matrix we'll write things like <m>\aij{2}{3} = 42</m> (the number in the 2nd row and 3rd column of <m>A</m> is 42), or <m>\bij{1}{2} = 11</m> (the number in the 1st row, 2nd column of <m>B</m> is 11).
+</p>
+<p>It's also fairly common to ignore this lower-case convention!  That is, you may also see things like <m>A_{1\:\!3} = 9</m> and <m>B_{2\:\!2} = e</m>.
+</p>
+</example>
+
+<p>Now to the special cases.  When the number of columns is <m>n=1</m>, the matrix is known as a <term>column vector</term>.  When the number of rows is <m>m=1</m>, the matrix is known as a <term>row vector</term>.  There is clearly a choice to be made as to whether the things we have been referring to as (merely) <q>vectors</q> are going to be represented as column vectors, or as row vectors.  Here's a surprising thing!  Your Calculus teachers and I (up until now) have been lieing to you.  When we wrote vectors as (for example) <m>\vec{v} = \langle 1, 2, 3 \rangle</m>, it was only for convenience.  A row of numbers fits more easily on the page than a column does.  For a variety of reasons it makes sense to treat vectors as columns of numbers, not rows.
+</p>
+
+<p>There is an operation known as <term>transposition</term> that changes row vectors into column vectors and <foreign>vice versa</foreign>.  The <term>transpose</term> of a matrix is indicated by a superscript T, the rows of the transposed matrix are the columns of the original matrix and its columns are the original matrix's rows.  This idea (interchanging rows and columns) is surprisingly important and we'll be using it quite a bit in the future.  For the moment let's just notice that it gives us a nice way to write a column vector <mdash /> with the typographical advantage that the components appear in a row!
+</p>
+
+<p>To summarize what the last few paragraphs have said: It is technically not right to write <m>\vec{v} = \langle 1, 2, 3 \rangle</m>, we should really write <m>\vec{v} = \left[ \begin{array}{c} 1 \\ 2\\ 3 \end{array} \right]</m>, but that takes up too much vertical space so instead we write <m>\vec{v} = [ 1 \; 2 \; 3 ]^T</m>.  This may all seem like too high of a price to pay for accuracy, but it will pay future dividends if we start thinking now about rows and columns and how to switch between them.
+</p>
+
+<p>If we only had row and column vectors to worry about we'd probably find some other way to distinguish them <mdash /> maybe there'd be red vectors and blue vectors!
+</p>
+
+ <note>
+ 	<p>In Physics (especially in the Tensor Analysis which is used in e.g. General Relativity) they distinguish between covariant and contravariant indices.  An entity with a single contravariant index is a vector, if instead there is a single covariant index it is known as a co-vector.  These concepts aren't identical to row/column vectors, but nevertheless, contravariant vectors are usually written as columns and covariant vectors as rows.</p>
+ </note> 
+
+ <p>By convention there is no need to refer to the entries of a row or column vector using double indices <mdash /> one of them would always be 1 so we can omit it.  When we have more general matrices, where <m>m</m> and <m>n</m> are both greater than <m>1</m>, the roles of rows and columns are more evident and two indices will be necessary to refer to the entries.
+</p>
+
+<p>One useful way to think about matrices is the following:  When we write down a system of equations, a lot of the symbols that we write are redundant.  If we eliminate all of the stuff that is utterly predictable we are left with a table of numbers <mdash /> in other words, a matrix.  So one way to think of matrices is that they are highly abbreviated ways of referring to a system of linear equations.  In this scheme the rows of the matrix correspond to the individual equations in the system and the columns contain all the
+coefficients that multiply a given variable.  A short example will probably help:
+</p>
+
+
+<example><title>Converting a linear system to matrix form</title>
+<statement>
+<p>
+Consider the following system of <m>3</m> equations in <m>4</m> variables.
+<me>
+\begin{alignedat}{8}
+   x_1  \amp {}+{} \amp   x_2 \amp       \amp      \amp {}+{} \amp 3 x_4 \amp {}={} \amp 101 \\
+ 2 x_1  \amp {}-{} \amp   x_2 \amp {}+{} \amp x_3  \amp {}+{} \amp x_4 \amp {}={} \amp 102 \\
+        \amp       \amp 3 x_2 \amp {}-{} \amp x_3  \amp {}+{} \amp 2x_4 \amp {}={} \amp 103
+\end{alignedat}
+</me>
+</p>
+
+<p>Now we'll take one step backwards before proceeding two steps forward.  If a variable appears, but has no coefficient, that just means the coefficient is <m>1</m>.  If a variable doesn't appear at all, that means the coefficient is <m>0</m>.
+Finally, if we see subtraction we can always replace it by addition (by putting a minus sign on the coefficient).  So, let's re-express this system in a fully anal-retentive way<ellipsis />
+
+ <me>
+\begin{alignedat}{8}
+ 1x_1  \amp {}+{} \amp  1x_2 \amp {}+{} \amp  0 x_3  \amp {}+{} \amp 3 x_4 \amp {}={} \amp 101 \\
+ 2x_1  \amp {}+{} \amp {-1}x_2 \amp {}+{} \amp  1 x_3  \amp {}+{} \amp 1 x_4 \amp {}={} \amp 102 \\
+ 0x_1  \amp {}+{} \amp  3x_2 \amp {}+{} \amp {-1} x_3  \amp {}+{} \amp 2 x_4 \amp {}={} \amp 103
+\end{alignedat}
+</me>
+</p>
+
+<p>Okay, so now the promised two steps forward.  First, notice that in every equation in the system every variable is present and they all appear in ascending order.  If we were only given the lists of coefficients we'd easily be able to reconstruct the equations.  So, we're going to eject all of the plus signs and all of the variables with all of those subscripts.  We just won't deign to write them down! Sometimes it's a good idea to imagine their presence but it certainly isn't necessary to. Also, the equals signs that separate the left- and right-hand sides of the equations always come before the very last number.  There really isn't a lot of information conveyed by the appearance of those equals signs, but we usually keep a slight vestige of them around <mdash /> a thin vertical line separates the last column of the matrix form from everything else.  So, with no further ado, here is the matrix form of this system:
+
+<me>
+\left[ \begin{array}{rrrr|r}
+ 1 \amp  1 \amp  0 \amp 3  \amp 101 \\
+ 2 \amp {-1} \amp  1  \amp 1 \amp  102 \\
+ 0 \amp  3 \amp {-1}  \amp 2  \amp 103
+\end{array} \right]
+</me>
+</p>
+</statement>
+</example>
+
+<p>In the previous example the final matrix we wrote is actually known as the <term>augmented matrix</term> of the system.  Sometimes it is a good idea to separate out the part of the matrix that appears to the left of the thin vertical line.  That part is known as the <term>coefficient matrix</term> of the system.  This isn't just pedantry!  In many real-world applications we need to solve bunches of linear systems that all have the same coefficient matrix <mdash /> so they only differ in the final column (a.k.a. the <term>augmented column</term>) of their augmented  matrices.  We can take advantage of such a situation, essentially solving all of the systems while only doing the work of solving the first one!
+</p>
+
+<p>Matrix notation was probably invented purely out of laziness.  When we use the Re-ordering, Scaling and Combining operations that we introduced in Section <xref ref="section-sys_eqs" />, we find ourselves having to re-copy the entire
+system over and over.  By switching to matrix notation we get a considerable savings in effort.  The operations that we
+originally developed to use on equations now become operations that one can apply to the rows of a matrix <mdash /> a.k.a. row operations <mdash /> which we will study in much greater depth in Section <xref ref="section-row-ops" />. Regardless of the origins of matrix notation, nowadays we don't think of matrices only in terms of being abbreviations for linear systems.  They have taken on a life of their own!  
+</p>
+
+<p>There are two features of matrices that we'll explore in the remainder of this section.  The first is that matrices may be thought of as <q>funny shaped</q> vectors.  The second is that, under certain conditions, we can multiply matrices.  If you've already studied multi-variable calculus (and perhaps even if you haven't) you'll have run into the dot product (a.k.a. scalar product) and the cross product (a.k.a. vector product) in <m>\Reals^3</m>.  No matter what the dimension of the space, there is always a dot product.  On the other hand, there is usually nothing analogous to the cross product <mdash /> it depends on a very special coincidence, an odd fact about the space <m>\Reals^3</m>.  The dot product is a way of multiplying vectors, but the product is <em>not</em> a vector.  On the other hand, the cross product <em>does</em> result in a vector.  Matrices (as <q>funny shaped</q> vectors) give us a way of multiplying vectors and getting other vectors.
+</p>
+
+<p>The most important thing with vectors is that we need to be able to add them.  The second most important thing is that we should know how to scale them.  
+</p>
+
+<p>If <m>A</m> and <m>B</m> are matrices, what would it mean to add them?  As was the case with vectors, it doesn't make any sense to add them unless they are the same size.  With vectors they needed to have the same number of components in order to even think about adding them.  With matrices the restriction is even stronger; they need to have the same number of rows <em>and</em> of columns.  Provided that that restriction is met, we just add the corresponding entries.
+</p>
+
+<definition><title>matrix addition</title><statement><p>If <m>A</m> and <m>B</m> are both <m>m \times n</m> matrices, their sum, <m>A+B</m> is also an <m>m \times n</m> matrix. For all integers <m>i</m> and <m>j</m> satisfying <m>1 \leq i \leq m</m> and <m>1 \leq j \leq n</m>, the entry in the <m>i</m>th row and <m>j</m>th column of <m>A+B</m> is <m>\aij{i}{j} + \bij{i}{j}</m>.
+</p>
+</statement>
+</definition>
+
+<p>Scaling also works in much the same way as it did with vectors.  If we multiply a scalar and a matrix, every entry of the matrix is multiplied by the scalar.
+</p>
+
+<definition><title>matrix scaling</title><statement><p>If <m>A</m> is an <m>m \times n</m> matrix, and <m>s</m> is a real number, the scalar product, <m>sA</m> is also an <m>m \times n</m> matrix. For all integers <m>i</m> and <m>j</m> satisfying <m>1 \leq i \leq m</m> and <m>1 \leq j \leq n</m>, the entry in the <m>i</m>th row and <m>j</m>th column of <m>sA</m> is <m>s\cdot\aij{i}{j}</m>.
+</p>
+</statement>
+</definition>
+
+<example><title>vector properties of matrices</title>
+ <p>Let <m>A = \left[ \begin{array}{cc} 1 \amp -1 \\ -1 \amp 2 \end{array}\right]</m> and <m>B = \left[ \begin{array}{cc} 0 \amp 1 \\ 2 \amp 3 \end{array}\right]</m>.  These matrices are both <m>2 \times 2</m> so their sum is defined.
+    <me> A+B = \left[ \begin{array}{cc} 1 \amp 0 \\ 1 \amp 5 \end{array}\right]</me>
+</p>
+<p>Let's also provide an example of scaling.  If we scale the matrix <m>A</m> by a factor of <m>3</m> we get
+<me> 3A = \left[ \begin{array}{cc} 3 \amp -3 \\ -3 \amp 6 \end{array}\right]</me>
+</p>
+</example>
+
+<exercise><title>linear combinations of matrices</title>
+<statement><p>Suppose that <m>A</m> and <m>B</m> are the following <m>2 \times 3</m> matrices:
+<me>A = \left[ \begin{array}{ccc} 1 \amp 2 \amp 3 \\ 4 \amp 5 \amp 6 \end{array}\right] \quad \mbox{and} \quad B = \left[ \begin{array}{ccc} 3 \amp 5 \amp 7 \\ 4 \amp 6 \amp 8 \end{array}\right]</me>
+What is <m>5A-2B</m>?
+</p>
+</statement>
+<solution>
+	<p><me> 5A-2B = \left[\begin{array}{ccc} -1 \amp 0 \amp 1 \\ 12 \amp 13 \amp 14 \end{array}\right].</me></p>
+</solution>
+</exercise>
+
+<p>So that was nice!  Once we know how to add matrices and how to multiply them by scalars, we can form linear combinations.  Next we'll look at multiplying our funny shaped vectors<ellipsis />
+</p>
+
+<p>The easiest example (and also a <em>very</em> instructive example) of multiplying vectors is the product of a 
+row and a column vector.  Provided they have the same number of entries, a row vector times a column vector produces 
+a <m>1 \times 1</m> matix <mdash /> also known as a real number.  You have almost certainly seen this before!  The dot product of two vectors is actually a row/column matrix product.  In fact, in many settings they will
+write <m>\vec{x}^T\vec{y}</m> rather than <m>\vec{x} \cdot \vec{y}</m> when referring to the dot product.  As you move towards more advanced math the tendency will be to call this the <q>inner product</q> rather than the <q>dot product</q>, one reason to make the change (other than it sounds more sophisticated) is that there is also an <q>outer product</q> of vectors which is what you get if you multiply a column times a row.  As we'll see shortly, <m>\vec{x}^T\vec{y}</m> and 
+<m>\vec{x}\vec{y}^T</m> are <em>extremely</em> different!  Anyway, we need to do this row/column product as a component of the general matrix product computation so let's proceed to over-explain it by some huge factor<ellipsis />
+</p>
+
+<p>If you've ever done the challenge where you rub your belly in a circular motion while simultaneously patting your head, then this shouldn't be too difficult.  What you need to do is trace across the entries of a row with your left index finger, while simultaneously tracing down the entries of a column with your right index finger.  As you encounter the entries you multiply them and keep a running tally of the sum of these products.
+</p>
+
+<example><title>an inner product</title>
+<statement>
+<p>Suppose 
+	<me>\vec{x} = \left[ \begin{array}{c} 3 \\ 1 \\ -2 \\ 5 \end{array} \right] \quad \mbox{and} \quad  \vec{y} = \left[ \begin{array}{c} -1 \\ 6 \\ 4 \\ 7 \end{array} \right] </me>
+then the inner product of these two vectors (<m>\vec{x}^T\vec{y}</m>) is the following row/column matrix computation:
+<me>\vec{x}^T \vec{y} \quad = \quad \left[ \begin{array}{cccc} 3 \amp 1 \amp -2 \amp 5 \end{array} \right]  \cdot \left[ \begin{array}{c} -1 \\ 6 \\ 4 \\ 7 \end{array} \right] \\
+ = \quad 3\cdot (-1) + 1\cdot 6 + (-2)\cdot 4 + 5\cdot 7 \quad = \quad 30</me>
+</p>
+</statement>
+</example>
+
+<p>Notice that if the vectors had different lengths (I mean <q>lengths</q> as in <q>number of entries</q>) the process we've described wouldn't work out so good<ellipsis />  One of your fingers would be out of entries before the other!  This is our first example of an idea known as <term>conformability</term>. Suppose we have a row vector of length <m>m</m> (that is, a <m>1 \times m</m> matrix) and a column vector of length <m>n</m> (in other words a <m>n \times 1</m> matrix), then they are <term>conformable</term> if <m>m=n</m> and if <m>m\neq n</m> they are <em>not</em> conformable, in which case the matrix product can't be computed.
+</p>
+
+<p>The general rule for computing matrix products involves doing this row/column product multiple times. Suppose <m>A</m> is a <m>p \times q</m> matrix and <m>B</m> is an <m>r \times s</m> matrix.  The product <m>AB</m> will be a <m>p \times s</m> matrix, but it can only be computed if <m>q=r</m>.  The entry in the <m>p</m>-th row and <m>s</m>-th column of the result is obtained using the <m>p</m>-th row of <m>A</m> and the <m>s</m>-th column of <m>B</m>.  When you physically write the sizes of the multiplicands next to one another, the inner two numbers must match and the outer two numbers tell you the size of the result!
+</p>
+
+<definition><title>matrix conformability</title>
+<statement><p>Suppose <m>A</m> is a <m>p \times q</m> matrix and <m>B</m> is an <m>r \times s</m> matrix.  If <m>q=r</m> these matrices are <term>conformable</term> and the product <m>AB</m> can be computed.</p>
+</statement>
+</definition>
+
+<note><p>Conformability has a directionality.  If <m>A</m> and <m>B</m> are conformable it is not necessarily the case that <m>B</m> and <m>A</m> are conformable.  Matrices fail to obey the commutative law in a fairly spectacular way!  It is <em>not</em> generally the case that <m>AB = BA</m>.  Indeed, quite often it is <em>impossible</em> to compute the product <m>BA</m>, even given that it <em>is</em> possible to compute <m>AB</m>.
+</p>
+</note>
+
+<definition><title>matrix product</title>
+<statement><p>Suppose we are given two matrices, <m>A</m> and <m>B</m> that are conformable for matrix multiplication, further, suppose that <m>A</m> is <m>m \times n</m> and <m>B</m> is <m>n \times p</m>.  The matrix product <m>AB</m> will be an <m>m \times p</m> matrix.  The entry in the <m>i</m>-th row and <m>j</m>-th column of <m>AB</m> is
+
+<me> AB_{ij} \; = \; \sum{k=1}^n A_{ik}\cdot B_{kj}</me>
+</p>
+</statement>
+</definition>
+</section>
+
+</chapter>
