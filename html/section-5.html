@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-12-30T14:51:44-05:00    *-->
+<!--*    on 2017-05-24T19:54:05-04:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -45,7 +45,7 @@ MathJax.Hub.Config({
 <link href="extra.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(\require{graphicx}\require{cancel}\newcommand{\divides}{\!\mid\!}
+<a class="assistive" href="#content">Skip to main content</a><div style="display:none;">\(\require{graphicx}\require{cancel}\newcommand{\divides}{\!\mid\!}
 \newcommand{\tdiv}{\; \mbox{div} \;}
 \newcommand{\restrict}[2]{#1 \,\rule[-4pt]{.125pt}{14pt}_{\,#2}}
 \newcommand{\lcm}[2]{\mbox{lcm} (#1, #2)}
@@ -74,21 +74,19 @@ MathJax.Hub.Config({
 \newcommand{\gt}{ &gt; }
 \newcommand{\amp}{ &amp; }
 \)</div>
-<header id="masthead"><div class="banner"><div class="container">
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href="../images/gilamonster.jpg" target="_blank"><img src="../images/gilamonster.jpg"></a><div class="title-container">
-<h1 class="heading"><span class="title">A Gentle Introduction to Linear Algebra</span></h1>
+<h1 class="heading"><a href="GILA.html"><span class="title">A Gentle Introduction to Linear Algebra</span></a></h1>
 <p class="byline">Joe Fields</p>
 </div>
 </div></div>
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="section-transformations.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="chapter-2.html">Next</a>
-</div>
+<button class="sidebar-left-toggle-button button active" onclick="window.location.href='GILA.html'">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a class="previous-button toolbar-item button" href="section-transformations.html" title="Previous" alt="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-1.html" title="Up" alt="Up">Up</a><a class="next-button button toolbar-item" href="chapter-2.html" title="Next" alt="Next">Next</a></span></div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-transformations.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="chapter-2.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-transformations.html" title="Previous" alt="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-1.html" title="Up" alt="Up">Up</a><a class="next-button button toolbar-item" href="chapter-2.html" title="Next" alt="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -162,17 +160,16 @@ MathJax.Hub.Config({
 </p>
 <p id="p-156">Generally speaking, a table of numbers will have some arbitrary number of rows and of columns.  There are some special cases that we'll need to talk about, but let's look at the general situation first.  We'll use the variable \(m\) to refer to the number of rows in a matrix and the variable \(n\) to refer to the number of columns.  We'll use upper-case letters (about 90% of the time: \(A\)) to refer to the whole table as a single entity, in which case we'll speak of \(A\) being an \(m \times n\) matrix.  The entries of a matrix will usually be denoted using the corresponding lower-case letter with <!--Style me with CSS--><em>two</em> subscripts.  This is (hopefully) reminiscent of the doubly-indexed quantities we saw near the end of Section <a href="section-transformations.html" alt="Section 1.4 Transformations" title="Section 1.4 Transformations">1.4</a>; the components of a linear transformation.
 </p>
-<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-example-7" id="example-7"><article class="example-like"><h5 class="heading">
+<article class="example-like" id="example-7"><h5 class="heading">
 <span class="type">Example</span><span class="codenumber">1.5.1</span><span class="title">matrix notation</span>
-</h5></article></a></div>
-<div id="hk-example-7" style="display: none;" class="tex2jax_ignore"><article class="example-like"><p id="p-157">Here are a couple of matrices:
+</h5>
+<p id="p-157">Here are a couple of matrices:
 	\begin{equation*} A = \left[ \begin{array}{ccc} 1 \amp 4 \amp 9 \\ 7 \amp \pi \amp 42 \end{array} \right] \quad \mbox{and} \quad B = \left[ \begin{array}{cc} -1 \amp 11 \\ -3 \amp e \end{array} \right]\end{equation*}
 </p>
 <p id="p-158">Notice how we are referring to the entire tables with the variables \(A\) and \(B\)?  If we need to refer to the individual entries of a matrix we'll write things like \(\aij{2}{3} = 42\) (the number in the 2nd row and 3rd column of \(A\) is 42), or \(\bij{1}{2} = 11\) (the number in the 1st row, 2nd column of \(B\) is 11).
 </p>
 <p id="p-159">It's also fairly common to ignore this lower-case convention!  That is, you may also see things like \(A_{1\:\!3} = 9\) and \(B_{2\:\!2} = e\).
-</p></article></div>
-<p id="p-160">Now to the special cases.  When the number of columns is \(n=1\), the matrix is known as a <em class="terminology">column vector</em>.  When the number of rows is \(m=1\), the matrix is known as a <em class="terminology">row vector</em>.  There is clearly a choice to be made as to whether the things we have been referring to as (merely) “vectors” are going to be represented as column vectors, or as row vectors.  Here's a surprising thing!  Your Calculus teachers and I (up until now) have been lieing to you.  When we wrote vectors as (for example) \(\vec{v} = \langle 1, 2, 3 \rangle\), it was only for convenience.  A row of numbers fits more easily on the page than a column does.  For a variety of reasons it makes sense to treat vectors as columns of numbers, not rows.
+</p></article><p id="p-160">Now to the special cases.  When the number of columns is \(n=1\), the matrix is known as a <em class="terminology">column vector</em>.  When the number of rows is \(m=1\), the matrix is known as a <em class="terminology">row vector</em>.  There is clearly a choice to be made as to whether the things we have been referring to as (merely) “vectors” are going to be represented as column vectors, or as row vectors.  Here's a surprising thing!  Your Calculus teachers and I (up until now) have been lieing to you.  When we wrote vectors as (for example) \(\vec{v} = \langle 1, 2, 3 \rangle\), it was only for convenience.  A row of numbers fits more easily on the page than a column does.  For a variety of reasons it makes sense to treat vectors as columns of numbers, not rows.
 </p>
 <p id="p-161">There is an operation known as <em class="terminology">transposition</em> that changes row vectors into column vectors and <i class="foreign">vice versa</i>.  The <em class="terminology">transpose</em> of a matrix is indicated by a superscript T, the rows of the transposed matrix are the columns of the original matrix and its columns are the original matrix's rows.  This idea (interchanging rows and columns) is surprisingly important and we'll be using it quite a bit in the future.  For the moment let's just notice that it gives us a nice way to write a column vector — with the typographical advantage that the components appear in a row!
 </p>
@@ -188,10 +185,10 @@ MathJax.Hub.Config({
 <p id="p-166">One useful way to think about matrices is the following:  When we write down a system of equations, a lot of the symbols that we write are redundant.  If we eliminate all of the stuff that is utterly predictable we are left with a table of numbers — in other words, a matrix.  So one way to think of matrices is that they are highly abbreviated ways of referring to a system of linear equations.  In this scheme the rows of the matrix correspond to the individual equations in the system and the columns contain all the
 coefficients that multiply a given variable.  A short example will probably help:
 </p>
-<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-example-8" id="example-8"><article class="example-like"><h5 class="heading">
+<article class="example-like" id="example-8"><h5 class="heading">
 <span class="type">Example</span><span class="codenumber">1.5.3</span><span class="title">Converting a linear system to matrix form</span>
-</h5></article></a></div>
-<div id="hk-example-8" style="display: none;" class="tex2jax_ignore"><article class="example-like"><p id="p-167">
+</h5>
+<p id="p-167">
 Consider the following system of \(3\) equations in \(4\) variables.
 \begin{equation*}
 \begin{alignedat}{8}
@@ -212,7 +209,7 @@ Finally, if we see subtraction we can always replace it by addition (by putting 
 \end{alignedat}
 \end{equation*}
 </p>
-<p id="p-169">Okay, so now the promised two steps forward.  First, notice that in every equation in the system every variable is present and they all appear in ascending order.  If we were only given the lists of coefficients we'd easily be able to reconstruct the equations.  So, we're going to eject all of the plus signs and all of the variables with all of those subscripts.  We just won't deign to write them down! Sometimes it's a good idea to imagine their presence but it certainly isn't necessary to  Also, the equals signs that separate the left- and right-hand sides of the equations always come before the very last number.  There really isn't a lot of information conveyed by the appearance of those equals signs, but we usually keep a slight vestige of them around — a thin vertical line separates the last column of the matrix form from everything else.  So, with no further ado, here is the matrix form of this system:
+<p id="p-169">Okay, so now the promised two steps forward.  First, notice that in every equation in the system every variable is present and they all appear in ascending order.  If we were only given the lists of coefficients we'd easily be able to reconstruct the equations.  So, we're going to eject all of the plus signs and all of the variables with all of those subscripts.  We just won't deign to write them down! Sometimes it's a good idea to imagine their presence but it certainly isn't necessary to. Also, the equals signs that separate the left- and right-hand sides of the equations always come before the very last number.  There really isn't a lot of information conveyed by the appearance of those equals signs, but we usually keep a slight vestige of them around — a thin vertical line separates the last column of the matrix form from everything else.  So, with no further ado, here is the matrix form of this system:
 
 \begin{equation*}
 \left[ \begin{array}{rrrr|r}
@@ -221,8 +218,7 @@ Finally, if we see subtraction we can always replace it by addition (by putting 
  0 \amp  3 \amp {-1}  \amp 2  \amp 103
 \end{array} \right]
 \end{equation*}
-</p></article></div>
-<p id="p-170">In the previous example the final matrix we wrote is actually known as the <em class="terminology">augmented matrix</em> of the system.  Sometimes it is a good idea to separate out the part of the matrix that appears to the left of the thin vertical line.  That part is known as the <em class="terminology">coefficient matrix</em> of the system.  This isn't just pedantry!  In many real-world applications we need to solve bunches of linear systems that all have the same coefficient matrix — so they only differ in the final column (a.k.a. the <em class="terminology">augmented column</em>) of their augmented  matrices.  We can take advantage of such a situation, essentially solving all of the systems while only doing the work of solving the first one!
+</p></article><p id="p-170">In the previous example the final matrix we wrote is actually known as the <em class="terminology">augmented matrix</em> of the system.  Sometimes it is a good idea to separate out the part of the matrix that appears to the left of the thin vertical line.  That part is known as the <em class="terminology">coefficient matrix</em> of the system.  This isn't just pedantry!  In many real-world applications we need to solve bunches of linear systems that all have the same coefficient matrix — so they only differ in the final column (a.k.a. the <em class="terminology">augmented column</em>) of their augmented  matrices.  We can take advantage of such a situation, essentially solving all of the systems while only doing the work of solving the first one!
 </p>
 <p id="p-171">Matrix notation was probably invented purely out of laziness.  When we use the Re-ordering, Scaling and Combining operations that we introduced in Section <a href="section-sys_eqs.html" alt="Section 1.2 Systems of equations" title="Section 1.2 Systems of equations">1.2</a>, we find ourselves having to re-copy the entire
 system over and over.  By switching to matrix notation we get a considerable savings in effort.  The operations that we
@@ -244,24 +240,22 @@ originally developed to use on equations now become operations that one can appl
 <span class="type">Definition</span><span class="codenumber">1.5.5</span><span class="title">matrix scaling</span>
 </h5>
 <p id="p-177">If \(A\) is an \(m \times n\) matrix, and \(s\) is a real number, the scalar product, \(sA\) is also an \(m \times n\) matrix. For all integers \(i\) and \(j\) satisfying \(1 \leq i \leq m\) and \(1 \leq j \leq n\), the entry in the \(i\)th row and \(j\)th column of \(sA\) is \(s\cdot\aij{i}{j}\).
-</p></article><div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-example-9" id="example-9"><article class="example-like"><h5 class="heading">
+</p></article><article class="example-like" id="example-9"><h5 class="heading">
 <span class="type">Example</span><span class="codenumber">1.5.6</span><span class="title">vector properties of matrices</span>
-</h5></article></a></div>
-<div id="hk-example-9" style="display: none;" class="tex2jax_ignore"><article class="example-like"><p id="p-178">Let \(A = \left[ \begin{array}{cc} 1 \amp -1 \\ -1 \amp 2 \end{array}\right]\) and \(B = \left[ \begin{array}{cc} 0 \amp 1 \\ 2 \amp 3 \end{array}\right]\).  These matrices are both \(2 \times 2\) so their sum is defined.
+</h5>
+<p id="p-178">Let \(A = \left[ \begin{array}{cc} 1 \amp -1 \\ -1 \amp 2 \end{array}\right]\) and \(B = \left[ \begin{array}{cc} 0 \amp 1 \\ 2 \amp 3 \end{array}\right]\).  These matrices are both \(2 \times 2\) so their sum is defined.
     \begin{equation*} A+B = \left[ \begin{array}{cc} 1 \amp 0 \\ 1 \amp 5 \end{array}\right]\end{equation*}
 </p>
 <p id="p-179">Let's also provide an example of scaling.  If we scale the matrix \(A\) by a factor of \(3\) we get
 \begin{equation*} 3A = \left[ \begin{array}{cc} 3 \amp -3 \\ -3 \amp 6 \end{array}\right]\end{equation*}
-</p></article></div>
-<article class="exercise-like" id="exercise-4"><h5 class="heading">
-<span class="type">Exercise</span> <span class="codenumber">1.5.7</span> <span class="title">linear combinations of matrices</span>
-</h5>
-<p id="p-180">Suppose that \(A\) and \(B\) are the following \(2 \times 3\) matrices:
+</p></article><div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-exercise-4" id="exercise-4"><article class="exercise-like"><h5 class="heading">
+<span class="type">Exercise</span><span class="codenumber">1.5.7</span><span class="title">linear combinations of matrices</span>
+</h5></article></a></div>
+<div id="hk-exercise-4" style="display: none;" class="tex2jax_ignore"><article class="exercise-like"><p id="p-180">Suppose that \(A\) and \(B\) are the following \(2 \times 3\) matrices:
 \begin{equation*}A = \left[ \begin{array}{ccc} 1 \amp 2 \amp 3 \\ 4 \amp 5 \amp 6 \end{array}\right] \quad \mbox{and} \quad B = \left[ \begin{array}{ccc} 3 \amp 5 \amp 7 \\ 4 \amp 6 \amp 8 \end{array}\right]\end{equation*}
 What is \(5A-2B\)?
-</p></article><div class="hidden-knowl-wrapper">
-<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-6" id="solution-6"><span class="">Solution</span></a></span><span id="hk-solution-6" style="display: none;" class="tex2jax_ignore"><div class="remark-like"><p id="p-181">\begin{equation*} 5A-2B = \left[\begin{array}{ccc} -1 \amp 0 \amp 1 \\ 12 \amp 13 \amp 14 \end{array}\right].\end{equation*}</p></div></span>
-</div>
+</p>
+<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-6" id="solution-6"><span class="heading"><span class="type">Solution</span></span></a></span><span id="hk-solution-6" style="display: none;" class="tex2jax_ignore"><span class="solution"><p id="p-181">\begin{equation*} 5A-2B = \left[\begin{array}{ccc} -1 \amp 0 \amp 1 \\ 12 \amp 13 \amp 14 \end{array}\right].\end{equation*}</p></span></span> </article></div>
 <p id="p-182">So that was nice!  Once we know how to add matrices and how to multiply them by scalars, we can form linear combinations.  Next we'll look at multiplying our funny shaped vectors…
 </p>
 <p id="p-183">The easiest example (and also a <!--Style me with CSS--><em>very</em> instructive example) of multiplying vectors is the product of a 
@@ -272,15 +266,15 @@ write \(\vec{x}^T\vec{y}\) rather than \(\vec{x} \cdot \vec{y}\) when referring 
 </p>
 <p id="p-184">If you've ever done the challenge where you rub your belly in a circular motion while simultaneously patting your head, then this shouldn't be too difficult.  What you need to do is trace across the entries of a row with your left index finger, while simultaneously tracing down the entries of a column with your right index finger.  As you encounter the entries you multiply them and keep a running tally of the sum of these products.
 </p>
-<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-example-10" id="example-10"><article class="example-like"><h5 class="heading">
+<article class="example-like" id="example-10"><h5 class="heading">
 <span class="type">Example</span><span class="codenumber">1.5.8</span><span class="title">an inner product</span>
-</h5></article></a></div>
-<div id="hk-example-10" style="display: none;" class="tex2jax_ignore"><article class="example-like"><p id="p-185">Suppose 
+</h5>
+<p id="p-185">Suppose 
 	\begin{equation*}\vec{x} = \left[ \begin{array}{c} 3 \\ 1 \\ -2 \\ 5 \end{array} \right] \quad \mbox{and} \quad  \vec{y} = \left[ \begin{array}{c} -1 \\ 6 \\ 4 \\ 7 \end{array} \right] \end{equation*}
 then the inner product of these two vectors (\(\vec{x}^T\vec{y}\)) is the following row/column matrix computation:
-\begin{equation*}\vec{x}^T \vec{y} \quad = \quad \left[ \begin{array}{cccc} 3 \amp 1 \amp -2 \amp 5 \end{array} \right]  \cdot \left[ \begin{array}{c} -1 \\ 6 \\ 4 \\ 7 \end{array} \right] \quad = \quad 3\cdot (-1) + 1\cdot 6 + (-2)\cdot 4 + 5\cdot 7 \quad = \quad 30\end{equation*}
-</p></article></div>
-<p id="p-186">Notice that if the vectors had different lengths (I mean “lengths” as in “number of entries”) the process we've described wouldn't work out so good…  One of your fingers would be out of entries before the other!  This is our first example of an idea known as <em class="terminology">conformability</em>. Suppose we have a row vector of length \(m\) (that is, a \(1 \times m\) matrix) and a column vector of length \(n\) (in other words a \(n \times 1\) matrix), then they are <em class="terminology">conformable</em> if \(m=n\) and if \(m\neq m\) they are <!--Style me with CSS--><em>not</em> conformable, in which case the matrix product can't be computed.
+\begin{equation*}\vec{x}^T \vec{y} \quad = \quad \left[ \begin{array}{cccc} 3 \amp 1 \amp -2 \amp 5 \end{array} \right]  \cdot \left[ \begin{array}{c} -1 \\ 6 \\ 4 \\ 7 \end{array} \right] \\
+ = \quad 3\cdot (-1) + 1\cdot 6 + (-2)\cdot 4 + 5\cdot 7 \quad = \quad 30\end{equation*}
+</p></article><p id="p-186">Notice that if the vectors had different lengths (I mean “lengths” as in “number of entries”) the process we've described wouldn't work out so good…  One of your fingers would be out of entries before the other!  This is our first example of an idea known as <em class="terminology">conformability</em>. Suppose we have a row vector of length \(m\) (that is, a \(1 \times m\) matrix) and a column vector of length \(n\) (in other words a \(n \times 1\) matrix), then they are <em class="terminology">conformable</em> if \(m=n\) and if \(m\neq n\) they are <!--Style me with CSS--><em>not</em> conformable, in which case the matrix product can't be computed.
 </p>
 <p id="p-187">The general rule for computing matrix products involves doing this row/column product multiple times. Suppose \(A\) is a \(p \times q\) matrix and \(B\) is an \(r \times s\) matrix.  The product \(AB\) will be a \(p \times s\) matrix, but it can only be computed if \(q=r\).  The entry in the \(p\)-th row and \(s\)-th column of the result is obtained using the \(p\)-th row of \(A\) and the \(s\)-th column of \(B\).  When you physically write the sizes of the multiplicands next to one another, the inner two numbers must match and the outer two numbers tell you the size of the result!
 </p>

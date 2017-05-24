@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-12-30T14:51:44-05:00    *-->
+<!--*    on 2017-05-24T19:54:05-04:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -45,7 +45,7 @@ MathJax.Hub.Config({
 <link href="extra.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(\require{graphicx}\require{cancel}\newcommand{\divides}{\!\mid\!}
+<a class="assistive" href="#content">Skip to main content</a><div style="display:none;">\(\require{graphicx}\require{cancel}\newcommand{\divides}{\!\mid\!}
 \newcommand{\tdiv}{\; \mbox{div} \;}
 \newcommand{\restrict}[2]{#1 \,\rule[-4pt]{.125pt}{14pt}_{\,#2}}
 \newcommand{\lcm}[2]{\mbox{lcm} (#1, #2)}
@@ -74,21 +74,19 @@ MathJax.Hub.Config({
 \newcommand{\gt}{ &gt; }
 \newcommand{\amp}{ &amp; }
 \)</div>
-<header id="masthead"><div class="banner"><div class="container">
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href="../images/gilamonster.jpg" target="_blank"><img src="../images/gilamonster.jpg"></a><div class="title-container">
-<h1 class="heading"><span class="title">A Gentle Introduction to Linear Algebra</span></h1>
+<h1 class="heading"><a href="GILA.html"><span class="title">A Gentle Introduction to Linear Algebra</span></a></h1>
 <p class="byline">Joe Fields</p>
 </div>
 </div></div>
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="section-vectors.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-5.html">Next</a>
-</div>
+<button class="sidebar-left-toggle-button button active" onclick="window.location.href='GILA.html'">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a class="previous-button toolbar-item button" href="section-vectors.html" title="Previous" alt="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-1.html" title="Up" alt="Up">Up</a><a class="next-button button toolbar-item" href="section-5.html" title="Next" alt="Next">Next</a></span></div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-vectors.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-5.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-vectors.html" title="Previous" alt="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-1.html" title="Up" alt="Up">Up</a><a class="next-button button toolbar-item" href="section-5.html" title="Next" alt="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -170,7 +168,8 @@ be the set of all ordered \(n\)-tuples of real numbers.
 </p></article><p id="p-121">Recall that the <em class="terminology">domain</em> of a function is the set from which the inputs come.  The set where the outputs may appear is known as the <em class="terminology">codomain</em> of the function. The codomain must be contrasted with the <em class="terminology">range</em> which is the set of outputs that actually <!--Style me with CSS--><em>do</em> occur.  We are going to be presuming a certain familiarity with the basic terminology used with functions.  You can skip over the following list of (informal) definitions if you are already familiar.
 </p>
 <p id="p-122">
-<dl class="description-list">
+</p>
+<dl id="dl-2" class="description-list">
 <dt id="li-4">domain</dt>
 <dd><p id="p-123">The set of all inputs for a function.  The domain is sometimes specified while defining the function, but if it isn't, the convention is to use the biggest possible set for the domain.</p></dd>
 <dt id="li-5">codomain</dt>
@@ -182,13 +181,14 @@ be the set of all ordered \(n\)-tuples of real numbers.
 <dt id="li-8">pre-image</dt>
 <dd><p id="p-127">If we have some \(y\) (an output) in mind, any \(x\) (an input) such that \(f(x) = y\) is called a <!--Style me with CSS--><em>pre-image</em> of \(y\).</p></dd>
 </dl>
+<p>
 </p>
 <p id="p-128">There is a bit of an asymmetry in the way we speak of the various sets that are related to a function.  On the output side we have the codomain and the range.  On the input side we have only the domain.  There is no agreed upon name for a set that contains the domain, we simply insist that the function must be defined for every element of the domain (which basically sidesteps the issue).  For the ordinary functions that one sees in calculus, the codomain is the real numbers; the range and domain are generally subsets of the real numbers.  And so, the situation isn't terribly complex.  When we are dealing with transformations things are harder.  The domain and codomain of a transformation are generally real Euclidean spaces — potentially of different dimensions — so we will usually want to spell out what sorts of vectors are expected as inputs, what sorts of vectors will we see as outputs and only then do we get around to the heart of the matter: how do we compute the output from the input?  We'll introduce the notation for a transformation via an example and then treat the general case.
 </p>
-<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-example-6" id="example-6"><article class="example-like"><h5 class="heading">
+<article class="example-like" id="example-6"><h5 class="heading">
 <span class="type">Example</span><span class="codenumber">1.4.2</span><span class="title">an example transformation</span>
-</h5></article></a></div>
-<div id="hk-example-6" style="display: none;" class="tex2jax_ignore"><article class="example-like"><p id="p-129">Let's look at a transformation that takes vectors of length 6 as inputs, and outputs vectors of length 3.  We'll refer to the input vector as \(\vec{x}\) and, as usual, its components will be \(x\)'s with subscripts:
+</h5>
+<p id="p-129">Let's look at a transformation that takes vectors of length 6 as inputs, and outputs vectors of length 3.  We'll refer to the input vector as \(\vec{x}\) and, as usual, its components will be \(x\)'s with subscripts:
 \(\vec{x} = \langle x_1, x_2, x_3, x_4, x_5, x_6 \rangle\).  Similarly, the output will be \(\vec{y} = \langle y_1, y_2, y_3 \rangle\).  This is only an example so we'll just make up the rules that determine those output components from the input components, the point here is simply to demonstrate how one should write such a thing — which is as follows:
 \begin{gather*}
 T:\Reals^6 \longrightarrow \Reals^3\\
@@ -196,8 +196,7 @@ T(\langle x_1, x_2, x_3, x_4, x_5, x_6 \rangle) \quad = \quad \langle x_1, x_3, 
 \end{gather*}
 </p>
 <p id="p-130">So this transformation just picks out the odd-numbered components of \(\vec{x}\) and puts them in \(\vec{y}\).
-</p></article></div>
-<p id="p-131">The most important transformations for us in this context are the <!--Style me with CSS--><em>linear</em> ones.  In a linear transformation, the components of the output vector are computed from the components of the input vector by “multiplying by constants and adding everything up.”  Because of the simplistic way that the outputs are computed there is really nothing that can go wrong!  With ordinary functions from \(\Reals\) to \(\Reals\) we usually look at the rule for computing the output and recognize certain values that must be eliminated from the domain — typically where one sees “division by zero” or “square root of a negative” errors.  No such problem can arise with linear transformations, the domain will always be a real Euclidean space of some dimension.  Similarly, the codomain will be a real Euclidean space; one whose dimension is simply the number of components in the output vectors.  The dimensions of the domain and codomain are easy to think about — how many components do the input and output vectors have?  The range of a linear transformation is slightly more complicated.  The output vectors that actually occur will certainly be vectors having the number of components as specified by the codomain, but do all such vectors necessarily have to appear as outputs?  In general, no.
+</p></article><p id="p-131">The most important transformations for us in this context are the <!--Style me with CSS--><em>linear</em> ones.  In a linear transformation, the components of the output vector are computed from the components of the input vector by “multiplying by constants and adding everything up.”  Because of the simplistic way that the outputs are computed there is really nothing that can go wrong!  With ordinary functions from \(\Reals\) to \(\Reals\) we usually look at the rule for computing the output and recognize certain values that must be eliminated from the domain — typically where one sees “division by zero” or “square root of a negative” errors.  No such problem can arise with linear transformations, the domain will always be a real Euclidean space of some dimension.  Similarly, the codomain will be a real Euclidean space; one whose dimension is simply the number of components in the output vectors.  The dimensions of the domain and codomain are easy to think about — how many components do the input and output vectors have?  The range of a linear transformation is slightly more complicated.  The output vectors that actually occur will certainly be vectors having the number of components as specified by the codomain, but do all such vectors necessarily have to appear as outputs?  In general, no.
 </p>
 <p id="p-132">The notation for a linear transformation first spells out the domain and codomain and then gives the rule(s) for computing the output.  Thus the domain and codomain are known in advance; we need to do a little extra work to figure out the range.</p>
 <p id="p-133">Before proceeding further we'll give some formal definitions.</p>

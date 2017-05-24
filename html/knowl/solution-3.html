@@ -1,15 +1,21 @@
+<!doctype html>
+<html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-12-30T14:51:45-05:00    *-->
+<!--*    on 2017-05-24T19:54:06-04:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
-<div class="remark-like">
-<h5 class="heading">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<span class="solution"><h5 class="heading">
 <span class="type">Solution</span><span class="codenumber">1.2.10.1</span>
 </h5>
-<p>The first thing we'll do is a combining operation.  We'll subtract twice the first equation from the second.  It will be convenient to develop a shorthand for expressing these operations.  This one could be written as \(E_2 = E_2 - 2E_1\).
+<p id="p-86">The first thing we'll do is a combining operation.  We'll subtract twice the first equation from the second.  It will be convenient to develop a shorthand for expressing these operations.  This one could be written as \(E_2 = E_2 - 2E_1\).
 \begin{equation*}
 \begin{alignedat}{4}
    x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
@@ -18,7 +24,7 @@
 \end{alignedat}
 \end{equation*}
 </p>
-<p>Next we'll do a similar combining operation to eliminate \(x_1\) from the 3rd equation.
+<p id="p-87">Next we'll do a similar combining operation to eliminate \(x_1\) from the 3rd equation.
 This one would be expressed as \(E_3 = E_3 - E_1\).
 \begin{equation*}
 \begin{alignedat}{4}
@@ -28,9 +34,9 @@ This one would be expressed as \(E_3 = E_3 - E_1\).
 \end{alignedat}
 \end{equation*}
 </p>
-<p>You should take note that we have done something mildly clever in eliminating the occurrences of \(x_1\) in the latter two equations. Now we can use them in further combination operations without fear that they will effect terms involving \(x_1\).
+<p id="p-88">You should take note that we have done something mildly clever in eliminating the occurrences of \(x_1\) in the latter two equations. Now we can use them in further combination operations without fear that they will effect terms involving \(x_1\).
 </p>
-<p>For our next operation let's scale the last equation by \(1/2\); this isn't strictly necessary but it makes things <!--Style me with CSS--><em>look</em> a little simpler and since every coefficient in the 3rd equation is even we won't end up dealing with fractions …  \(E_3 = \frac{1}{2} E_3\).
+<p id="p-89">For our next operation let's scale the last equation by \(1/2\); this isn't strictly necessary but it makes things <!--Style me with CSS--><em>look</em> a little simpler and since every coefficient in the 3rd equation is even we won't end up dealing with fractions …  \(E_3 = \frac{1}{2} E_3\).
 \begin{equation*}
 \begin{alignedat}{4}
    x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
@@ -39,7 +45,7 @@ This one would be expressed as \(E_3 = E_3 - E_1\).
 \end{alignedat}
 \end{equation*}
 </p>
-<p>We've just cleaned up the 3rd equation so that the first non-zero term in it (the one involving \(x_2\)) has a coefficient of 1.   This makes equation 3 very useful as a tool for eliminating the variable \(x_2\) from other equations, so next we'll do a reordering operation to move it a bit closer to the top of the heap.
+<p id="p-90">We've just cleaned up the 3rd equation so that the first non-zero term in it (the one involving \(x_2\)) has a coefficient of 1.   This makes equation 3 very useful as a tool for eliminating the variable \(x_2\) from other equations, so next we'll do a reordering operation to move it a bit closer to the top of the heap.
 \begin{equation*}
 \begin{alignedat}{4}
    x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
@@ -48,7 +54,7 @@ This one would be expressed as \(E_3 = E_3 - E_1\).
 \end{alignedat}
 \end{equation*}
 </p>
-<p>Next, let's use what is now equation 2 to eliminate \(x_2\) from (the new) equation 3:
+<p id="p-91">Next, let's use what is now equation 2 to eliminate \(x_2\) from (the new) equation 3:
 \(E_3 = E_3 + 3 E_2\). 
 \begin{equation*}
 \begin{alignedat}{4}
@@ -58,7 +64,7 @@ This one would be expressed as \(E_3 = E_3 - E_1\).
 \end{alignedat}
 \end{equation*}
 </p>
-<p>Finally, although (again) this isn't strictly necessary, let's scale the 3rd equation so that the coefficient of \(x_3\) is 1… \(E_3 = \frac{-1}{4} E_3\).
+<p id="p-92">Finally, although (again) this isn't strictly necessary, let's scale the 3rd equation so that the coefficient of \(x_3\) is 1… \(E_3 = \frac{-1}{4} E_3\).
 \begin{equation*}
 \begin{alignedat}{4}
    x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
@@ -67,13 +73,14 @@ This one would be expressed as \(E_3 = E_3 - E_1\).
 \end{alignedat}
 \end{equation*}
 </p>
-<p>Wait!  Should the last sentence really have started with the word “Finally”?  It seems like the system is still pretty complicated.  We certainly haven't achieved the simplest possible sort of linear system, but we <!--Style me with CSS--><em>have</em> turned the original system into a type that is known as “triangular”.  Do you see why?  This kind of system is very easy to solve by a process known as back-substitution.  The 3rd equation tells you the exact value of the third variable (\(x_3 = 9\)), you can then substitute that value into the second equation to obtain \(x_2 - 9 = -2\).  So now we can easily see that \(x_2=7\).  Hmmm.  Now we've got known values for \(x_2\) and \(x_3\) which we can substitute into the 1st equation to get
+<p id="p-93">Wait!  Should the last sentence really have started with the word “Finally”?  It seems like the system is still pretty complicated.  We certainly haven't achieved the simplest possible sort of linear system, but we <!--Style me with CSS--><em>have</em> turned the original system into a type that is known as “triangular”.  Do you see why?  This kind of system is very easy to solve by a process known as back-substitution.  The 3rd equation tells you the exact value of the third variable (\(x_3 = 9\)), you can then substitute that value into the second equation to obtain \(x_2 - 9 = -2\).  So now we can easily see that \(x_2=7\).  Hmmm.  Now we've got known values for \(x_2\) and \(x_3\) which we can substitute into the 1st equation to get
 \begin{equation*}
 \begin{alignedat}{4}
    x_1  \amp {}+{} \amp   7 \amp {}+{} \amp   9  \amp {}={} \amp 21 \\
 \end{alignedat}
 \end{equation*}
 </p>
-<p>Okay.  That's easy, \(x_1=5\).
-</p>
-</div><span class="incontext"><a href="section-sys_eqs.html#solution-3">in-context</a></span>
+<p id="p-94">Okay.  That's easy, \(x_1=5\).
+</p></span><span class="incontext"><a href="section-sys_eqs.html#solution-3">in-context</a></span>
+</body>
+</html>

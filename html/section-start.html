@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-12-30T14:51:44-05:00    *-->
+<!--*    on 2017-05-24T19:54:05-04:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -53,7 +53,7 @@ MathJax.Hub.Config({
 <link href="extra.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(\require{graphicx}\require{cancel}\newcommand{\divides}{\!\mid\!}
+<a class="assistive" href="#content">Skip to main content</a><div style="display:none;">\(\require{graphicx}\require{cancel}\newcommand{\divides}{\!\mid\!}
 \newcommand{\tdiv}{\; \mbox{div} \;}
 \newcommand{\restrict}[2]{#1 \,\rule[-4pt]{.125pt}{14pt}_{\,#2}}
 \newcommand{\lcm}[2]{\mbox{lcm} (#1, #2)}
@@ -82,21 +82,19 @@ MathJax.Hub.Config({
 \newcommand{\gt}{ &gt; }
 \newcommand{\amp}{ &amp; }
 \)</div>
-<header id="masthead"><div class="banner"><div class="container">
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href="../images/gilamonster.jpg" target="_blank"><img src="../images/gilamonster.jpg"></a><div class="title-container">
-<h1 class="heading"><span class="title">A Gentle Introduction to Linear Algebra</span></h1>
+<h1 class="heading"><a href="GILA.html"><span class="title">A Gentle Introduction to Linear Algebra</span></a></h1>
 <p class="byline">Joe Fields</p>
 </div>
 </div></div>
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="chapter-1.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-sys_eqs.html">Next</a>
-</div>
+<button class="sidebar-left-toggle-button button active" onclick="window.location.href='GILA.html'">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a class="previous-button toolbar-item button" href="chapter-1.html" title="Previous" alt="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-1.html" title="Up" alt="Up">Up</a><a class="next-button button toolbar-item" href="section-sys_eqs.html" title="Next" alt="Next">Next</a></span></div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-1.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-sys_eqs.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-1.html" title="Previous" alt="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-1.html" title="Up" alt="Up">Up</a><a class="next-button button toolbar-item" href="section-sys_eqs.html" title="Next" alt="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -187,22 +185,21 @@ Solving a system of equations just means (somehow) transforming it from somethin
 </p>
 <p id="p-16">For this example problem, finding the solution was very easy.  There are more difficult systems where finding the solution by hand would be challenging so we are going to want to become familiar with some kind of computer tools for automating these things.  In this book, we'll be using Sage, a free, open-source, computer algebra system developed by William Stein.  Here is a sample of how Sage can be used to solve a system of equations:
 </p>
-<div class="sagecell-sage"><script type="text/x-sage">x, y = var('x, y')
+<div class="sagecell-sage" id="sage-1"><script type="text/x-sage">x, y = var('x, y')
 solve([x+y==42, x-y==6], x, y)
 </script></div>
 <p id="p-17">We glossed-over a small but important issue in the above.  How do we know that our answer was the only answer?  And for that matter, is it necessarily true that there must <!--Style me with CSS--><em>be</em> an answer to some system of equations?  These are what are known as existence and uniqueness questions:  Does there exist an answer to our problem?  (Existence.) And, if there <!--Style me with CSS--><em>is</em> an answer, how do we know it is the only answer? (Uniqueness.)  There are systems of equations where all of the possible behaviors are exhibited: no solutions, unique solutions and lots of solutions.
 </p>
-<article class="exercise-like" id="exercise-1"><h5 class="heading">
-<span class="type">Exercise</span> <span class="codenumber">1.1.1</span>
-</h5>
-<p id="p-18">Explain why the following system has no solutions at all.
+<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-exercise-1" id="exercise-1"><article class="exercise-like"><h5 class="heading">
+<span class="type">Exercise</span><span class="codenumber">1.1.1</span>
+</h5></article></a></div>
+<div id="hk-exercise-1" style="display: none;" class="tex2jax_ignore"><article class="exercise-like"><p id="p-18">Explain why the following system has no solutions at all.
     \begin{gather*}
 2x - y = 7\\
 2y - 4x = 8.
 \end{gather*}
-    </p></article><div class="hidden-knowl-wrapper">
-<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-hint-1" id="hint-1"><span class="heading"><span class="type">Hint</span></span></a></span><span id="hk-hint-1" style="display: none;" class="tex2jax_ignore"><span class="solution"><p id="p-19">Put both equations into slope-intercept form (\(y = mx + b\)).</p></span></span>
-</div>
+    </p>
+<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-hint-1" id="hint-1"><span class="heading"><span class="type">Hint</span></span></a></span><span id="hk-hint-1" style="display: none;" class="tex2jax_ignore"><span class="solution"><p id="p-19">Put both equations into slope-intercept form (\(y = mx + b\)).</p></span></span> </article></div>
 <p id="p-20">
   That was a linear algebra problem seen from the “systems of equations” perspective. We still need to look at the “vector equations” and “transformations” viewpoints. So next we'll look at a question of the vector flavor. We're going to think about playing chess, not on a board, but on the infinite \(x\)—\(y\) plane.
 </p>
@@ -226,7 +223,7 @@ need to increase your \(x\)-coordinate by 2 units and you must increase your \(y
 </p>
 <p id="p-28">Here's how solving the vector variant of our problem might look in Sage:
 </p>
-<div class="sagecell-sage"><script type="text/x-sage">x, y, u, v = var('x, y, u, v')
+<div class="sagecell-sage" id="sage-2"><script type="text/x-sage">x, y, u, v = var('x, y, u, v')
 u = vector(QQ, [1, 1])
 v = vector(QQ, [1,-1])
 lhs = x*u+y*v

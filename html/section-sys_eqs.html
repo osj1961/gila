@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-12-30T14:51:44-05:00    *-->
+<!--*    on 2017-05-24T19:54:05-04:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -45,7 +45,7 @@ MathJax.Hub.Config({
 <link href="extra.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(\require{graphicx}\require{cancel}\newcommand{\divides}{\!\mid\!}
+<a class="assistive" href="#content">Skip to main content</a><div style="display:none;">\(\require{graphicx}\require{cancel}\newcommand{\divides}{\!\mid\!}
 \newcommand{\tdiv}{\; \mbox{div} \;}
 \newcommand{\restrict}[2]{#1 \,\rule[-4pt]{.125pt}{14pt}_{\,#2}}
 \newcommand{\lcm}[2]{\mbox{lcm} (#1, #2)}
@@ -74,21 +74,19 @@ MathJax.Hub.Config({
 \newcommand{\gt}{ &gt; }
 \newcommand{\amp}{ &amp; }
 \)</div>
-<header id="masthead"><div class="banner"><div class="container">
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href="../images/gilamonster.jpg" target="_blank"><img src="../images/gilamonster.jpg"></a><div class="title-container">
-<h1 class="heading"><span class="title">A Gentle Introduction to Linear Algebra</span></h1>
+<h1 class="heading"><a href="GILA.html"><span class="title">A Gentle Introduction to Linear Algebra</span></a></h1>
 <p class="byline">Joe Fields</p>
 </div>
 </div></div>
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="section-start.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-vectors.html">Next</a>
-</div>
+<button class="sidebar-left-toggle-button button active" onclick="window.location.href='GILA.html'">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a class="previous-button toolbar-item button" href="section-start.html" title="Previous" alt="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-1.html" title="Up" alt="Up">Up</a><a class="next-button button toolbar-item" href="section-vectors.html" title="Next" alt="Next">Next</a></span></div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-start.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-vectors.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-start.html" title="Previous" alt="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-1.html" title="Up" alt="Up">Up</a><a class="next-button button toolbar-item" href="section-vectors.html" title="Next" alt="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -167,12 +165,11 @@ x_1 - x_2 = 6.
 </p>
 <p id="p-39">A <!--Style me with CSS--><em>linear combination</em> of some set of numbers \(\{ x_1, x_2, \ldots, x_n \}\) is created by multiplying each of the \(x\)'s by constants and then adding everything up. Of course if the constants are \(1\) or \(-1\) (as in the previous example) we tend to forget that they're there!
 </p>
-<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-example-1" id="example-1"><article class="example-like"><h5 class="heading">
+<article class="example-like" id="example-1"><h5 class="heading">
 <span class="type">Example</span><span class="codenumber">1.2.1</span>
-</h5></article></a></div>
-<div id="hk-example-1" style="display: none;" class="tex2jax_ignore"><article class="example-like"><p id="p-40">Consider \(x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5\). This is a linear combination of the five variables \(\{x_1, x_2, x_3, x_4, x_5\}\).  The constants (\(1, 2, 3, 4,\) and \(5\)) are called the coefficients of the linear combination.
-  </p></article></div>
-<p id="p-41">An equation is <!--Style me with CSS--><em>linear</em> if it has the form of a linear combination set equal to some value on the right-hand side -- or if it can be put into that form.  For example
+</h5>
+<p id="p-40">Consider \(x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5\). This is a linear combination of the five variables \(\{x_1, x_2, x_3, x_4, x_5\}\).  The constants (\(1, 2, 3, 4,\) and \(5\)) are called the coefficients of the linear combination.
+  </p></article><p id="p-41">An equation is <!--Style me with CSS--><em>linear</em> if it has the form of a linear combination set equal to some value on the right-hand side -- or if it can be put into that form.  For example
 
 \begin{gather*}
  x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5 = 15 
@@ -191,19 +188,18 @@ is a linear equation (in four variables) because we can manipulate it into the f
  x_1 - x_2 + 3x_3 - x_4 = 0. 
 \end{gather*}
 </p>
-<article class="exercise-like" id="exercise-2"><h5 class="heading">
-<span class="type">Exercise</span> <span class="codenumber">1.2.2</span>
-</h5>
-<p id="p-43">The linear equation
+<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-exercise-2" id="exercise-2"><article class="exercise-like"><h5 class="heading">
+<span class="type">Exercise</span><span class="codenumber">1.2.2</span>
+</h5></article></a></div>
+<div id="hk-exercise-2" style="display: none;" class="tex2jax_ignore"><article class="exercise-like"><p id="p-43">The linear equation
 \begin{gather*}
  x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5 = 15 
 \end{gather*}
 
 has a solution where all of the variables are set equal to 1.  Are there others?
-    </p></article><div class="hidden-knowl-wrapper">
+    </p>
 <span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-hint-2" id="hint-2"><span class="heading"><span class="type">Hint</span></span></a></span><span id="hk-hint-2" style="display: none;" class="tex2jax_ignore"><span class="solution"><p id="p-44">Try setting one of the variables to zero.  That essentially eliminates that one and gives you a new equation with only four variables.  Does the new equation have a solution?
-    </p></span></span>
-</div>
+    </p></span></span> </article></div>
 <p id="p-45">A <!--Style me with CSS--><em>system of equations</em> is just a collection of linear equations.</p>
 <p id="p-46">The notation for systems of equations gets a bit complicated when we try to write them in general (that is, without particular values given for the various constants involved).  There are three sorts of things that need names in such a system: the variables, the coefficients of the variables, and the numbers on the right-hand sides.  There is a convention that is fairly universal for the names and numbering of these elements.  The variables are \(x\)'s with subscripts, the right-hand sides are \(b\)'s with subscripts, and the coefficients are \(a\)'s with <!--Style me with CSS--><em>two</em> subscripts (we need to indicate the equation that a given coefficient is in and also, which variable it is multiplying.
 </p>
@@ -219,11 +215,10 @@ has a solution where all of the variables are set equal to 1.  Are there others?
 
 Notice that the indices on the \(x\)'s run from 1 to 4, the indices on the \(b\)'s run from 1 to 3, and that there are a total of 12 coefficients.
 </p>
-<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-ex-invest" id="ex-invest"><article class="example-like"><h5 class="heading">
+<article class="example-like" id="ex-invest"><h5 class="heading">
 <span class="type">Example</span><span class="codenumber">1.2.3</span><span class="title">Investments</span>
-</h5></article></a></div>
-<div id="hk-ex-invest" style="display: none;" class="tex2jax_ignore">
-<article class="example-like"><p id="p-48">Suppose you have $\(10,000\) that you want to invest in the stock market. After some research you've found three companies that you think will be good investments.  SolarCity Corp (SCTY) is trading at about $\(20\) per share.  SunPower - Solar energy company (SPWR) is trading at about $\(9\) per share. First Trust Global Wind Energy (FAN) is at about $\(12\) per share.  One equation you can immediately write down is
+</h5>
+<p id="p-48">Suppose you have $\(10,000\) that you want to invest in the stock market. After some research you've found three companies that you think will be good investments.  SolarCity Corp (SCTY) is trading at about $\(20\) per share.  SunPower - Solar energy company (SPWR) is trading at about $\(9\) per share. First Trust Global Wind Energy (FAN) is at about $\(12\) per share.  One equation you can immediately write down is
 
 \begin{gather*}
 20 x_1 + 9 x_2 + 12 x_3 = 10000,
@@ -262,8 +257,7 @@ where \(x_1\) is the number of shares of SCTY we will buy, \(x_2\) is the number
 \end{alignedat}
 \end{equation*}
 </p></article><div class="posterior"><div>
-<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-1" id="solution-1"><span class="">Solution</span></a></span><span id="hk-solution-1" style="display: none;" class="tex2jax_ignore"><div class="remark-like">
-<p id="p-53">Now, let's go ahead and figure out what the values of the variables should be.  In other words, how many shares of each stock should we purchase?
+<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-1" id="solution-1"><span class="heading"><span class="type">Solution</span></span></a></span><span id="hk-solution-1" style="display: none;" class="tex2jax_ignore"><span class="solution"><p id="p-53">Now, let's go ahead and figure out what the values of the variables should be.  In other words, how many shares of each stock should we purchase?
 </p>
 <p id="p-54">First, look at that middle equation.  It isn't very complicated, indeed, it basically <!--Style me with CSS--><em>tells</em> us the value of \(x_3\) — we just need to divide both sides by 12 to get that \(x_3 = 333.\overline{3}\).  Unfortunately, we can't buy fractions of a share of stock so we'll round to \(333\).
 </p>
@@ -295,16 +289,14 @@ and this tells us (just divide both sides by \(-36\)) the value of \(x_2\).
 It's child's play to find the solution is \(x_3=225\).
 
 So in the end we should put in an order for 225 share of SCTY, 167 shares of SPWR and 333 shares of FAN.  Notice that because of rounding we've come up one dollar short of our intended investment.
-</p>
-</div></span>
+</p></span></span>
 </div></div>
-</div>
 <p id="p-59">A bit more formalism is appropriate now.  We'll start with some definitions.
 </p>
 <article class="definition-like" id="definition-1"><h5 class="heading">
 <span class="type">Definition</span><span class="codenumber">1.2.4</span><span class="title">linear system</span>
 </h5>
-<p id="p-60">A <em class="terminology">linear system</em>, also known (a bit more formally) as a <em class="terminology">system of linear equations</em> is a collection of \(m\) equations in \(n\) unknowns of the form
+<p id="p-60">A <em class="terminology">linear system</em>, also known as a <em class="terminology">system of linear equations</em> is a collection of \(m\) equations in \(n\) unknowns of the form
 \begin{equation*}
 \begin{alignedat}{5}
 a_{11} x_1 \amp {}+{} \amp  a_{12} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \amp {}+{} a_{1n} x_n \amp {}={} \amp b_1 \\
@@ -337,7 +329,8 @@ a_{m1} x_1 \amp {}+{} \amp  a_{m2} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \a
 <p id="p-67">For a relationship to earn the title “equivalence relation” it must have a short list of properties.  These properties are certainly true of the ordinary equals sign:
 </p>
 <p id="p-68">
-<dl class="description-list">
+</p>
+<dl id="dl-1" class="description-list">
 <dt id="li-1">reflexivity</dt>
 <dd><p id="p-69">A relation is reflexive iff all elements are related to themselves.
 </p></dd>
@@ -348,6 +341,7 @@ a_{m1} x_1 \amp {}+{} \amp  a_{m2} x_2 \amp {}+{} \amp  \amp {}\cdots {} \amp \a
 <dd><p id="p-71">Perhaps you've heard the phrase “Two things that are equal to a third must be equal to each other.” That's the essence of transitivity.
 </p></dd>
 </dl>
+<p>
 </p>
 <p id="p-72">
 There really is much more that we should say about equivalence relations in general and the consequences that ensue when we can show that some relation is an equivalence relation.  We refer the interested reader to chapter 6 in <a class="external-url" href="https://osj1961.github.io/giam/" target="_blank">GIAM</a>.  In the remainder of this book we are going to <!--Style me with CSS--><em>see</em> how very useful the notion of equivalence of linear systems can be.  Hopefully this will give you some indication of how useful equivalence relations in general can be!  
@@ -361,15 +355,15 @@ There really is much more that we should say about equivalence relations in gene
 </p>
 <p id="p-77"><!--Style me with CSS--><em>Reordering</em> means what it sounds like.  The solution set is determined by checking whether a given solution vector satisfies <!--Style me with CSS--><em>all</em> of the equations.  It is pretty clear that the order that the equations are listed in is of little importance.  In many treatments of linear algebra an operation called “swapping” is used instead — swapping two equations is a special (particularly simple) instance of reordering and any more general reordering can be accomplished by a succession of swaps.
 </p>
-<article class="exercise-like" id="exercise-3"><h5 class="heading">
-<span class="type">Exercise</span> <span class="codenumber">1.2.9</span> <span class="title">permutations and swaps</span>
-</h5>
-<p id="p-78">We have placed the letters A through F in sequence below — however they are not in the usual (alphabetic) order.  Determine a sequence of swaps that will reorder them so that they <!--Style me with CSS--><em>are</em> in alphabetic order.
+<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-exercise-3" id="exercise-3"><article class="exercise-like"><h5 class="heading">
+<span class="type">Exercise</span><span class="codenumber">1.2.9</span><span class="title">permutations and swaps</span>
+</h5></article></a></div>
+<div id="hk-exercise-3" style="display: none;" class="tex2jax_ignore"><article class="exercise-like"><p id="p-78">We have placed the letters A through F in sequence below — however they are not in the usual (alphabetic) order.  Determine a sequence of swaps that will reorder them so that they <!--Style me with CSS--><em>are</em> in alphabetic order.
 
 \begin{equation*} DCABFE \end{equation*}
-</p></article><div class="hidden-knowl-wrapper">
+</p>
 <span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-hint-3" id="hint-3"><span class="heading"><span class="type">Hint</span></span></a></span><span id="hk-hint-3" style="display: none;" class="tex2jax_ignore"><span class="solution"><p id="p-79">There are many ways to proceed, but putting A then B then C <i class="foreign">et cetera</i> where they belong using swaps is one possibility.  What swap puts A in the first position?
-</p></span></span><span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-2" id="solution-2"><span class="">Solution</span></a></span><span id="hk-solution-2" style="display: none;" class="tex2jax_ignore"><div class="remark-like"><p id="p-80">
+</p></span></span> <span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-2" id="solution-2"><span class="heading"><span class="type">Solution</span></span></a></span><span id="hk-solution-2" style="display: none;" class="tex2jax_ignore"><span class="solution"><p id="p-80">
 \begin{gather*}
  DCABFE \quad \mbox{(given) \phantom{swap D}} \\
  ACDBFE \quad \mbox{swap D and A}\\
@@ -377,8 +371,7 @@ There really is much more that we should say about equivalence relations in gene
  ABCDFE \quad \mbox{swap D and C}\\
  ABCDEF \quad \mbox{swap F and E}
 \end{gather*}
-</p></div></span>
-</div>
+</p></span></span> </article></div>
 <p id="p-81">Scaling is another operation where it is fairly obvious that there will be no effect on solution sets.  Scaling involves multiplying both sides of an equation by some non-zero constant.  Very often that non-zero constant will be the reciprocal of the coefficient of one of the variables; scaling by such a constant is useful in solving for that variable.  Perhaps it is clear that multiplying both sides of an equation by the same thing will have no impact on what values of the variables satisfy the equation…  But why does the constant need to be non-zero?  Multiplying both sides of <!--Style me with CSS--><em>any</em> equation by \(0\) will produce a new equation that looks like \(0 = 0\) which is certainly true!  In fact, of course, that's what the problem is; if the equation was previously false for some vector of variable values (thus it served to exclude that vector from the solution set) it will now be true.  So vectors of variable values that previously were not in the solution set will now be in it — that's the sort of thing we are trying to avoid!
 </p>
 <p id="p-82">Combining (a.k.a replacement) is the most difficult of the three operations and as you might guess, it is also the most useful.  Combining consists of adding a multiple of some other equation to a given one.  Another way to think of this is that we replace some equation 
@@ -388,11 +381,10 @@ by <!--Style me with CSS--><em>itself</em> plus a multiple of some other equatio
 </p>
 <p id="p-84">We'll close this section by giving an example — using the three operations to find the solution of a small linear system.
 </p>
-<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-example-3" id="example-3"><article class="example-like"><h5 class="heading">
+<article class="example-like" id="example-3"><h5 class="heading">
 <span class="type">Example</span><span class="codenumber">1.2.10</span><span class="title">A small linear system</span>
-</h5></article></a></div>
-<div id="hk-example-3" style="display: none;" class="tex2jax_ignore">
-<article class="example-like"><p id="p-85">
+</h5>
+<p id="p-85">
 There is a unique solution to the following system of 3 equations in 3 unknowns.  What is it?
 \begin{equation*}
 \begin{alignedat}{4}
@@ -402,8 +394,7 @@ There is a unique solution to the following system of 3 equations in 3 unknowns.
 \end{alignedat}
 \end{equation*}
 </p></article><div class="posterior"><div>
-<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-3" id="solution-3"><span class="">Solution</span></a></span><span id="hk-solution-3" style="display: none;" class="tex2jax_ignore"><div class="remark-like">
-<p id="p-86">The first thing we'll do is a combining operation.  We'll subtract twice the first equation from the second.  It will be convenient to develop a shorthand for expressing these operations.  This one could be written as \(E_2 = E_2 - 2E_1\).
+<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-3" id="solution-3"><span class="heading"><span class="type">Solution</span></span></a></span><span id="hk-solution-3" style="display: none;" class="tex2jax_ignore"><span class="solution"><p id="p-86">The first thing we'll do is a combining operation.  We'll subtract twice the first equation from the second.  It will be convenient to develop a shorthand for expressing these operations.  This one could be written as \(E_2 = E_2 - 2E_1\).
 \begin{equation*}
 \begin{alignedat}{4}
    x_1  \amp {}+{} \amp   x_2 \amp {}+{} \amp   x_3  \amp {}={} \amp 21 \\
@@ -469,10 +460,8 @@ This one would be expressed as \(E_3 = E_3 - E_1\).
 \end{equation*}
 </p>
 <p id="p-94">Okay.  That's easy, \(x_1=5\).
-</p>
-</div></span>
-</div></div>
-</div></section></div></main>
+</p></span></span>
+</div></div></section></div></main>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-12-30T14:51:44-05:00    *-->
+<!--*    on 2017-05-24T19:54:05-04:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -45,7 +45,7 @@ MathJax.Hub.Config({
 <link href="extra.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(\require{graphicx}\require{cancel}\newcommand{\divides}{\!\mid\!}
+<a class="assistive" href="#content">Skip to main content</a><div style="display:none;">\(\require{graphicx}\require{cancel}\newcommand{\divides}{\!\mid\!}
 \newcommand{\tdiv}{\; \mbox{div} \;}
 \newcommand{\restrict}[2]{#1 \,\rule[-4pt]{.125pt}{14pt}_{\,#2}}
 \newcommand{\lcm}[2]{\mbox{lcm} (#1, #2)}
@@ -74,21 +74,19 @@ MathJax.Hub.Config({
 \newcommand{\gt}{ &gt; }
 \newcommand{\amp}{ &amp; }
 \)</div>
-<header id="masthead"><div class="banner"><div class="container">
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href="../images/gilamonster.jpg" target="_blank"><img src="../images/gilamonster.jpg"></a><div class="title-container">
-<h1 class="heading"><span class="title">A Gentle Introduction to Linear Algebra</span></h1>
+<h1 class="heading"><a href="GILA.html"><span class="title">A Gentle Introduction to Linear Algebra</span></a></h1>
 <p class="byline">Joe Fields</p>
 </div>
 </div></div>
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="section-sys_eqs.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-transformations.html">Next</a>
-</div>
+<button class="sidebar-left-toggle-button button active" onclick="window.location.href='GILA.html'">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a class="previous-button toolbar-item button" href="section-sys_eqs.html" title="Previous" alt="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-1.html" title="Up" alt="Up">Up</a><a class="next-button button toolbar-item" href="section-transformations.html" title="Next" alt="Next">Next</a></span></div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-sys_eqs.html">Previous</a><a class="up-button button toolbar-item" href="chapter-1.html">Up</a><a class="next-button button toolbar-item" href="section-transformations.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-sys_eqs.html" title="Previous" alt="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-1.html" title="Up" alt="Up">Up</a><a class="next-button button toolbar-item" href="section-transformations.html" title="Next" alt="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -216,18 +214,16 @@ then their <em class="terminology">vector sum</em> is defined by
 \end{gather*}
 
 then we say \(\vec{v}\) and \(\vec{w}\) are <em class="terminology">equal</em> and write \(\vec{v} = \vec{w}\) if and only if for every \(i\), \(1\leq i \leq m\), \(v_i = w_i\).
-</p></article><div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-example-4" id="example-4"><article class="example-like"><h5 class="heading">
+</p></article><article class="example-like" id="example-4"><h5 class="heading">
 <span class="type">Example</span><span class="codenumber">1.3.6</span><span class="title">a small vector problem</span>
-</h5></article></a></div>
-<div id="hk-example-4" style="display: none;" class="tex2jax_ignore">
-<article class="example-like"><p id="p-107">Consider the following set of vectors: \(\langle 1, 1, 0 \rangle\),
+</h5>
+<p id="p-107">Consider the following set of vectors: \(\langle 1, 1, 0 \rangle\),
 \(\langle 1, 1, 1 \rangle\) and \(\langle 0, 0, 1 \rangle\). Is it possible to find scalars \(x_1\), \(x_2\) and \(x_3\) so that
 \begin{gather*}
 x_1 \langle 1, 1, 0 \rangle + x_2 \langle 1, 1, 1 \rangle + x_3 \langle 0, 0, 1 \rangle = \langle 2, 3, 4 \rangle 
 \end{gather*}
 </p></article><div class="posterior"><div>
-<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-4" id="solution-4"><span class="">Solution</span></a></span><span id="hk-solution-4" style="display: none;" class="tex2jax_ignore"><div class="remark-like">
-<p id="p-108">Let's modify the given problem by using the definitions of (first) scalar multiplication (and then) vector addition:
+<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-4" id="solution-4"><span class="heading"><span class="type">Solution</span></span></a></span><span id="hk-solution-4" style="display: none;" class="tex2jax_ignore"><span class="solution"><p id="p-108">Let's modify the given problem by using the definitions of (first) scalar multiplication (and then) vector addition:
 
  \begin{gather*}
 \langle x_1, x_1, 0 \rangle + \langle x_2, x_2, x_2 \rangle + \langle 0, 0, x_3 \rangle = \langle 2, 3, 4 \rangle .\\
@@ -248,24 +244,20 @@ Now (surprise!) that final form — after we use the definition of vector equali
 \end{equation*}
 </p>
 <p id="p-110">This system is different from the other systems we've seen so far.  It doesn't have a solution.  Its statement includes an impossibility; if \(x_1\) and \(x_2\) have a sum of \(2\) (from the first equation) how can they also have a sum of \(3\) (which is what the second equation asserts).  So there simply <!--Style me with CSS--><em>aren't</em> three numbers which can be used as the coefficients!
-</p>
-</div></span>
+</p></span></span>
 </div></div>
-</div>
 <p id="p-111">Let's make a tiny change to the previous problem.  Sometimes small changes have large effects!  We'll change the second component in the vector on the right-hand side to a \(2\).
 </p>
-<div class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-example-5" id="example-5"><article class="example-like"><h5 class="heading">
+<article class="example-like" id="example-5"><h5 class="heading">
 <span class="type">Example</span><span class="codenumber">1.3.7</span><span class="title">a slightly tweaked vector problem</span>
-</h5></article></a></div>
-<div id="hk-example-5" style="display: none;" class="tex2jax_ignore">
-<article class="example-like"><p id="p-112">Consider the following set of vectors: \(\langle 1, 1, 0 \rangle\),
+</h5>
+<p id="p-112">Consider the following set of vectors: \(\langle 1, 1, 0 \rangle\),
 \(\langle 1, 1, 1 \rangle\) and \(\langle 0, 0, 1 \rangle\). Is it possible to find scalars \(x_1\), \(x_2\) and \(x_3\) so that
 \begin{gather*}
 x_1 \langle 1, 1, 0 \rangle + x_2 \langle 1, 1, 1 \rangle + x_3 \langle 0, 0, 1 \rangle = \langle 2, 2, 4 \rangle 
 \end{gather*}
 </p></article><div class="posterior"><div>
-<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-5" id="solution-5"><span class="">Solution</span></a></span><span id="hk-solution-5" style="display: none;" class="tex2jax_ignore"><div class="remark-like">
-<p id="p-113">Notice that since the left-hand side vectors are all the same as before we can reuse our previous work.  The final form of the vector equation is 
+<span class="hidden-knowl-wrapper"><a knowl="" class="id-ref" refid="hk-solution-5" id="solution-5"><span class="heading"><span class="type">Solution</span></span></a></span><span id="hk-solution-5" style="display: none;" class="tex2jax_ignore"><span class="solution"><p id="p-113">Notice that since the left-hand side vectors are all the same as before we can reuse our previous work.  The final form of the vector equation is 
 \begin{gather*}
 \langle x_1 + x_2, x_1 + x_2, x_2 + x_3 \rangle = \langle 2, 2, 4 \rangle .
 \end{gather*}
@@ -297,10 +289,8 @@ and the first two equations are identical — they no longer cause a contradicti
 \end{gather*}
 </p>
 <p id="p-118">Notice how the parameter \(t\) allows the values of \(x_1\) and \(x_2\) to range over all possibilities that add up to \(2\)?  We essentially let \(x_2\) have any value whatsoever (\(t\) can be any real number) and then we choose \(x_1\) in such a way that the sum is \(2\).  In a situation like this, \(x_2\) is known as a <!--Style me with CSS--><em>free variable</em>.
-</p>
-</div></span>
-</div></div>
-</div></section></div></main>
+</p></span></span>
+</div></div></section></div></main>
 </div>
 </body>
 </html>
