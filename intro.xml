@@ -1112,7 +1112,7 @@ then the inner product of these two vectors (<m>\vec{x}^T\vec{y}</m>) is the fol
 <definition><title>matrix product</title>
 <statement><p>Suppose we are given two matrices, <m>A</m> and <m>B</m> that are conformable for matrix multiplication, further, suppose that <m>A</m> is <m>m \times n</m> and <m>B</m> is <m>n \times p</m>.  The matrix product <m>AB</m> will be an <m>m \times p</m> matrix.  The entry in the <m>i</m>-th row and <m>j</m>-th column of <m>AB</m> is
 
-<me> AB_{ij} \; = \; \sum{k=1}^n A_{ik}\cdot B_{kj}</me>
+<me> AB_{ij} \; = \; \sum_{k=1}^n A_{ik}\cdot B_{kj}</me>
 </p>
 </statement>
 </definition>
